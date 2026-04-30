@@ -4,10 +4,10 @@
   <!-- ==================== META & SEO ==================== -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
-  <meta name="description" content="مرصد شهب المنامة، البحرين - دليلك الشامل والمشاهدة الاحترافية لزخات الشهب في 2026 مع مواعيد دقيقة، خرائط تفاعلية، وتنبيهات فورية" />
-  <meta name="keywords" content="شهب، البحرين، المنامة، 2026، فلك، مشاهدة، ليالي، نجوم، زخات شهب، بركسييدز، جيمينيدز" />
+  <meta name="description" content="مرصد شهب المنامة، البحرين - دليلك الشامل والمشاهدة الاحترافية لزخات الشهب في 2026 مع مواعيد دقيقة، خرائط تفاعلية، تنبيهات فورية، وحاسبة مشاهدة ذكية" />
+  <meta name="keywords" content="شهب، البحرين، المنامة، 2026، فلك، مشاهدة، ليالي، نجوم، زخات شهب، بركسييدز، جيمينيدز، دليل المشاهدة" />
   <meta name="author" content="مجتمع الفلكيين في البحرين" />
-  <meta name="robots" content="index, follow" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
   <meta name="theme-color" content="#0a0e17" media="(prefers-color-scheme: dark)" />
   <meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)" />
   
@@ -18,6 +18,7 @@
   <meta property="og:description" content="دليلك الشامل لمشاهدة أروع زخات الشهب في سماء البحرين خلال عام 2026" />
   <meta property="og:image" content="https://manama-meteors.github.io/2026/og-image.jpg" />
   <meta property="og:locale" content="ar_BH" />
+  <meta property="og:site_name" content="مرصد شهب المنامة" />
   
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
@@ -27,18 +28,16 @@
   <meta name="twitter:image" content="https://manama-meteors.github.io/2026/og-image.jpg" />
   
   <!-- Favicon & PWA -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌠</text></svg>" />
-  <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌠</text></svg>" />
-  <link rel="manifest" href="data:application/json,{%22name%22:%22مرصد%20شهب%20المنامة%202026%22,%22short_name%22:%22شهب%20المنامة%22,%22start_url%22:%22.%22,%22display%22:%22standalone%22,%22background_color%22:%22%230a0e17%22,%22theme_color%22:%22%237c3aed%22,%22icons%22:[{%22src%22:%22data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Ctext%20y='.9em'%20font-size='90'%3E🌠%3C/text%3E%3C/svg%3E%22,%22sizes%22:%22192x192%22,%22type%22:%22image/svg+xml%22}]}" />
+  <link rel="icon" type="image/svg+xml" href="image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌠</text></svg>" />
+  <link rel="apple-touch-icon" href="image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌠</text></svg>" />
+  <link rel="manifest" href="application/json,{%22name%22:%22مرصد%20شهب%20المنامة%202026%22,%22short_name%22:%22شهب%20المنامة%22,%22start_url%22:%22.%22,%22display%22:%22standalone%22,%22background_color%22:%22%230a0e17%22,%22theme_color%22:%22%237c3aed%22}" />
   
-  <!-- Preconnect -->
+  <!-- Preconnect & Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet" />
   
-  <title>🌠 مرصد شهب المنامة 2026 | البحرين | الإصدار v2.6.0</title>
+  <title>🌠 مرصد شهب المنامة 2026 | البحرين | الإصدار v4.0.0</title>
   
   <!-- ==================== CSS STYLES ==================== -->
   <style>
@@ -164,13 +163,11 @@
         --bg-elevated: #ffffff;
         --bg-overlay: rgba(248, 250, 252, 0.9);
         --bg-backdrop: rgba(248, 250, 252, 0.8);
-        
         --text-primary: #0f172a;
         --text-secondary: #334155;
         --text-muted: #64748b;
         --text-disabled: #94a3b8;
         --text-inverse: #f8fafc;
-        
         --border: #cbd5e1;
         --border-light: #94a3b8;
       }
@@ -178,43 +175,20 @@
     
     /* Theme Override via data attribute */
     [data-theme="light"] {
-      --bg-primary: #f8fafc;
-      --bg-secondary: #e2e8f0;
-      --bg-tertiary: #cbd5e1;
-      --bg-card: #ffffff;
-      --bg-card-hover: #f1f5f9;
-      --bg-elevated: #ffffff;
-      --bg-overlay: rgba(248, 250, 252, 0.9);
-      --bg-backdrop: rgba(248, 250, 252, 0.8);
-      
-      --text-primary: #0f172a;
-      --text-secondary: #334155;
-      --text-muted: #64748b;
-      --text-disabled: #94a3b8;
-      --text-inverse: #f8fafc;
-      
-      --border: #cbd5e1;
-      --border-light: #94a3b8;
+      --bg-primary: #f8fafc; --bg-secondary: #e2e8f0; --bg-tertiary: #cbd5e1;
+      --bg-card: #ffffff; --bg-card-hover: #f1f5f9; --bg-elevated: #ffffff;
+      --bg-overlay: rgba(248, 250, 252, 0.9); --bg-backdrop: rgba(248, 250, 252, 0.8);
+      --text-primary: #0f172a; --text-secondary: #334155; --text-muted: #64748b;
+      --text-disabled: #94a3b8; --text-inverse: #f8fafc;
+      --border: #cbd5e1; --border-light: #94a3b8;
     }
-    
     [data-theme="dark"] {
-      --bg-primary: #0a0e17;
-      --bg-secondary: #111827;
-      --bg-tertiary: #1e293b;
-      --bg-card: #1a2332;
-      --bg-card-hover: #233045;
-      --bg-elevated: #0f172a;
-      --bg-overlay: rgba(10, 14, 23, 0.85);
-      --bg-backdrop: rgba(10, 14, 23, 0.7);
-      
-      --text-primary: #f8fafc;
-      --text-secondary: #cbd5e1;
-      --text-muted: #94a3b8;
-      --text-disabled: #64748b;
-      --text-inverse: #0f172a;
-      
-      --border: #334155;
-      --border-light: #475569;
+      --bg-primary: #0a0e17; --bg-secondary: #111827; --bg-tertiary: #1e293b;
+      --bg-card: #1a2332; --bg-card-hover: #233045; --bg-elevated: #0f172a;
+      --bg-overlay: rgba(10, 14, 23, 0.85); --bg-backdrop: rgba(10, 14, 23, 0.7);
+      --text-primary: #f8fafc; --text-secondary: #cbd5e1; --text-muted: #94a3b8;
+      --text-disabled: #64748b; --text-inverse: #0f172a;
+      --border: #334155; --border-light: #475569;
     }
     
     /* ============== 3. UTILITY CLASSES ============== */
@@ -242,8 +216,6 @@
     .d-flex { display: flex; }
     .d-grid { display: grid; }
     .d-none { display: none !important; }
-    .d-sm-none { display: none; }
-    @media (min-width: 576px) { .d-sm-none { display: none !important; } }
     
     .flex-column { flex-direction: column; }
     .flex-row { flex-direction: row; }
@@ -305,1771 +277,377 @@
     
     /* ============== 5. BUTTONS ============== */
     .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: var(--spacing-xs);
-      padding: var(--spacing-sm) var(--spacing-lg);
-      background: var(--accent);
-      color: white;
-      font-weight: var(--font-weight-semibold);
-      font-size: var(--font-size-base);
-      border: 2px solid transparent;
-      border-radius: var(--radius-full);
-      cursor: pointer;
-      transition: var(--transition);
-      text-decoration: none;
-      box-shadow: var(--shadow);
-      min-height: 44px;
-      min-width: 44px;
-      white-space: nowrap;
+      display: inline-flex; align-items: center; justify-content: center;
+      gap: var(--spacing-xs); padding: var(--spacing-sm) var(--spacing-lg);
+      background: var(--accent); color: white;
+      font-weight: var(--font-weight-semibold); font-size: var(--font-size-base);
+      border: 2px solid transparent; border-radius: var(--radius-full);
+      cursor: pointer; transition: var(--transition);
+      text-decoration: none; box-shadow: var(--shadow);
+      min-height: 44px; min-width: 44px; white-space: nowrap;
     }
-    
-    .btn:hover {
-      background: var(--accent-hover);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-lg), var(--shadow-glow);
-    }
-    
+    .btn:hover { background: var(--accent-hover); transform: translateY(-2px); box-shadow: var(--shadow-lg), var(--shadow-glow); }
     .btn:active { transform: translateY(0); }
+    .btn:focus-visible { outline: 3px solid var(--accent-light); outline-offset: 3px; }
+    .btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; box-shadow: var(--shadow); }
     
-    .btn:focus-visible {
-      outline: 3px solid var(--accent-light);
-      outline-offset: 3px;
-    }
+    .btn-outline { background: transparent; border-color: var(--accent); color: var(--accent); }
+    .btn-outline:hover { background: var(--accent); color: white; }
+    .btn-outline-secondary { border-color: var(--border); color: var(--text-secondary); }
+    .btn-outline-secondary:hover { background: var(--bg-card); color: var(--text-primary); border-color: var(--accent); }
     
-    .btn:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-      transform: none;
-      box-shadow: var(--shadow);
-    }
-    
-    .btn-outline {
-      background: transparent;
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-    
-    .btn-outline:hover {
-      background: var(--accent);
-      color: white;
-    }
-    
-    .btn-outline-secondary {
-      border-color: var(--border);
-      color: var(--text-secondary);
-    }
-    
-    .btn-outline-secondary:hover {
-      background: var(--bg-card);
-      color: var(--text-primary);
-      border-color: var(--accent);
-    }
-    
-    .btn-sm {
-      padding: var(--spacing-xxs) var(--spacing-md);
-      font-size: var(--font-size-sm);
-      min-height: 36px;
-    }
-    
-    .btn-lg {
-      padding: var(--spacing-md) var(--spacing-xl);
-      font-size: var(--font-size-lg);
-      min-height: 52px;
-    }
-    
-    .btn-icon {
-      padding: var(--spacing-sm);
-      border-radius: var(--radius);
-    }
+    .btn-sm { padding: var(--spacing-xxs) var(--spacing-md); font-size: var(--font-size-sm); min-height: 36px; }
+    .btn-lg { padding: var(--spacing-md) var(--spacing-xl); font-size: var(--font-size-lg); min-height: 52px; }
     
     .btn-success { background: var(--success); }
     .btn-success:hover { background: #059669; box-shadow: var(--shadow-lg), var(--success-glow); }
-    
     .btn-warning { background: var(--warning); color: #000; }
     .btn-warning:hover { background: #d97706; box-shadow: var(--shadow-lg), var(--warning-glow); }
-    
     .btn-danger { background: var(--danger); }
     .btn-danger:hover { background: #dc2626; box-shadow: var(--shadow-lg), var(--danger-glow); }
-    
-    .btn-info { background: var(--info); }
-    .btn-info:hover { background: #2563eb; box-shadow: var(--shadow-lg), var(--info-glow); }
-    
-    .btn-ghost {
-      background: transparent;
-      color: var(--text-secondary);
-      border: none;
-      box-shadow: none;
-    }
-    .btn-ghost:hover {
-      background: var(--bg-card);
-      color: var(--text-primary);
-      transform: none;
-    }
+    .btn-ghost { background: transparent; color: var(--text-secondary); border: none; box-shadow: none; }
+    .btn-ghost:hover { background: var(--bg-card); color: var(--text-primary); transform: none; }
     
     /* ============== 6. BADGES & TAGS ============== */
     .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: var(--spacing-xxs);
+      display: inline-flex; align-items: center; gap: var(--spacing-xxs);
       padding: var(--spacing-xxs) var(--spacing-sm);
-      background: var(--accent);
-      color: white;
-      font-size: var(--font-size-xs);
-      font-weight: var(--font-weight-semibold);
-      border-radius: var(--radius-full);
-      white-space: nowrap;
-      line-height: 1;
+      background: var(--accent); color: white;
+      font-size: var(--font-size-xs); font-weight: var(--font-weight-semibold);
+      border-radius: var(--radius-full); white-space: nowrap; line-height: 1;
     }
-    
     .badge-success { background: var(--success); }
     .badge-warning { background: var(--warning); color: #000; }
     .badge-danger { background: var(--danger); }
     .badge-info { background: var(--info); }
-    .badge-outline {
-      background: transparent;
-      border: 1px solid currentColor;
-      color: var(--accent);
-    }
-    
-    .badge-sm {
-      padding: 2px 8px;
-      font-size: 0.7rem;
-    }
+    .badge-outline { background: transparent; border: 1px solid currentColor; color: var(--accent); }
     
     /* ============== 7. CARDS ============== */
     .card {
-      background: var(--bg-card);
-      border-radius: var(--radius-card);
-      border: 1px solid var(--border);
-      padding: var(--spacing-lg);
-      transition: var(--transition);
-      margin-bottom: var(--spacing-md);
+      background: var(--bg-card); border-radius: var(--radius-card);
+      border: 1px solid var(--border); padding: var(--spacing-lg);
+      transition: var(--transition); margin-bottom: var(--spacing-md);
       box-shadow: var(--shadow);
     }
-    
-    .card:hover {
-      background: var(--bg-card-hover);
-      transform: translateY(-4px);
-      border-color: var(--accent);
-      box-shadow: var(--shadow-lg), var(--shadow-glow);
-    }
-    
+    .card:hover { background: var(--bg-card-hover); transform: translateY(-4px); border-color: var(--accent); box-shadow: var(--shadow-lg), var(--shadow-glow); }
     .card-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: var(--spacing-md);
-      padding-bottom: var(--spacing-md);
-      border-bottom: 1px solid var(--border);
-      flex-wrap: wrap;
-      gap: var(--spacing-sm);
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: var(--spacing-md); padding-bottom: var(--spacing-md);
+      border-bottom: 1px solid var(--border); flex-wrap: wrap; gap: var(--spacing-sm);
     }
-    
-    .card-title {
-      font-size: var(--font-size-xl);
-      font-weight: var(--font-weight-bold);
-      display: flex;
-      align-items: center;
-      gap: var(--spacing-xs);
-      margin: 0;
-    }
-    
-    .card-subtitle {
-      font-size: var(--font-size-sm);
-      color: var(--text-muted);
-      margin: 0;
-    }
-    
+    .card-title { font-size: var(--font-size-xl); font-weight: var(--font-weight-bold); display: flex; align-items: center; gap: var(--spacing-xs); margin: 0; }
+    .card-subtitle { font-size: var(--font-size-sm); color: var(--text-muted); margin: 0; }
     .card-body { color: var(--text-secondary); }
-    .card-footer {
-      margin-top: var(--spacing-lg);
-      padding-top: var(--spacing-md);
-      border-top: 1px solid var(--border);
-      display: flex;
-      gap: var(--spacing-sm);
-      flex-wrap: wrap;
-    }
-    
-    .card-elevated {
-      background: var(--bg-elevated);
-      border: none;
-      box-shadow: var(--shadow-lg);
-    }
-    
-    .card-glow {
-      border-color: var(--accent);
-      box-shadow: var(--shadow-glow);
-    }
+    .card-footer { margin-top: var(--spacing-lg); padding-top: var(--spacing-md); border-top: 1px solid var(--border); display: flex; gap: var(--spacing-sm); flex-wrap: wrap; }
+    .card-elevated { background: var(--bg-elevated); border: none; box-shadow: var(--shadow-lg); }
+    .card-glow { border-color: var(--accent); box-shadow: var(--shadow-glow); }
     
     /* ============== 8. FORMS ============== */
     .form-group { margin-bottom: var(--spacing-lg); }
-    .form-label {
-      display: block;
-      margin-bottom: var(--spacing-xs);
-      font-weight: var(--font-weight-medium);
-      color: var(--text-primary);
-      font-size: var(--font-size-sm);
-    }
-    
+    .form-label { display: block; margin-bottom: var(--spacing-xs); font-weight: var(--font-weight-medium); color: var(--text-primary); font-size: var(--font-size-sm); }
     .form-control {
-      width: 100%;
-      padding: var(--spacing-sm) var(--spacing-md);
-      background: var(--bg-secondary);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      color: var(--text-primary);
-      font-size: var(--font-size-base);
-      transition: var(--transition);
+      width: 100%; padding: var(--spacing-sm) var(--spacing-md);
+      background: var(--bg-secondary); border: 1px solid var(--border);
+      border-radius: var(--radius); color: var(--text-primary);
+      font-size: var(--font-size-base); transition: var(--transition);
       min-height: 44px;
     }
-    
-    .form-control:focus {
-      outline: none;
-      border-color: var(--accent);
-      box-shadow: 0 0 0 3px var(--accent-glow);
-      background: var(--bg-card);
-    }
-    
+    .form-control:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-glow); background: var(--bg-card); }
     .form-control::placeholder { color: var(--text-muted); }
-    
-    .form-control:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-      background: var(--bg-tertiary);
-    }
-    
-    .form-text {
-      display: block;
-      margin-top: var(--spacing-xxs);
-      font-size: var(--font-size-sm);
-      color: var(--text-muted);
-    }
-    
-    .form-check {
-      display: flex;
-      align-items: center;
-      gap: var(--spacing-xs);
-      margin-bottom: var(--spacing-sm);
-    }
-    
-    .form-check-input {
-      width: 18px;
-      height: 18px;
-      border: 2px solid var(--border);
-      border-radius: 4px;
-      background: var(--bg-secondary);
-      cursor: pointer;
-      transition: var(--transition);
-      accent-color: var(--accent);
-    }
-    
-    .form-check-input:checked {
-      background: var(--accent);
-      border-color: var(--accent);
-    }
-    
-    .form-check-label {
-      font-size: var(--font-size-sm);
-      color: var(--text-secondary);
-      cursor: pointer;
-    }
-    
-    .form-select {
-      appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: left var(--spacing-md) center;
-      background-size: 16px;
-      padding-right: var(--spacing-xl);
-      padding-left: var(--spacing-xl);
-    }
-    
-    [dir="rtl"] .form-select {
-      background-position: right var(--spacing-md) center;
-      padding-left: var(--spacing-md);
-      padding-right: var(--spacing-xl);
-    }
-    
-    .input-group {
-      display: flex;
-      gap: 0;
-    }
-    
-    .input-group .form-control {
-      border-radius: var(--radius) 0 0 var(--radius);
-    }
-    
-    [dir="rtl"] .input-group .form-control {
-      border-radius: 0 var(--radius) var(--radius) 0;
-    }
-    
-    .input-group .btn {
-      border-radius: 0 var(--radius) var(--radius) 0;
-    }
-    
-    [dir="rtl"] .input-group .btn {
-      border-radius: var(--radius) 0 0 var(--radius);
-    }
-    
-    .form-error {
-      color: var(--danger);
-      font-size: var(--font-size-sm);
-      margin-top: var(--spacing-xxs);
-      display: none;
-    }
-    
-    .form-control.is-invalid {
-      border-color: var(--danger);
-    }
-    
-    .form-control.is-invalid + .form-error {
-      display: block;
-    }
+    .form-control:disabled { opacity: 0.6; cursor: not-allowed; background: var(--bg-tertiary); }
+    .form-text { display: block; margin-top: var(--spacing-xxs); font-size: var(--font-size-sm); color: var(--text-muted); }
+    .form-check { display: flex; align-items: center; gap: var(--spacing-xs); margin-bottom: var(--spacing-sm); }
+    .form-check-input { width: 18px; height: 18px; border: 2px solid var(--border); border-radius: 4px; background: var(--bg-secondary); cursor: pointer; transition: var(--transition); accent-color: var(--accent); }
+    .form-check-input:checked { background: var(--accent); border-color: var(--accent); }
+    .form-check-label { font-size: var(--font-size-sm); color: var(--text-secondary); cursor: pointer; }
     
     /* ============== 9. NAVIGATION ============== */
     header {
-      position: sticky;
-      top: 0;
-      z-index: var(--z-index-sticky);
-      background: var(--bg-overlay);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border);
-      padding: var(--spacing-sm) 0;
-      transition: var(--transition);
+      position: sticky; top: 0; z-index: var(--z-index-sticky);
+      background: var(--bg-overlay); backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border);
+      padding: var(--spacing-sm) 0; transition: var(--transition);
     }
-    
-    header.scrolled {
-      padding: var(--spacing-xxs) 0;
-      background: var(--bg-backdrop);
-      box-shadow: var(--shadow);
-    }
-    
-    .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: var(--spacing-md);
-    }
-    
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: var(--spacing-xs);
-      font-size: var(--font-size-xl);
-      font-weight: var(--font-weight-black);
-      color: var(--text-primary);
-      text-decoration: none;
-      white-space: nowrap;
-    }
-    
-    .logo-icon {
-      font-size: 1.8rem;
-      animation: pulse 2s infinite;
-      display: inline-block;
-    }
-    
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.85; transform: scale(1.08); }
-    }
-    
-    .logo-badge {
-      font-size: var(--font-size-xs);
-      background: var(--accent);
-      color: white;
-      padding: 2px 8px;
-      border-radius: var(--radius-full);
-      margin-right: var(--spacing-xxs);
-    }
-    
+    header.scrolled { padding: var(--spacing-xxs) 0; background: var(--bg-backdrop); box-shadow: var(--shadow); }
+    .header-inner { display: flex; align-items: center; justify-content: space-between; gap: var(--spacing-md); }
+    .logo { display: flex; align-items: center; gap: var(--spacing-xs); font-size: var(--font-size-xl); font-weight: var(--font-weight-black); color: var(--text-primary); text-decoration: none; white-space: nowrap; }
+    .logo-icon { font-size: 1.8rem; animation: pulse 2s infinite; display: inline-block; }
+    @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.85; transform: scale(1.08); } }
+    .logo-badge { font-size: var(--font-size-xs); background: var(--accent); color: white; padding: 2px 8px; border-radius: var(--radius-full); margin-right: var(--spacing-xxs); }
     [dir="rtl"] .logo-badge { margin-right: 0; margin-left: var(--spacing-xxs); }
     
-    .nav-toggle {
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
-      padding: var(--spacing-xs);
-      background: none;
-      border: none;
-      cursor: pointer;
-      z-index: var(--z-index-sticky);
-      border-radius: var(--radius);
-      transition: var(--transition);
-    }
-    
+    .nav-toggle { display: flex; flex-direction: column; gap: 5px; padding: var(--spacing-xs); background: none; border: none; cursor: pointer; z-index: var(--z-index-sticky); border-radius: var(--radius); transition: var(--transition); }
     .nav-toggle:hover { background: var(--bg-card); }
     .nav-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-    
-    .nav-toggle span {
-      width: 24px;
-      height: 3px;
-      background: var(--text-primary);
-      border-radius: 3px;
-      transition: var(--transition);
-    }
-    
+    .nav-toggle span { width: 24px; height: 3px; background: var(--text-primary); border-radius: 3px; transition: var(--transition); }
     .nav-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
     .nav-toggle.active span:nth-child(2) { opacity: 0; }
     .nav-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(6px, -6px); }
     
-    nav {
-      position: fixed;
-      top: var(--header-height-mobile);
-      left: 0;
-      right: 0;
-      background: var(--bg-secondary);
-      padding: var(--spacing-lg);
-      border-bottom: 1px solid var(--border);
-      transform: translateY(-150%);
-      transition: transform 0.3s ease;
-      z-index: var(--z-index-dropdown);
-      max-height: calc(100vh - var(--header-height-mobile));
-      overflow-y: auto;
-    }
-    
+    nav { position: fixed; top: var(--header-height-mobile); left: 0; right: 0; background: var(--bg-secondary); padding: var(--spacing-lg); border-bottom: 1px solid var(--border); transform: translateY(-150%); transition: transform 0.3s ease; z-index: var(--z-index-dropdown); max-height: calc(100vh - var(--header-height-mobile)); overflow-y: auto; }
     nav.active { transform: translateY(0); }
+    .nav-links { display: flex; flex-direction: column; gap: var(--spacing-xs); list-style: none; margin: 0; padding: 0; }
+    .nav-links a { color: var(--text-secondary); text-decoration: none; font-weight: var(--font-weight-medium); padding: var(--spacing-sm) var(--spacing-md); border-radius: var(--radius); transition: var(--transition); display: block; font-size: var(--font-size-lg); }
+    .nav-links a:hover, .nav-links a.active { background: var(--bg-card); color: var(--accent); transform: translateX(4px); }
+    [dir="rtl"] .nav-links a:hover, [dir="rtl"] .nav-links a.active { transform: translateX(-4px); }
     
-    .nav-links {
-      display: flex;
-      flex-direction: column;
-      gap: var(--spacing-xs);
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-    
-    .nav-links a {
-      color: var(--text-secondary);
-      text-decoration: none;
-      font-weight: var(--font-weight-medium);
-      padding: var(--spacing-sm) var(--spacing-md);
-      border-radius: var(--radius);
-      transition: var(--transition);
-      display: block;
-      font-size: var(--font-size-lg);
-    }
-    
-    .nav-links a:hover,
-    .nav-links a.active {
-      background: var(--bg-card);
-      color: var(--accent);
-      transform: translateX(4px);
-    }
-    
-    [dir="rtl"] .nav-links a:hover,
-    [dir="rtl"] .nav-links a.active {
-      transform: translateX(-4px);
-    }
-    
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: var(--spacing-xs);
-    }
-    
-    .theme-toggle,
-    .lang-toggle {
-      width: 40px;
-      height: 40px;
-      border-radius: var(--radius-full);
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: var(--transition);
-      font-size: 1.2rem;
-      color: var(--text-secondary);
-    }
-    
-    .theme-toggle:hover,
-    .lang-toggle:hover {
-      background: var(--accent);
-      color: white;
-      border-color: var(--accent);
-    }
-    
-    .theme-toggle:focus-visible,
-    .lang-toggle:focus-visible {
-      outline: 2px solid var(--accent);
-      outline-offset: 2px;
-    }
+    .nav-actions { display: flex; align-items: center; gap: var(--spacing-xs); }
+    .theme-toggle, .lang-toggle { width: 40px; height: 40px; border-radius: var(--radius-full); background: var(--bg-card); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: var(--transition); font-size: 1.2rem; color: var(--text-secondary); }
+    .theme-toggle:hover, .lang-toggle:hover { background: var(--accent); color: white; border-color: var(--accent); }
+    .theme-toggle:focus-visible, .lang-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
     
     @media (min-width: 768px) {
       .nav-toggle { display: none; }
-      nav {
-        position: static;
-        transform: none;
-        background: none;
-        padding: 0;
-        border: none;
-        max-height: none;
-        overflow: visible;
-      }
-      .nav-links {
-        flex-direction: row;
-        gap: var(--spacing-xxs);
-      }
-      .nav-links a {
-        padding: var(--spacing-xs) var(--spacing-sm);
-        font-size: var(--font-size-base);
-      }
-      .nav-links a:hover,
-      .nav-links a.active {
-        transform: translateY(-2px);
-      }
-      [dir="rtl"] .nav-links a:hover,
-      [dir="rtl"] .nav-links a.active {
-        transform: translateY(-2px);
-      }
+      nav { position: static; transform: none; background: none; padding: 0; border: none; max-height: none; overflow: visible; }
+      .nav-links { flex-direction: row; gap: var(--spacing-xxs); }
+      .nav-links a { padding: var(--spacing-xs) var(--spacing-sm); font-size: var(--font-size-base); }
+      .nav-links a:hover, .nav-links a.active { transform: translateY(-2px); }
+      [dir="rtl"] .nav-links a:hover, [dir="rtl"] .nav-links a.active { transform: translateY(-2px); }
     }
     
     /* ============== 10. HERO SECTION ============== */
-    .hero {
-      position: relative;
-      padding: var(--spacing-xxxl) 0 var(--spacing-xxl);
-      text-align: center;
-      overflow: hidden;
-      min-height: calc(100vh - var(--header-height));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: 
-        radial-gradient(ellipse at 20% 80%, rgba(124, 58, 237, 0.15) 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 20%, rgba(59, 130, 246, 0.12) 0%, transparent 50%),
-        radial-gradient(ellipse at 50% 50%, rgba(16, 185, 129, 0.08) 0%, transparent 60%);
-      z-index: -2;
-      pointer-events: none;
-    }
-    
-    .hero-stars {
-      position: absolute;
-      inset: 0;
-      background-image: 
-        radial-gradient(2px 2px at 20px 30px, white, transparent),
-        radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.8), transparent),
-        radial-gradient(1.5px 1.5px at 90px 40px, white, transparent),
-        radial-gradient(2px 2px at 160px 120px, rgba(255,255,255,0.9), transparent),
-        radial-gradient(1px 1px at 230px 80px, white, transparent),
-        radial-gradient(1.5px 1.5px at 300px 150px, rgba(255,255,255,0.7), transparent);
-      background-size: 400px 300px;
-      animation: twinkle 12s infinite linear;
-      opacity: 0.7;
-      z-index: -1;
-      pointer-events: none;
-    }
-    
-    @keyframes twinkle {
-      0%, 100% { opacity: 0.5; }
-      25% { opacity: 0.8; }
-      50% { opacity: 0.6; }
-      75% { opacity: 0.9; }
-    }
-    
-    .hero-shooting {
-      position: absolute;
-      width: 2px;
-      height: 100px;
-      background: linear-gradient(to bottom, transparent, white, transparent);
-      border-radius: 50%;
-      animation: shooting 4s infinite;
-      opacity: 0;
-      z-index: -1;
-    }
-    
+    .hero { position: relative; padding: var(--spacing-xxxl) 0 var(--spacing-xxl); text-align: center; overflow: hidden; min-height: calc(100vh - var(--header-height)); display: flex; align-items: center; justify-content: center; }
+    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 20% 80%, rgba(124, 58, 237, 0.15) 0%, transparent 50%), radial-gradient(ellipse at 80% 20%, rgba(59, 130, 246, 0.12) 0%, transparent 50%), radial-gradient(ellipse at 50% 50%, rgba(16, 185, 129, 0.08) 0%, transparent 60%); z-index: -2; pointer-events: none; }
+    .hero-stars { position: absolute; inset: 0; background-image: radial-gradient(2px 2px at 20px 30px, white, transparent), radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.8), transparent), radial-gradient(1.5px 1.5px at 90px 40px, white, transparent), radial-gradient(2px 2px at 160px 120px, rgba(255,255,255,0.9), transparent), radial-gradient(1px 1px at 230px 80px, white, transparent), radial-gradient(1.5px 1.5px at 300px 150px, rgba(255,255,255,0.7), transparent); background-size: 400px 300px; animation: twinkle 12s infinite linear; opacity: 0.7; z-index: -1; pointer-events: none; }
+    @keyframes twinkle { 0%, 100% { opacity: 0.5; } 25% { opacity: 0.8; } 50% { opacity: 0.6; } 75% { opacity: 0.9; } }
+    .hero-shooting { position: absolute; width: 2px; height: 100px; background: linear-gradient(to bottom, transparent, white, transparent); border-radius: 50%; animation: shooting 4s infinite; opacity: 0; z-index: -1; }
     .hero-shooting:nth-child(2) { animation-delay: 1s; left: 20%; top: 10%; }
     .hero-shooting:nth-child(3) { animation-delay: 2.5s; left: 70%; top: 30%; }
     .hero-shooting:nth-child(4) { animation-delay: 0.5s; left: 40%; top: 60%; }
+    @keyframes shooting { 0% { transform: translateY(-100px) rotate(45deg); opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { transform: translateY(400px) rotate(45deg); opacity: 0; } }
+    .hero-content { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; padding: var(--spacing-lg); }
+    .hero-location { display: inline-flex; align-items: center; gap: var(--spacing-xs); padding: var(--spacing-xxs) var(--spacing-md); background: var(--bg-card); border-radius: var(--radius-full); margin-bottom: var(--spacing-lg); font-weight: var(--font-weight-medium); border: 1px solid var(--border); animation: fadeInUp 0.6s ease forwards; }
+    .hero-title { font-size: var(--font-size-4xl); font-weight: var(--font-weight-black); margin-bottom: var(--spacing-md); line-height: 1.15; animation: fadeInUp 0.6s ease 0.1s forwards; opacity: 0; transform: translateY(20px); }
+    @media (min-width: 768px) { .hero-title { font-size: var(--font-size-6xl); } }
+    .hero-subtitle { font-size: var(--font-size-lg); color: var(--text-secondary); max-width: 600px; margin: 0 auto var(--spacing-xl); animation: fadeInUp 0.6s ease 0.2s forwards; opacity: 0; transform: translateY(20px); }
+    .hero-stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--spacing-md); max-width: 500px; margin: var(--spacing-xl) auto; animation: fadeInUp 0.6s ease 0.3s forwards; opacity: 0; transform: translateY(20px); }
+    @media (min-width: 480px) { .hero-stats { grid-template-columns: repeat(4, 1fr); } }
+    .stat-card { padding: var(--spacing-md) var(--spacing-sm); background: var(--bg-card); border-radius: var(--radius); border: 1px solid var(--border); text-align: center; transition: var(--transition); }
+    .stat-card:hover { background: var(--bg-card-hover); border-color: var(--accent); transform: translateY(-2px); }
+    .stat-value { font-size: var(--font-size-2xl); font-weight: var(--font-weight-bold); color: var(--accent); line-height: 1; margin-bottom: var(--spacing-xxs); }
+    .stat-label { font-size: var(--font-size-xs); color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+    .hero-cta { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--spacing-sm); margin-top: var(--spacing-xl); animation: fadeInUp 0.6s ease 0.4s forwards; opacity: 0; transform: translateY(20px); }
+    @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+    .scroll-indicator { position: absolute; bottom: var(--spacing-lg); left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: var(--spacing-xxs); color: var(--text-muted); font-size: var(--font-size-sm); animation: bounce 2s infinite; cursor: pointer; }
+    @keyframes bounce { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(-10px); } }
+    .scroll-indicator-icon { width: 24px; height: 24px; border: 2px solid var(--text-muted); border-radius: var(--radius-full); display: flex; align-items: center; justify-content: center; }
+    .scroll-indicator-icon::after { content: '↓'; font-size: 12px; animation: arrowDown 1.5s infinite; }
+    @keyframes arrowDown { 0%, 100% { opacity: 1; transform: translateY(0); } 50% { opacity: 0.5; transform: translateY(4px); } }
     
-    @keyframes shooting {
-      0% { transform: translateY(-100px) rotate(45deg); opacity: 0; }
-      10% { opacity: 1; }
-      90% { opacity: 1; }
-      100% { transform: translateY(400px) rotate(45deg); opacity: 0; }
-    }
-    
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      max-width: 800px;
-      margin: 0 auto;
-      padding: var(--spacing-lg);
-    }
-    
-    .hero-location {
-      display: inline-flex;
-      align-items: center;
-      gap: var(--spacing-xs);
-      padding: var(--spacing-xxs) var(--spacing-md);
-      background: var(--bg-card);
-      border-radius: var(--radius-full);
-      margin-bottom: var(--spacing-lg);
-      font-weight: var(--font-weight-medium);
-      border: 1px solid var(--border);
-      animation: fadeInUp 0.6s ease forwards;
-    }
-    
-    .hero-title {
-      font-size: var(--font-size-4xl);
-      font-weight: var(--font-weight-black);
-      margin-bottom: var(--spacing-md);
-      line-height: 1.15;
-      animation: fadeInUp 0.6s ease 0.1s forwards;
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    
-    @media (min-width: 768px) {
-      .hero-title { font-size: var(--font-size-6xl); }
-    }
-    
-    .hero-subtitle {
-      font-size: var(--font-size-lg);
-      color: var(--text-secondary);
-      max-width: 600px;
-      margin: 0 auto var(--spacing-xl);
-      animation: fadeInUp 0.6s ease 0.2s forwards;
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    
-    .hero-stats {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: var(--spacing-md);
-      max-width: 500px;
-      margin: var(--spacing-xl) auto;
-      animation: fadeInUp 0.6s ease 0.3s forwards;
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    
-    @media (min-width: 480px) {
-      .hero-stats { grid-template-columns: repeat(4, 1fr); }
-    }
-    
-    .stat-card {
-      padding: var(--spacing-md) var(--spacing-sm);
-      background: var(--bg-card);
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      text-align: center;
-      transition: var(--transition);
-    }
-    
-    .stat-card:hover {
-      background: var(--bg-card-hover);
-      border-color: var(--accent);
-      transform: translateY(-2px);
-    }
-    
-    .stat-value {
-      font-size: var(--font-size-2xl);
-      font-weight: var(--font-weight-bold);
-      color: var(--accent);
-      line-height: 1;
-      margin-bottom: var(--spacing-xxs);
-    }
-    
-    .stat-label {
-      font-size: var(--font-size-xs);
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-    
-    .hero-cta {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: var(--spacing-sm);
-      margin-top: var(--spacing-xl);
-      animation: fadeInUp 0.6s ease 0.4s forwards;
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    
-    @keyframes fadeInUp {
-      to { opacity: 1; transform: translateY(0); }
-    }
-    
-    .scroll-indicator {
-      position: absolute;
-      bottom: var(--spacing-lg);
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: var(--spacing-xxs);
-      color: var(--text-muted);
-      font-size: var(--font-size-sm);
-      animation: bounce 2s infinite;
-      cursor: pointer;
-    }
-    
-    @keyframes bounce {
-      0%, 100% { transform: translateX(-50%) translateY(0); }
-      50% { transform: translateX(-50%) translateY(-10px); }
-    }
-    
-    .scroll-indicator-icon {
-      width: 24px;
-      height: 24px;
-      border: 2px solid var(--text-muted);
-      border-radius: var(--radius-full);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    
-    .scroll-indicator-icon::after {
-      content: '↓';
-      font-size: 12px;
-      animation: arrowDown 1.5s infinite;
-    }
-    
-    @keyframes arrowDown {
-      0%, 100% { opacity: 1; transform: translateY(0); }
-      50% { opacity: 0.5; transform: translateY(4px); }
-    }
-    
-    /* ============== 11. METEOR GRID ============== */
-    .meteor-grid {
-      display: grid;
-      gap: var(--spacing-lg);
-      margin-top: var(--spacing-xl);
-    }
-    
+    /* ============== 11. METEOR GRID & ITEMS ============== */
+    .meteor-grid { display: grid; gap: var(--spacing-lg); margin-top: var(--spacing-xl); }
     @media (min-width: 768px) { .meteor-grid { grid-template-columns: repeat(2, 1fr); } }
     @media (min-width: 1024px) { .meteor-grid { grid-template-columns: repeat(3, 1fr); } }
     
-    .meteor-item {
-      background: var(--bg-secondary);
-      border-radius: var(--radius-lg);
-      padding: var(--spacing-lg);
-      border-right: 4px solid var(--accent);
-      transition: var(--transition-smooth);
-      position: relative;
-      overflow: hidden;
-    }
-    
+    .meteor-item { background: var(--bg-secondary); border-radius: var(--radius-lg); padding: var(--spacing-lg); border-right: 4px solid var(--accent); transition: var(--transition-smooth); position: relative; overflow: hidden; }
     [dir="rtl"] .meteor-item { border-right: none; border-left: 4px solid var(--accent); }
-    
-    .meteor-item::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 100%;
-      height: 3px;
-      background: linear-gradient(90deg, transparent, var(--accent), transparent);
-      opacity: 0;
-      transition: var(--transition);
-    }
-    
-    .meteor-item:hover {
-      transform: translateX(6px);
-      border-color: var(--success);
-      box-shadow: var(--shadow-lg);
-    }
-    
+    .meteor-item::before { content: ''; position: absolute; top: 0; right: 0; width: 100%; height: 3px; background: linear-gradient(90deg, transparent, var(--accent), transparent); opacity: 0; transition: var(--transition); }
+    .meteor-item:hover { transform: translateX(6px); border-color: var(--success); box-shadow: var(--shadow-lg); }
     [dir="rtl"] .meteor-item:hover { transform: translateX(-6px); }
-    
     .meteor-item:hover::before { opacity: 1; animation: shine 1.5s ease-in-out; }
-    
-    @keyframes shine {
-      0% { transform: translateX(-100%); opacity: 0; }
-      50% { opacity: 1; }
-      100% { transform: translateX(100%); opacity: 0; }
-    }
-    
-    .meteor-item.featured {
-      border-color: var(--warning);
-      background: linear-gradient(135deg, var(--bg-secondary), rgba(245, 158, 11, 0.05));
-    }
-    
-    .meteor-item.peak {
-      border-color: var(--success);
-      background: linear-gradient(135deg, var(--bg-secondary), rgba(16, 185, 129, 0.05));
-    }
-    
-    .meteor-header {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: var(--spacing-sm);
-      margin-bottom: var(--spacing-md);
-      flex-wrap: wrap;
-    }
-    
-    .meteor-name {
-      font-size: var(--font-size-xl);
-      font-weight: var(--font-weight-bold);
-      color: var(--text-primary);
-      display: flex;
-      align-items: center;
-      gap: var(--spacing-xs);
-      margin: 0;
-    }
-    
-    .meteor-badges {
-      display: flex;
-      gap: var(--spacing-xxs);
-      flex-wrap: wrap;
-    }
-    
-    .meteor-date {
-      display: flex;
-      align-items: center;
-      gap: var(--spacing-xxs);
-      font-size: var(--font-size-sm);
-      color: var(--text-secondary);
-      margin-bottom: var(--spacing-sm);
-      padding: var(--spacing-xxs) var(--spacing-sm);
-      background: var(--bg-card);
-      border-radius: var(--radius-full);
-      display: inline-flex;
-    }
-    
-    .meteor-rate {
-      display: inline-flex;
-      align-items: center;
-      gap: var(--spacing-xxs);
-      padding: var(--spacing-xxs) var(--spacing-sm);
-      background: var(--bg-card);
-      border-radius: var(--radius-full);
-      font-size: var(--font-size-sm);
-      font-weight: var(--font-weight-semibold);
-      color: var(--accent);
-      margin-bottom: var(--spacing-md);
-    }
-    
+    @keyframes shine { 0% { transform: translateX(-100%); opacity: 0; } 50% { opacity: 1; } 100% { transform: translateX(100%); opacity: 0; } }
+    .meteor-item.featured { border-color: var(--warning); background: linear-gradient(135deg, var(--bg-secondary), rgba(245, 158, 11, 0.05)); }
+    .meteor-item.peak { border-color: var(--success); background: linear-gradient(135deg, var(--bg-secondary), rgba(16, 185, 129, 0.05)); }
+    .meteor-header { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--spacing-sm); margin-bottom: var(--spacing-md); flex-wrap: wrap; }
+    .meteor-name { font-size: var(--font-size-xl); font-weight: var(--font-weight-bold); color: var(--text-primary); display: flex; align-items: center; gap: var(--spacing-xs); margin: 0; }
+    .meteor-badges { display: flex; gap: var(--spacing-xxs); flex-wrap: wrap; }
+    .meteor-date { display: inline-flex; align-items: center; gap: var(--spacing-xxs); font-size: var(--font-size-sm); color: var(--text-secondary); margin-bottom: var(--spacing-sm); padding: var(--spacing-xxs) var(--spacing-sm); background: var(--bg-card); border-radius: var(--radius-full); }
+    .meteor-rate { display: inline-flex; align-items: center; gap: var(--spacing-xxs); padding: var(--spacing-xxs) var(--spacing-sm); background: var(--bg-card); border-radius: var(--radius-full); font-size: var(--font-size-sm); font-weight: var(--font-weight-semibold); color: var(--accent); margin-bottom: var(--spacing-md); }
     .meteor-rate.high { color: var(--success); }
     .meteor-rate.medium { color: var(--warning); }
-    
-    .meteor-desc {
-      font-size: var(--font-size-sm);
-      color: var(--text-secondary);
-      margin-bottom: var(--spacing-md);
-      line-height: 1.6;
-    }
-    
-    .meteor-tip {
-      margin-top: var(--spacing-md);
-      padding: var(--spacing-sm) var(--spacing-md);
-      background: rgba(16, 185, 129, 0.1);
-      border-radius: var(--radius);
-      border-right: 3px solid var(--success);
-      font-size: var(--font-size-sm);
-      color: var(--text-secondary);
-    }
-    
+    .meteor-desc { font-size: var(--font-size-sm); color: var(--text-secondary); margin-bottom: var(--spacing-md); line-height: 1.6; }
+    .meteor-tip { margin-top: var(--spacing-md); padding: var(--spacing-sm) var(--spacing-md); background: rgba(16, 185, 129, 0.1); border-radius: var(--radius); border-right: 3px solid var(--success); font-size: var(--font-size-sm); color: var(--text-secondary); }
     [dir="rtl"] .meteor-tip { border-right: none; border-left: 3px solid var(--success); }
+    .meteor-actions { display: flex; gap: var(--spacing-xs); margin-top: var(--spacing-md); flex-wrap: wrap; }
+    .meteor-countdown { display: flex; gap: var(--spacing-xxs); margin: var(--spacing-md) 0; font-size: var(--font-size-sm); font-weight: var(--font-weight-semibold); }
+    .countdown-item { display: flex; flex-direction: column; align-items: center; padding: var(--spacing-xxs) var(--spacing-xs); background: var(--bg-card); border-radius: var(--radius); min-width: 50px; }
+    .countdown-value { font-size: var(--font-size-lg); font-weight: var(--font-weight-bold); color: var(--accent); }
+    .countdown-label { font-size: var(--font-size-xs); color: var(--text-muted); text-transform: uppercase; }
     
-    .meteor-actions {
-      display: flex;
-      gap: var(--spacing-xs);
-      margin-top: var(--spacing-md);
-      flex-wrap: wrap;
-    }
+    /* ============== 12. VISIBILITY & TIMING ============== */
+    .visibility-row { display: flex; align-items: center; gap: var(--spacing-xs); padding: var(--spacing-xs) var(--spacing-sm); background: var(--bg-card); border-radius: var(--radius); margin-bottom: var(--spacing-sm); font-size: var(--font-size-sm); }
+    .visibility-badge { padding: 2px 10px; border-radius: var(--radius-full); font-weight: 600; font-size: 0.85rem; white-space: nowrap; }
+    .visibility-excellent { background: var(--success); color: white; }
+    .visibility-good { background: var(--warning); color: #000; }
+    .visibility-fair { background: var(--accent); color: white; }
+    .visibility-poor { background: var(--danger); color: white; }
     
-    .meteor-countdown {
-      display: flex;
-      gap: var(--spacing-xxs);
-      margin: var(--spacing-md) 0;
-      font-size: var(--font-size-sm);
-      font-weight: var(--font-weight-semibold);
-    }
+    .timing-row { display: flex; align-items: center; gap: var(--spacing-xs); padding: var(--spacing-xs) var(--spacing-sm); background: rgba(124,58,237,0.1); border-radius: var(--radius); margin-bottom: var(--spacing-sm); font-size: var(--font-size-sm); border-right: 3px solid var(--accent); }
+    [dir="rtl"] .timing-row { border-right: none; border-left: 3px solid var(--accent); }
+    .timing-value { font-weight: 700; color: var(--accent); font-size: var(--font-size-base); }
+    .timing-label { color: var(--text-muted); }
     
-    .countdown-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: var(--spacing-xxs) var(--spacing-xs);
-      background: var(--bg-card);
-      border-radius: var(--radius);
-      min-width: 50px;
-    }
+    /* ============== 13. CALCULATOR SECTION ============== */
+    .calc-section { background: linear-gradient(135deg, var(--bg-secondary), var(--bg-card)); border-radius: var(--radius-xl); padding: var(--spacing-xl); border: 1px solid var(--border); margin: var(--spacing-xl) 0; }
+    .calc-title { font-size: var(--font-size-2xl); font-weight: 700; text-align: center; margin-bottom: var(--spacing-md); display: flex; align-items: center; justify-content: center; gap: 8px; }
+    .calc-desc { text-align: center; color: var(--text-secondary); font-size: var(--font-size-base); margin-bottom: var(--spacing-lg); }
+    .calc-form { display: grid; gap: var(--spacing-md); max-width: 480px; margin: 0 auto; }
+    .form-select { appearance: none; background-image: url("image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: left var(--spacing-md) center; background-size: 16px; padding-right: var(--spacing-xl); padding-left: var(--spacing-xl); }
+    [dir="rtl"] .form-select { background-position: right var(--spacing-md) center; padding-left: var(--spacing-md); padding-right: var(--spacing-xl); }
+    .calc-result { margin-top: var(--spacing-lg); padding: var(--spacing-md); background: var(--bg-card); border-radius: var(--radius); border-right: 4px solid var(--success); display: none; }
+    [dir="rtl"] .calc-result { border-right: none; border-left: 4px solid var(--success); }
+    .calc-result.show { display: block; animation: slideUp 0.3s ease; }
+    @keyframes slideUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .result-item { display: flex; justify-content: space-between; align-items: center; padding: var(--spacing-xs) 0; border-bottom: 1px solid var(--border); font-size: var(--font-size-sm); }
+    .result-item:last-child { border-bottom: none; }
+    .result-label { color: var(--text-muted); }
+    .result-value { font-weight: 600; color: var(--text-primary); }
+    .result-highlight { color: var(--accent); font-size: var(--font-size-xl); font-weight: 700; }
+    .calc-tip { margin-top: var(--spacing-md); padding: var(--spacing-sm); background: rgba(59,130,246,0.1); border-radius: var(--radius); font-size: var(--font-size-sm); color: var(--text-secondary); border-right: 3px solid var(--info); }
+    [dir="rtl"] .calc-tip { border-right: none; border-left: 3px solid var(--info); }
     
-    .countdown-value {
-      font-size: var(--font-size-lg);
-      font-weight: var(--font-weight-bold);
-      color: var(--accent);
-    }
-    
-    .countdown-label {
-      font-size: var(--font-size-xs);
-      color: var(--text-muted);
-      text-transform: uppercase;
-    }
-    
-    /* ============== 12. GUIDE SECTION ============== */
-    .guide-grid {
-      display: grid;
-      gap: var(--spacing-lg);
-      margin-top: var(--spacing-xl);
-    }
-    
+    /* ============== 14. GUIDE & TIPS ============== */
+    .guide-grid { display: grid; gap: var(--spacing-lg); margin-top: var(--spacing-xl); }
     @media (min-width: 768px) { .guide-grid { grid-template-columns: repeat(2, 1fr); } }
+    .guide-item { display: flex; gap: var(--spacing-md); align-items: flex-start; padding: var(--spacing-md); background: var(--bg-card); border-radius: var(--radius-lg); border: 1px solid var(--border); transition: var(--transition); }
+    .guide-item:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: var(--shadow); }
+    .guide-icon { flex-shrink: 0; width: 56px; height: 56px; background: linear-gradient(135deg, var(--accent), var(--info)); border-radius: var(--radius-full); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: white; box-shadow: var(--shadow-glow); }
+    .guide-text h4 { font-weight: var(--font-weight-bold); margin-bottom: var(--spacing-xxs); font-size: var(--font-size-lg); }
+    .guide-text p { margin: 0; font-size: var(--font-size-sm); color: var(--text-secondary); line-height: 1.6; }
     
-    .guide-item {
-      display: flex;
-      gap: var(--spacing-md);
-      align-items: flex-start;
-      padding: var(--spacing-md);
-      background: var(--bg-card);
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border);
-      transition: var(--transition);
-    }
+    /* ============== 15. TIMELINE / CALENDAR (NEW SECTION) ============== */
+    .timeline { position: relative; max-width: 800px; margin: var(--spacing-xl) auto; padding-right: 30px; }
+    [dir="rtl"] .timeline { padding-right: 0; padding-left: 30px; }
+    .timeline::before { content: ''; position: absolute; top: 0; bottom: 0; right: 10px; width: 4px; background: var(--border); border-radius: 2px; }
+    [dir="rtl"] .timeline::before { right: auto; left: 10px; }
+    .timeline-item { position: relative; margin-bottom: var(--spacing-lg); padding-right: 20px; }
+    [dir="rtl"] .timeline-item { padding-right: 0; padding-left: 20px; }
+    .timeline-dot { position: absolute; right: -4px; top: 4px; width: 24px; height: 24px; border-radius: var(--radius-full); background: var(--accent); border: 3px solid var(--bg-card); box-shadow: var(--shadow); }
+    [dir="rtl"] .timeline-dot { right: auto; left: -4px; }
+    .timeline-content { background: var(--bg-card); border-radius: var(--radius); padding: var(--spacing-md); border: 1px solid var(--border); transition: var(--transition); }
+    .timeline-content:hover { border-color: var(--accent); transform: translateX(4px); }
+    [dir="rtl"] .timeline-content:hover { transform: translateX(-4px); }
+    .timeline-date { font-size: var(--font-size-sm); color: var(--accent); font-weight: 600; margin-bottom: var(--spacing-xxs); }
+    .timeline-title { font-size: var(--font-size-lg); font-weight: 700; margin-bottom: var(--spacing-xxs); }
+    .timeline-desc { font-size: var(--font-size-sm); color: var(--text-secondary); margin-bottom: 0; }
     
-    .guide-item:hover {
-      border-color: var(--accent);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow);
-    }
-    
-    .guide-icon {
-      flex-shrink: 0;
-      width: 56px;
-      height: 56px;
-      background: linear-gradient(135deg, var(--accent), var(--info));
-      border-radius: var(--radius-full);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      color: white;
-      box-shadow: var(--shadow-glow);
-    }
-    
-    .guide-text h4 {
-      font-weight: var(--font-weight-bold);
-      margin-bottom: var(--spacing-xxs);
-      font-size: var(--font-size-lg);
-    }
-    
-    .guide-text p {
-      margin: 0;
-      font-size: var(--font-size-sm);
-      color: var(--text-secondary);
-      line-height: 1.6;
-    }
-    
-    /* ============== 13. LOCATION SECTION ============== */
-    .location-card {
-      background: linear-gradient(135deg, var(--bg-card), var(--bg-secondary));
-      border-radius: var(--radius-xl);
-      padding: var(--spacing-xl);
-      text-align: center;
-      border: 1px solid var(--border);
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .location-card::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      right: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(124, 58, 237, 0.1) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    
-    .location-card h3 {
-      position: relative;
-      z-index: 1;
-      margin-bottom: var(--spacing-md);
-    }
-    
-    .location-card > p {
-      position: relative;
-      z-index: 1;
-      margin-bottom: var(--spacing-lg);
-    }
-    
-    .location-map {
-      width: 100%;
-      height: 250px;
-      background: var(--bg-tertiary);
-      border-radius: var(--radius-lg);
-      margin: var(--spacing-lg) 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--text-muted);
-      font-size: var(--font-size-sm);
-      border: 2px dashed var(--border);
-      position: relative;
-      overflow: hidden;
-      cursor: pointer;
-      transition: var(--transition);
-    }
-    
-    .location-map:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-    
-    .location-map::after {
-      content: '🗺️';
-      font-size: 3rem;
-      opacity: 0.3;
-      position: absolute;
-    }
-    
-    .location-details {
-      display: grid;
-      gap: var(--spacing-sm);
-      text-align: right;
-      max-width: 500px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 1;
-    }
-    
-    [dir="rtl"] .location-details { text-align: right; }
-    
-    .location-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: var(--spacing-sm) 0;
-      border-bottom: 1px solid var(--border);
-      font-size: var(--font-size-sm);
-    }
-    
-    .location-item:last-child { border-bottom: none; }
-    
-    .location-label { color: var(--text-muted); }
-    .location-value { font-weight: var(--font-weight-semibold); color: var(--text-primary); }
-    
-    .location-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--spacing-xs);
-      justify-content: center;
-      margin-top: var(--spacing-lg);
-      position: relative;
-      z-index: 1;
-    }
-    
-    /* ============== 14. FAQ ACCORDION ============== */
-    .accordion {
-      display: flex;
-      flex-direction: column;
-      gap: var(--spacing-sm);
-      margin-top: var(--spacing-xl);
-    }
-    
-    .accordion-item {
-      background: var(--bg-card);
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      overflow: hidden;
-      transition: var(--transition);
-    }
-    
+    /* ============== 16. FAQ ACCORDION ============== */
+    .accordion { display: flex; flex-direction: column; gap: var(--spacing-sm); margin-top: var(--spacing-xl); }
+    .accordion-item { background: var(--bg-card); border-radius: var(--radius); border: 1px solid var(--border); overflow: hidden; transition: var(--transition); }
     .accordion-item:hover { border-color: var(--accent); }
-    
-    .accordion-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: var(--spacing-md) var(--spacing-lg);
-      cursor: pointer;
-      font-weight: var(--font-weight-semibold);
-      gap: var(--spacing-md);
-      user-select: none;
-    }
-    
+    .accordion-header { display: flex; align-items: center; justify-content: space-between; padding: var(--spacing-md) var(--spacing-lg); cursor: pointer; font-weight: var(--font-weight-semibold); gap: var(--spacing-md); user-select: none; }
     .accordion-header:hover { background: var(--bg-card-hover); }
-    
-    .accordion-icon {
-      width: 24px;
-      height: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: var(--transition);
-      font-size: 1.2rem;
-    }
-    
+    .accordion-icon { width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; transition: var(--transition); font-size: 1.2rem; }
     .accordion-item.active .accordion-icon { transform: rotate(180deg); }
+    .accordion-body { max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; padding: 0 var(--spacing-lg); }
+    .accordion-item.active .accordion-body { max-height: 500px; padding: var(--spacing-sm) var(--spacing-lg) var(--spacing-lg); }
     
-    .accordion-body {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease, padding 0.3s ease;
-      padding: 0 var(--spacing-lg);
-    }
-    
-    .accordion-item.active .accordion-body {
-      max-height: 500px;
-      padding: var(--spacing-sm) var(--spacing-lg) var(--spacing-lg);
-    }
-    
-    .accordion-body p { margin-bottom: var(--spacing-sm); }
-    .accordion-body p:last-child { margin-bottom: 0; }
-    
-    /* ============== 15. GALLERY ============== */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: var(--spacing-md);
-      margin-top: var(--spacing-xl);
-    }
-    
-    @media (min-width: 768px) {
-      .gallery-grid { grid-template-columns: repeat(4, 1fr); }
-    }
-    
-    .gallery-item {
-      position: relative;
-      aspect-ratio: 1;
-      border-radius: var(--radius);
-      overflow: hidden;
-      cursor: pointer;
-      background: var(--bg-tertiary);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--text-muted);
-      transition: var(--transition);
-    }
-    
-    .gallery-item:hover {
-      transform: scale(1.03);
-      box-shadow: var(--shadow-lg);
-    }
-    
-    .gallery-item::before {
-      content: '📷';
-      font-size: 2rem;
-      opacity: 0.5;
-    }
-    
-    .gallery-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
-      display: flex;
-      align-items: flex-end;
-      padding: var(--spacing-md);
-      opacity: 0;
-      transition: var(--transition);
-    }
-    
+    /* ============== 17. GALLERY ============== */
+    .gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--spacing-md); margin-top: var(--spacing-xl); }
+    @media (min-width: 768px) { .gallery-grid { grid-template-columns: repeat(4, 1fr); } }
+    .gallery-item { position: relative; aspect-ratio: 1; border-radius: var(--radius); overflow: hidden; cursor: pointer; background: var(--bg-tertiary); display: flex; align-items: center; justify-content: center; color: var(--text-muted); transition: var(--transition); }
+    .gallery-item:hover { transform: scale(1.03); box-shadow: var(--shadow-lg); }
+    .gallery-item::before { content: '📷'; font-size: 2rem; opacity: 0.5; }
+    .gallery-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.7), transparent); display: flex; align-items: flex-end; padding: var(--spacing-md); opacity: 0; transition: var(--transition); }
     .gallery-item:hover .gallery-overlay { opacity: 1; }
+    .gallery-caption { color: white; font-size: var(--font-size-sm); font-weight: var(--font-weight-medium); }
     
-    .gallery-caption {
-      color: white;
-      font-size: var(--font-size-sm);
-      font-weight: var(--font-weight-medium);
-    }
-    
-    /* ============== 16. CONTACT FORM ============== */
-    .contact-form {
-      max-width: 600px;
-      margin: var(--spacing-xl) auto 0;
-    }
-    
-    .form-row {
-      display: grid;
-      gap: var(--spacing-md);
-    }
-    
-    @media (min-width: 576px) {
-      .form-row { grid-template-columns: repeat(2, 1fr); }
-    }
-    
-    .form-submit {
-      display: flex;
-      justify-content: center;
-      margin-top: var(--spacing-lg);
-    }
-    
-    .form-success {
-      display: none;
-      padding: var(--spacing-lg);
-      background: rgba(16, 185, 129, 0.1);
-      border-radius: var(--radius);
-      border-right: 4px solid var(--success);
-      margin-bottom: var(--spacing-lg);
-      text-align: center;
-    }
-    
+    /* ============== 18. CONTACT FORM ============== */
+    .contact-form { max-width: 600px; margin: var(--spacing-xl) auto 0; }
+    .form-row { display: grid; gap: var(--spacing-md); }
+    @media (min-width: 576px) { .form-row { grid-template-columns: repeat(2, 1fr); } }
+    .form-submit { display: flex; justify-content: center; margin-top: var(--spacing-lg); }
+    .form-success { display: none; padding: var(--spacing-lg); background: rgba(16, 185, 129, 0.1); border-radius: var(--radius); border-right: 4px solid var(--success); margin-bottom: var(--spacing-lg); text-align: center; }
     [dir="rtl"] .form-success { border-right: none; border-left: 4px solid var(--success); }
-    
     .form-success.show { display: block; animation: fadeIn 0.3s ease; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
     
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+    /* ============== 19. MODAL ============== */
+    .modal-overlay { position: fixed; inset: 0; background: var(--bg-overlay); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center; padding: var(--spacing-lg); z-index: var(--z-index-modal); opacity: 0; visibility: hidden; transition: var(--transition); }
+    .modal-overlay.active { opacity: 1; visibility: visible; }
+    .modal { background: var(--bg-card); border-radius: var(--radius-xl); border: 1px solid var(--border); max-width: 600px; width: 100%; max-height: 90vh; overflow-y: auto; box-shadow: var(--shadow-xl); transform: scale(0.95); transition: var(--transition-smooth); }
+    .modal-overlay.active .modal { transform: scale(1); }
+    .modal-header { display: flex; align-items: center; justify-content: space-between; padding: var(--spacing-lg); border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg-card); z-index: 1; }
+    .modal-title { font-size: var(--font-size-xl); font-weight: var(--font-weight-bold); margin: 0; }
+    .modal-close { width: 36px; height: 36px; border-radius: var(--radius-full); background: var(--bg-secondary); border: none; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: var(--transition); font-size: 1.2rem; color: var(--text-secondary); }
+    .modal-close:hover { background: var(--danger); color: white; }
+    .modal-body { padding: var(--spacing-lg); color: var(--text-secondary); }
+    .modal-footer { padding: var(--spacing-lg); border-top: 1px solid var(--border); display: flex; justify-content: flex-end; gap: var(--spacing-sm); position: sticky; bottom: 0; background: var(--bg-card); }
     
-    /* ============== 17. MODAL ============== */
-    .modal-overlay {
-      position: fixed;
-      inset: 0;
-      background: var(--bg-overlay);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: var(--spacing-lg);
-      z-index: var(--z-index-modal);
-      opacity: 0;
-      visibility: hidden;
-      transition: var(--transition);
-    }
-    
-    .modal-overlay.active {
-      opacity: 1;
-      visibility: visible;
-    }
-    
-    .modal {
-      background: var(--bg-card);
-      border-radius: var(--radius-xl);
-      border: 1px solid var(--border);
-      max-width: 600px;
-      width: 100%;
-      max-height: 90vh;
-      overflow-y: auto;
-      box-shadow: var(--shadow-xl);
-      transform: scale(0.95);
-      transition: var(--transition-smooth);
-    }
-    
-    .modal-overlay.active .modal {
-      transform: scale(1);
-    }
-    
-    .modal-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: var(--spacing-lg);
-      border-bottom: 1px solid var(--border);
-      position: sticky;
-      top: 0;
-      background: var(--bg-card);
-      z-index: 1;
-    }
-    
-    .modal-title {
-      font-size: var(--font-size-xl);
-      font-weight: var(--font-weight-bold);
-      margin: 0;
-    }
-    
-    .modal-close {
-      width: 36px;
-      height: 36px;
-      border-radius: var(--radius-full);
-      background: var(--bg-secondary);
-      border: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: var(--transition);
-      font-size: 1.2rem;
-      color: var(--text-secondary);
-    }
-    
-    .modal-close:hover {
-      background: var(--danger);
-      color: white;
-    }
-    
-    .modal-body {
-      padding: var(--spacing-lg);
-      color: var(--text-secondary);
-    }
-    
-    .modal-footer {
-      padding: var(--spacing-lg);
-      border-top: 1px solid var(--border);
-      display: flex;
-      justify-content: flex-end;
-      gap: var(--spacing-sm);
-      position: sticky;
-      bottom: 0;
-      background: var(--bg-card);
-    }
-    
-    /* ============== 18. TOAST NOTIFICATIONS ============== */
-    .toast-container {
-      position: fixed;
-      bottom: var(--spacing-lg);
-      left: var(--spacing-lg);
-      right: var(--spacing-lg);
-      z-index: var(--z-index-toast);
-      display: flex;
-      flex-direction: column;
-      gap: var(--spacing-sm);
-      pointer-events: none;
-    }
-    
-    @media (min-width: 768px) {
-      .toast-container {
-        left: auto;
-        right: var(--spacing-lg);
-        max-width: 400px;
-      }
-    }
-    
-    .toast {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: var(--spacing-md) var(--spacing-lg);
-      box-shadow: var(--shadow-lg);
-      display: flex;
-      align-items: center;
-      gap: var(--spacing-md);
-      animation: slideIn 0.3s ease, fadeOut 0.3s ease 2.7s forwards;
-      pointer-events: auto;
-      max-width: 100%;
-    }
-    
+    /* ============== 20. TOAST NOTIFICATIONS ============== */
+    .toast-container { position: fixed; bottom: var(--spacing-lg); left: var(--spacing-lg); right: var(--spacing-lg); z-index: var(--z-index-toast); display: flex; flex-direction: column; gap: var(--spacing-sm); pointer-events: none; }
+    @media (min-width: 768px) { .toast-container { left: auto; right: var(--spacing-lg); max-width: 400px; } }
+    .toast { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: var(--spacing-md) var(--spacing-lg); box-shadow: var(--shadow-lg); display: flex; align-items: center; gap: var(--spacing-md); animation: slideIn 0.3s ease, fadeOut 0.3s ease 2.7s forwards; pointer-events: auto; max-width: 100%; }
     .toast.success { border-right: 4px solid var(--success); }
     .toast.warning { border-right: 4px solid var(--warning); }
     .toast.error { border-right: 4px solid var(--danger); }
     .toast.info { border-right: 4px solid var(--info); }
+    [dir="rtl"] .toast.success, [dir="rtl"] .toast.warning, [dir="rtl"] .toast.error, [dir="rtl"] .toast.info { border-right: none; border-left: 4px solid currentColor; }
+    @keyframes slideIn { from { opacity: 0; transform: translateX(100px); } to { opacity: 1; transform: translateX(0); } }
+    @keyframes fadeOut { to { opacity: 0; transform: translateY(-20px); } }
+    .toast-icon { font-size: 1.4rem; flex-shrink: 0; }
+    .toast-content { flex: 1; min-width: 0; }
+    .toast-title { font-weight: var(--font-weight-semibold); margin-bottom: var(--spacing-xxs); font-size: var(--font-size-sm); }
+    .toast-message { font-size: var(--font-size-sm); color: var(--text-secondary); line-height: 1.5; }
+    .toast-close { background: none; border: none; color: var(--text-muted); cursor: pointer; padding: var(--spacing-xxs); border-radius: var(--radius); transition: var(--transition); font-size: 1.2rem; }
+    .toast-close:hover { background: var(--bg-secondary); color: var(--text-primary); }
     
-    [dir="rtl"] .toast.success { border-right: none; border-left: 4px solid var(--success); }
-    [dir="rtl"] .toast.warning { border-right: none; border-left: 4px solid var(--warning); }
-    [dir="rtl"] .toast.error { border-right: none; border-left: 4px solid var(--danger); }
-    [dir="rtl"] .toast.info { border-right: none; border-left: 4px solid var(--info); }
-    
-    @keyframes slideIn {
-      from {
-        opacity: 0;
-        transform: translateX(100px);
-      }
-      [dir="rtl"] & {
-        from { transform: translateX(-100px); }
-      }
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-    
-    @keyframes fadeOut {
-      to {
-        opacity: 0;
-        transform: translateY(-20px);
-      }
-    }
-    
-    .toast-icon {
-      font-size: 1.4rem;
-      flex-shrink: 0;
-    }
-    
-    .toast-content {
-      flex: 1;
-      min-width: 0;
-    }
-    
-    .toast-title {
-      font-weight: var(--font-weight-semibold);
-      margin-bottom: var(--spacing-xxs);
-      font-size: var(--font-size-sm);
-    }
-    
-    .toast-message {
-      font-size: var(--font-size-sm);
-      color: var(--text-secondary);
-      line-height: 1.5;
-    }
-    
-    .toast-close {
-      background: none;
-      border: none;
-      color: var(--text-muted);
-      cursor: pointer;
-      padding: var(--spacing-xxs);
-      border-radius: var(--radius);
-      transition: var(--transition);
-      font-size: 1.2rem;
-    }
-    
-    .toast-close:hover {
-      background: var(--bg-secondary);
-      color: var(--text-primary);
-    }
-    
-    /* ============== 19. PROGRESS INDICATOR ============== */
-    .progress-bar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--accent), var(--info));
-      z-index: var(--z-index-sticky);
-      transition: width 0.1s ease;
-      width: 0%;
-    }
-    
-    /* ============== 20. BACK TO TOP ============== */
-    .back-to-top {
-      position: fixed;
-      bottom: var(--spacing-xl);
-      left: var(--spacing-lg);
-      width: 48px;
-      height: 48px;
-      border-radius: var(--radius-full);
-      background: var(--accent);
-      color: white;
-      border: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: var(--transition);
-      box-shadow: var(--shadow-lg), var(--shadow-glow);
-      opacity: 0;
-      visibility: hidden;
-      z-index: var(--z-index-dropdown);
-      font-size: 1.2rem;
-    }
-    
-    @media (min-width: 768px) {
-      .back-to-top {
-        left: auto;
-        right: var(--spacing-lg);
-      }
-    }
-    
-    .back-to-top.visible {
-      opacity: 1;
-      visibility: visible;
-    }
-    
-    .back-to-top:hover {
-      transform: translateY(-4px);
-      background: var(--accent-hover);
-    }
-    
-    /* ============== 21. FOOTER ============== */
-    footer {
-      background: var(--bg-secondary);
-      border-top: 1px solid var(--border);
-      padding: var(--spacing-xxl) 0 var(--spacing-lg);
-      margin-top: var(--spacing-xxxl);
-    }
-    
-    .footer-grid {
-      display: grid;
-      gap: var(--spacing-xl);
-    }
-    
-    @media (min-width: 768px) {
-      .footer-grid { grid-template-columns: repeat(3, 1fr); }
-    }
-    
-    .footer-section h4 {
-      font-weight: var(--font-weight-bold);
-      margin-bottom: var(--spacing-md);
-      color: var(--text-primary);
-      font-size: var(--font-size-lg);
-    }
-    
-    .footer-about p {
-      color: var(--text-secondary);
-      font-size: var(--font-size-sm);
-      line-height: 1.7;
-    }
-    
-    .footer-links {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: var(--spacing-sm);
-      padding: 0;
-      margin: 0;
-    }
-    
-    .footer-links a {
-      color: var(--text-secondary);
-      text-decoration: none;
-      transition: var(--transition);
-      font-size: var(--font-size-sm);
-      display: flex;
-      align-items: center;
-      gap: var(--spacing-xxs);
-    }
-    
-    .footer-links a:hover {
-      color: var(--accent);
-      transform: translateX(4px);
-    }
-    
-    [dir="rtl"] .footer-links a:hover { transform: translateX(-4px); }
-    
-    .footer-links a::before {
-      content: '▹';
-      font-size: 0.8rem;
-      opacity: 0;
-      transition: var(--transition);
-    }
-    
-    .footer-links a:hover::before { opacity: 1; }
-    
-    .social-links {
-      display: flex;
-      gap: var(--spacing-sm);
-      margin-top: var(--spacing-md);
-    }
-    
-    .social-links a {
-      width: 42px;
-      height: 42px;
-      border-radius: var(--radius-full);
-      background: var(--bg-card);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--text-primary);
-      text-decoration: none;
-      transition: var(--transition);
-      font-size: 1.2rem;
-      border: 1px solid var(--border);
-    }
-    
-    .social-links a:hover {
-      background: var(--accent);
-      border-color: var(--accent);
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-glow);
-    }
-    
-    .footer-bottom {
-      text-align: center;
-      padding-top: var(--spacing-xl);
-      margin-top: var(--spacing-xl);
-      border-top: 1px solid var(--border);
-      color: var(--text-muted);
-      font-size: var(--font-size-sm);
-      display: flex;
-      flex-direction: column;
-      gap: var(--spacing-xs);
-    }
-    
-    .version-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: var(--spacing-xxs);
-      padding: var(--spacing-xxs) var(--spacing-sm);
-      background: var(--bg-card);
-      border-radius: var(--radius-full);
-      font-size: var(--font-size-xs);
-      font-weight: var(--font-weight-semibold);
-      color: var(--accent);
-      border: 1px solid var(--border);
-    }
+    /* ============== 21. PROGRESS INDICATOR & BACK TO TOP ============== */
+    .progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, var(--accent), var(--info)); z-index: var(--z-index-sticky); transition: width 0.1s ease; width: 0%; }
+    .back-to-top { position: fixed; bottom: var(--spacing-xl); left: var(--spacing-lg); width: 48px; height: 48px; border-radius: var(--radius-full); background: var(--accent); color: white; border: none; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: var(--transition); box-shadow: var(--shadow-lg), var(--shadow-glow); opacity: 0; visibility: hidden; z-index: var(--z-index-dropdown); font-size: 1.2rem; }
+    @media (min-width: 768px) { .back-to-top { left: auto; right: var(--spacing-lg); } }
+    .back-to-top.visible { opacity: 1; visibility: visible; }
+    .back-to-top:hover { transform: translateY(-4px); background: var(--accent-hover); }
     
     /* ============== 22. SEARCH & FILTER ============== */
-    .search-bar {
-      position: relative;
-      max-width: 500px;
-      margin: 0 auto var(--spacing-xl);
-    }
+    .search-bar { position: relative; max-width: 500px; margin: 0 auto var(--spacing-xl); }
+    .search-input { width: 100%; padding: var(--spacing-md) var(--spacing-lg) var(--spacing-md) 48px; background: var(--bg-card); border: 2px solid var(--border); border-radius: var(--radius-full); color: var(--text-primary); font-size: var(--font-size-base); transition: var(--transition); }
+    [dir="rtl"] .search-input { padding: var(--spacing-md) 48px var(--spacing-md) var(--spacing-lg); }
+    .search-input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 4px var(--accent-glow); }
+    .search-icon { position: absolute; left: var(--spacing-md); top: 50%; transform: translateY(-50%); color: var(--text-muted); font-size: 1.2rem; pointer-events: none; }
+    [dir="rtl"] .search-icon { left: auto; right: var(--spacing-md); }
+    .filter-bar { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--spacing-xs); margin-bottom: var(--spacing-xl); }
+    .filter-btn { padding: var(--spacing-xxs) var(--spacing-md); background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-full); font-size: var(--font-size-sm); font-weight: var(--font-weight-medium); color: var(--text-secondary); cursor: pointer; transition: var(--transition); white-space: nowrap; }
+    .filter-btn:hover, .filter-btn.active { background: var(--accent); color: white; border-color: var(--accent); }
+    .filter-btn.active { box-shadow: var(--shadow-glow); }
+    .no-results { text-align: center; padding: var(--spacing-xxl); color: var(--text-muted); }
+    .no-results-icon { font-size: 3rem; margin-bottom: var(--spacing-md); opacity: 0.5; }
     
-    .search-input {
-      width: 100%;
-      padding: var(--spacing-md) var(--spacing-lg) var(--spacing-md) 48px;
-      background: var(--bg-card);
-      border: 2px solid var(--border);
-      border-radius: var(--radius-full);
-      color: var(--text-primary);
-      font-size: var(--font-size-base);
-      transition: var(--transition);
-    }
-    
-    [dir="rtl"] .search-input {
-      padding: var(--spacing-md) 48px var(--spacing-md) var(--spacing-lg);
-    }
-    
-    .search-input:focus {
-      outline: none;
-      border-color: var(--accent);
-      box-shadow: 0 0 0 4px var(--accent-glow);
-    }
-    
-    .search-icon {
-      position: absolute;
-      left: var(--spacing-md);
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--text-muted);
-      font-size: 1.2rem;
-      pointer-events: none;
-    }
-    
-    [dir="rtl"] .search-icon {
-      left: auto;
-      right: var(--spacing-md);
-    }
-    
-    .filter-bar {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: var(--spacing-xs);
-      margin-bottom: var(--spacing-xl);
-    }
-    
-    .filter-btn {
-      padding: var(--spacing-xxs) var(--spacing-md);
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-full);
-      font-size: var(--font-size-sm);
-      font-weight: var(--font-weight-medium);
-      color: var(--text-secondary);
-      cursor: pointer;
-      transition: var(--transition);
-      white-space: nowrap;
-    }
-    
-    .filter-btn:hover,
-    .filter-btn.active {
-      background: var(--accent);
-      color: white;
-      border-color: var(--accent);
-    }
-    
-    .filter-btn.active {
-      box-shadow: var(--shadow-glow);
-    }
-    
-    .no-results {
-      text-align: center;
-      padding: var(--spacing-xxl);
-      color: var(--text-muted);
-    }
-    
-    .no-results-icon {
-      font-size: 3rem;
-      margin-bottom: var(--spacing-md);
-      opacity: 0.5;
-    }
-    
-    /* ============== 23. PRINT STYLES ============== */
+    /* ============== 23. PRINT & ACCESSIBILITY ============== */
     @media print {
-      header, footer, .btn, .nav-toggle, .theme-toggle, .lang-toggle,
-      .scroll-indicator, .back-to-top, .toast-container, .progress-bar {
-        display: none !important;
-      }
-      
-      body {
-        background: white;
-        color: black;
-        font-size: 12pt;
-        line-height: 1.5;
-      }
-      
-      .card, .meteor-item, .guide-item {
-        break-inside: avoid;
-        border: 1px solid #ccc;
-        box-shadow: none;
-      }
-      
+      header, footer, .btn, .nav-toggle, .theme-toggle, .lang-toggle, .scroll-indicator, .back-to-top, .toast-container, .progress-bar { display: none !important; }
+      body { background: white; color: black; font-size: 12pt; line-height: 1.5; }
+      .card, .meteor-item, .guide-item { break-inside: avoid; border: 1px solid #ccc; box-shadow: none; }
       a { color: #000; text-decoration: underline; }
-      a[href]::after {
-        content: " (" attr(href) ")";
-        font-size: 0.9em;
-        color: #666;
-      }
-      
+      a[href]::after { content: " (" attr(href) ")"; font-size: 0.9em; color: #666; }
       .hero { min-height: auto; padding: 20pt 0; }
       .section { padding: 20pt 0; }
     }
     
-    /* ============== 24. ACCESSIBILITY ============== */
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-      }
+      *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
     }
     
-    /* Focus visible for keyboard navigation */
-    :focus-visible {
-      outline: 3px solid var(--accent);
-      outline-offset: 3px;
-    }
+    :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+    .skip-link { position: absolute; top: -40px; left: 0; background: var(--accent); color: white; padding: var(--spacing-sm) var(--spacing-md); z-index: 1000; transition: top 0.3s; border-radius: 0 0 var(--radius) 0; }
+    .skip-link:focus { top: 0; }
     
-    /* Skip link for accessibility */
-    .skip-link {
-      position: absolute;
-      top: -40px;
-      left: 0;
-      background: var(--accent);
-      color: white;
-      padding: var(--spacing-sm) var(--spacing-md);
-      z-index: 1000;
-      transition: top 0.3s;
-      border-radius: 0 0 var(--radius) 0;
-    }
-    
-    .skip-link:focus {
-      top: 0;
-    }
-    
-    /* High contrast mode support */
     @media (prefers-contrast: high) {
-      :root {
-        --border: #fff;
-        --text-muted: #ddd;
-      }
+      :root { --border: #fff; --text-muted: #ddd; }
       .card, .meteor-item { border-width: 2px; }
     }
     
-    /* ============== 25. RESPONSIVE UTILITIES ============== */
+    /* ============== 24. RESPONSIVE UTILITIES ============== */
     @media (max-width: 575px) {
       .container { padding: 0 var(--spacing-md); }
       .section { padding: var(--spacing-xl) 0; }
       .hero-title { font-size: var(--font-size-3xl); }
       .hero-subtitle { font-size: var(--font-size-base); }
       .stat-value { font-size: var(--font-size-xl); }
+      .timeline { padding-right: 20px; padding-left: 0; }
+      [dir="rtl"] .timeline { padding-right: 0; padding-left: 20px; }
+      .timeline::before { right: 0; }
+      [dir="rtl"] .timeline::before { left: 0; right: auto; }
+      .timeline-dot { right: -10px; }
+      [dir="rtl"] .timeline-dot { right: auto; left: -10px; }
     }
     
     @media (min-width: 576px) { .d-sm-none { display: none !important; } }
-    @media (min-width: 768px) {
-      .d-md-none { display: none !important; }
-      .container { padding: 0 var(--spacing-xl); }
-    }
-    @media (min-width: 1024px) {
-      .d-lg-none { display: none !important; }
-    }
-    @media (min-width: 1280px) {
-      .d-xl-none { display: none !important; }
-    }
+    @media (min-width: 768px) { .d-md-none { display: none !important; } .container { padding: 0 var(--spacing-xl); } }
+    @media (min-width: 1024px) { .d-lg-none { display: none !important; } }
+    @media (min-width: 1280px) { .d-xl-none { display: none !important; } }
     
-    /* ============== 26. ANIMATION UTILITIES ============== */
+    /* ============== 25. ANIMATION UTILITIES ============== */
     .animate { animation: fadeInUp 0.6s ease forwards; opacity: 0; transform: translateY(20px); }
     .animate-delay-1 { animation-delay: 0.1s; }
     .animate-delay-2 { animation-delay: 0.2s; }
@@ -2078,53 +656,12 @@
     
     .fade-in { animation: fadeIn 0.4s ease forwards; }
     @keyframes fadeIn { to { opacity: 1; } }
-    
     .slide-up { animation: slideUp 0.4s ease forwards; }
-    @keyframes slideUp { to { transform: translateY(0); opacity: 1; } }
-    
     .scale-in { animation: scaleIn 0.3s ease forwards; }
     @keyframes scaleIn { to { transform: scale(1); opacity: 1; } }
     
-    /* Loading skeleton */
-    .skeleton {
-      background: linear-gradient(90deg, var(--bg-tertiary) 25%, var(--bg-secondary) 50%, var(--bg-tertiary) 75%);
-      background-size: 200% 100%;
-      animation: loading 1.5s infinite;
-      border-radius: var(--radius);
-    }
-    
-    @keyframes loading {
-      0% { background-position: 200% 0; }
-      100% { background-position: -200% 0; }
-    }
-    
-    .skeleton-text { height: 1em; margin-bottom: var(--spacing-xs); }
-    .skeleton-title { height: 1.5em; width: 60%; margin-bottom: var(--spacing-md); }
-    .skeleton-card { height: 200px; }
-    
-    /* ============== 27. RTL SPECIFIC ============== */
-    [dir="rtl"] {
-      /* Flip directional margins/paddings if needed */
-    }
-    
-    [dir="rtl"] .rotate-rtl { transform: scaleX(-1); }
-    
-    /* ============== 28. PRINT VERSION BADGE ============== */
-    .print-version {
-      display: none;
-    }
-    
-    @media print {
-      .print-version {
-        display: block;
-        text-align: center;
-        padding: var(--spacing-md);
-        font-size: var(--font-size-sm);
-        color: #666;
-        border-top: 1px solid #ccc;
-        margin-top: var(--spacing-xl);
-      }
-    }
+    .skeleton { background: linear-gradient(90deg, var(--bg-tertiary) 25%, var(--bg-secondary) 50%, var(--bg-tertiary) 75%); background-size: 200% 100%; animation: loading 1.5s infinite; border-radius: var(--radius); }
+    @keyframes loading { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
   </style>
 </head>
 <body>
@@ -2143,7 +680,7 @@
       <a href="#" class="logo" aria-label="الصفحة الرئيسية">
         <span class="logo-icon">🌠</span>
         <span>مرصد شهب المنامة</span>
-        <span class="logo-badge">v2.6.0</span>
+        <span class="logo-badge">v4.0.0</span>
       </a>
       
       <button class="nav-toggle" id="navToggle" aria-label="فتح القائمة" aria-expanded="false" aria-controls="mainNav">
@@ -2154,11 +691,11 @@
         <ul class="nav-links">
           <li><a href="#home" class="active" data-section="home">🏠 الرئيسية</a></li>
           <li><a href="#showers" data-section="showers">🌠 زخات الشهب</a></li>
-          <li><a href="#guide" data-section="guide">📋 دليل المشاهدة</a></li>
-          <li><a href="#location" data-section="location">🗺️ مواقع المشاهدة</a></li>
-          <li><a href="#gallery" data-section="gallery">📷 معرض الصور</a></li>
-          <li><a href="#faq" data-section="faq">❓ الأسئلة الشائعة</a></li>
-          <li><a href="#contact" data-section="contact">📧 تواصل معنا</a></li>
+          <li><a href="#calendar" data-section="calendar">📅 التقويم</a></li>
+          <li><a href="#guide" data-section="guide">📋 الدليل</a></li>
+          <li><a href="#calculator" data-section="calculator">🧮 الحاسبة</a></li>
+          <li><a href="#faq" data-section="faq">❓ الأسئلة</a></li>
+          <li><a href="#contact" data-section="contact">📧 تواصل</a></li>
         </ul>
       </nav>
       
@@ -2185,42 +722,20 @@
       <div class="hero-shooting"></div>
       
       <div class="container hero-content">
-        <div class="hero-location animate">
-          📍 المنامة، مملكة البحرين
-        </div>
-        <h1 class="hero-title text-gradient animate animate-delay-1">
-          زخات الشهب 2026
-        </h1>
-        <p class="hero-subtitle animate animate-delay-2">
-          دليلك الشامل والمشاهدة الاحترافية لأروع الظواهر الفلكية في سماء البحرين خلال عام 2026. مواعيد دقيقة، نصائح خبراء، وخرائط تفاعلية.
-        </p>
+        <div class="hero-location animate">📍 المنامة، مملكة البحرين</div>
+        <h1 class="hero-title text-gradient animate animate-delay-1">زخات الشهب 2026</h1>
+        <p class="hero-subtitle animate animate-delay-2">دليلك الشامل والمشاهدة الاحترافية لأروع الظواهر الفلكية في سماء البحرين خلال عام 2026. مواعيد دقيقة، نصائح خبراء، وخرائط تفاعلية.</p>
         
         <div class="hero-stats animate animate-delay-3">
-          <div class="stat-card">
-            <div class="stat-value">10+</div>
-            <div class="stat-label">زخات شهب</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-value">120/ساعة</div>
-            <div class="stat-label">أقصى معدل</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-value">365</div>
-            <div class="stat-label">يوم مشاهدة</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-value">مجاني</div>
-            <div class="stat-label">الدخول</div>
-          </div>
+          <div class="stat-card"><div class="stat-value">10+</div><div class="stat-label">زخات شهب</div></div>
+          <div class="stat-card"><div class="stat-value">120/ساعة</div><div class="stat-label">أقصى معدل</div></div>
+          <div class="stat-card"><div class="stat-value">30ث</div><div class="stat-label">بين الشهب</div></div>
+          <div class="stat-card"><div class="stat-value">مجاني</div><div class="stat-label">الدخول</div></div>
         </div>
         
         <div class="hero-cta animate animate-delay-4">
-          <a href="#showers" class="btn btn-lg">
-            📅 استكشف المواعيد
-          </a>
-          <button class="btn btn-lg btn-outline" id="notifyBtn">
-            🔔 تنبيهات الذروة
-          </button>
+          <a href="#showers" class="btn btn-lg">📅 استكشف المواعيد</a>
+          <button class="btn btn-lg btn-outline" id="notifyBtn">🔔 تنبيهات الذروة</button>
         </div>
       </div>
       
@@ -2233,12 +748,8 @@
     <!-- Meteor Showers Section -->
     <section id="showers" class="section">
       <div class="container">
-        <h2 class="text-center" style="font-size: 2rem; font-weight: 800; margin-bottom: 12px;">
-          🌠 زخات الشهب المرئية من البحرين 2026
-        </h2>
-        <p class="text-center" style="color: var(--text-secondary); max-width: 700px; margin: 0 auto 40px;">
-          جميع التواريخ وفقاً للتوقيت المحلي للبحرين (UTC+3). أفضل وقت للمشاهدة: بعد منتصف الليل حتى الفجر.
-        </p>
+        <h2 class="text-center" style="font-size: 2rem; font-weight: 800; margin-bottom: 12px;">🌠 زخات الشهب المرئية من البحرين 2026</h2>
+        <p class="text-center" style="color: var(--text-secondary); max-width: 700px; margin: 0 auto 40px;">جميع التواريخ وفقاً للتوقيت المحلي للبحرين (UTC+3). أفضل وقت للمشاهدة: بعد منتصف الليل حتى الفجر.</p>
         
         <!-- Search & Filter -->
         <div class="search-bar">
@@ -2258,143 +769,74 @@
         <div class="meteor-grid" id="meteorGrid">
           <!-- Quadrantids -->
           <article class="meteor-item animate" data-name="الرباعيات" data-season="winter" data-peak="2026-01-04">
-            <div class="meteor-header">
-              <h3 class="meteor-name">☄️ الرباعيات</h3>
-              <div class="meteor-badges">
-                <span class="badge badge-outline">يناير</span>
-              </div>
-            </div>
+            <div class="meteor-header"><h3 class="meteor-name">☄️ الرباعيات</h3><div class="meteor-badges"><span class="badge badge-outline">يناير</span></div></div>
             <div class="meteor-date">🗓️ 3-4 يناير 2026</div>
+            <div class="visibility-row"><span>👁️ جودة الرؤية:</span><span class="visibility-badge visibility-fair">متوسطة</span><span style="font-size:0.8rem;color:var(--text-muted)">القمر 95% 🌕</span></div>
+            <div class="timing-row"><span>⏱️ شهاب كل:</span><span class="timing-value">30 ثانية</span><span class="timing-label">(عند 120/ساعة)</span></div>
             <div class="meteor-rate">⚡ حتى 120 شهاب/ساعة</div>
-            <p class="meteor-desc">
-              أول زخة في العام، لكن القمر الساطع قد يقلل الرؤية. شاهد في الساعات قبل الفجر.
-            </p>
-            <div class="meteor-countdown" data-date="2026-01-04T02:00:00+03:00"></div>
-            <div class="meteor-tip">
-              💡 نصيحة: ابحث عن مكان مظلم بعيداً عن أضواء المدينة
-            </div>
-            <div class="meteor-actions">
-              <button class="btn btn-sm btn-outline" data-modal="quadrantids">تفاصيل</button>
-              <button class="btn btn-sm btn-success" data-notify="quadrantids">🔔 تنبيه</button>
-            </div>
+            <p class="meteor-desc">أول زخة في العام. سريعة جداً لكن قصيرة الذروة (بضع ساعات فقط). القمر الساطع يحجب العديد من الشهب.</p>
+            <div class="meteor-tip">💡 نصيحة: ابحث عن مكان مظلم بعيداً عن أضواء المدينة</div>
+            <div class="meteor-actions"><button class="btn btn-sm btn-outline" data-modal="quadrantids">تفاصيل</button><button class="btn btn-sm btn-success" data-notify="quadrantids">🔔 تنبيه</button></div>
           </article>
           
           <!-- Lyrids -->
           <article class="meteor-item animate animate-delay-1" data-name="القيثارة" data-season="spring" data-peak="2026-04-22">
-            <div class="meteor-header">
-              <h3 class="meteor-name">🎵 القيثارة</h3>
-              <div class="meteor-badges">
-                <span class="badge">ذروة</span>
-                <span class="badge badge-outline">أبريل</span>
-              </div>
-            </div>
+            <div class="meteor-header"><h3 class="meteor-name">🎵 القيثارة</h3><div class="meteor-badges"><span class="badge">ذروة</span><span class="badge badge-outline">أبريل</span></div></div>
             <div class="meteor-date">🗓️ 21-22 أبريل 2026</div>
+            <div class="visibility-row"><span>👁️ جودة الرؤية:</span><span class="visibility-badge visibility-good">جيدة</span><span style="font-size:0.8rem;color:var(--text-muted)">القمر 18% 🌒</span></div>
+            <div class="timing-row"><span>⏱️ شهاب كل:</span><span class="timing-value">3.3 دقيقة</span><span class="timing-label">(عند 18/ساعة)</span></div>
             <div class="meteor-rate medium">✨ حتى 18 شهاب/ساعة</div>
-            <p class="meteor-desc">
-              مرئية بوضوح من سماء البحرين. أفضل وقت: 12 صباحاً - 4 فجراً.
-            </p>
-            <div class="meteor-countdown" data-date="2026-04-22T03:00:00+03:00"></div>
-            <div class="meteor-tip">
-              💡 نصيحة: وجه نظرك نحو كوكبة القيثارة (Lyra) شمال شرق السماء
-            </div>
-            <div class="meteor-actions">
-              <button class="btn btn-sm btn-outline" data-modal="lyrids">تفاصيل</button>
-              <button class="btn btn-sm btn-success" data-notify="lyrids">🔔 تنبيه</button>
-            </div>
+            <p class="meteor-desc">من أقدم زخات الشهب المسجلة. مرئية بوضوح من سماء البحرين. أفضل وقت: 12 صباحاً - 4 فجراً.</p>
+            <div class="meteor-tip">💡 نصيحة: وجه نظرك نحو كوكبة القيثارة (Lyra) شمال شرق السماء</div>
+            <div class="meteor-actions"><button class="btn btn-sm btn-outline" data-modal="lyrids">تفاصيل</button><button class="btn btn-sm btn-success" data-notify="lyrids">🔔 تنبيه</button></div>
           </article>
           
           <!-- Eta Aquariids -->
           <article class="meteor-item animate animate-delay-2" data-name="الدلويات" data-season="spring" data-peak="2026-05-06">
-            <div class="meteor-header">
-              <h3 class="meteor-name">🌊 الدلويات</h3>
-              <div class="meteor-badges">
-                <span class="badge badge-outline">مايو</span>
-              </div>
-            </div>
+            <div class="meteor-header"><h3 class="meteor-name">🌊 الدلويات</h3><div class="meteor-badges"><span class="badge badge-outline">مايو</span></div></div>
             <div class="meteor-date">🗓️ 5-6 مايو 2026</div>
+            <div class="visibility-row"><span>👁️ جودة الرؤية:</span><span class="visibility-badge visibility-good">جيدة</span><span style="font-size:0.8rem;color:var(--text-muted)">القمر 25% 🌒</span></div>
+            <div class="timing-row"><span>⏱️ شهاب كل:</span><span class="timing-value">1.2 دقيقة</span><span class="timing-label">(عند 50/ساعة)</span></div>
             <div class="meteor-rate high">🌟 حتى 50 شهاب/ساعة</div>
-            <p class="meteor-desc">
-              من مخلفات مذنب هالي الشهير. تظهر قبل الفجر بساعات قليلة.
-            </p>
-            <div class="meteor-countdown" data-date="2026-05-06T04:00:00+03:00"></div>
-            <div class="meteor-tip">
-              💡 نصيحة: استلقِ ووجّه نظرك نحو الشرق حيث تشرق الكوكبة
-            </div>
-            <div class="meteor-actions">
-              <button class="btn btn-sm btn-outline" data-modal="aquariids">تفاصيل</button>
-              <button class="btn btn-sm btn-success" data-notify="aquariids">🔔 تنبيه</button>
-            </div>
+            <p class="meteor-desc">من مخلفات مذنب هالي الشهير. تظهر قبل الفجر بساعات قليلة. شهب سريعة جداً.</p>
+            <div class="meteor-tip">💡 نصيحة: استلقِ ووجّه نظرك نحو الشرق حيث تشرق الكوكبة</div>
+            <div class="meteor-actions"><button class="btn btn-sm btn-outline" data-modal="aquariids">تفاصيل</button><button class="btn btn-sm btn-success" data-notify="aquariids">🔔 تنبيه</button></div>
           </article>
           
           <!-- Perseids - Featured -->
           <article class="meteor-item peak animate" data-name="البرشاويات" data-season="summer" data-peak="2026-08-13" data-featured="true">
-            <div class="meteor-header">
-              <h3 class="meteor-name">🔥 البرشاويات</h3>
-              <div class="meteor-badges">
-                <span class="badge badge-warning">الأفضل!</span>
-                <span class="badge badge-outline">أغسطس</span>
-              </div>
-            </div>
+            <div class="meteor-header"><h3 class="meteor-name">🔥 البرشاويات</h3><div class="meteor-badges"><span class="badge badge-warning">الأفضل!</span><span class="badge badge-outline">أغسطس</span></div></div>
             <div class="meteor-date">🗓️ 12-13 أغسطس 2026</div>
+            <div class="visibility-row"><span>👁️ جودة الرؤية:</span><span class="visibility-badge visibility-excellent">ممتازة ✨</span><span style="font-size:0.8rem;color:var(--text-muted)">القمر 0% 🌑</span></div>
+            <div class="timing-row"><span>⏱️ شهاب كل:</span><span class="timing-value">36-72 ثانية</span><span class="timing-label">(50-100/ساعة)</span></div>
             <div class="meteor-rate high">🚀 50-100 شهاب/ساعة</div>
-            <p class="meteor-desc">
-              من أشهر الزخات وأكثرها إثارة! مرئية من البحرين. القمر الجديد يضمن سماء مظلمة تماماً.
-            </p>
-            <div class="meteor-countdown" data-date="2026-08-13T03:00:00+03:00"></div>
-            <div class="meteor-tip">
-              💡 نصيحة: الساعات قبل الفجر في 13 أغسطس هي الذروة الذهبية 🌅
-            </div>
-            <div class="meteor-actions">
-              <button class="btn btn-sm btn-outline" data-modal="perseids">تفاصيل</button>
-              <button class="btn btn-sm btn-success" data-notify="perseids">🔔 تنبيه</button>
-            </div>
+            <p class="meteor-desc">أشهر الزخات وأكثرها إثارة! مرئية من البحرين. القمر الجديد يضمن سماء مظلمة تماماً. شهب سريعة وملونة.</p>
+            <div class="meteor-tip">💡 نصيحة: الساعات قبل الفجر في 13 أغسطس هي الذروة الذهبية 🌅</div>
+            <div class="meteor-actions"><button class="btn btn-sm btn-outline" data-modal="perseids">تفاصيل</button><button class="btn btn-sm btn-success" data-notify="perseids">🔔 تنبيه</button></div>
           </article>
           
           <!-- Orionids -->
           <article class="meteor-item animate animate-delay-1" data-name="الجباريات" data-season="fall" data-peak="2026-10-22">
-            <div class="meteor-header">
-              <h3 class="meteor-name">⭐ الجباريات</h3>
-              <div class="meteor-badges">
-                <span class="badge badge-outline">أكتوبر</span>
-              </div>
-            </div>
+            <div class="meteor-header"><h3 class="meteor-name">⭐ الجباريات</h3><div class="meteor-badges"><span class="badge badge-outline">أكتوبر</span></div></div>
             <div class="meteor-date">🗓️ 21-22 أكتوبر 2026</div>
+            <div class="visibility-row"><span>👁️ جودة الرؤية:</span><span class="visibility-badge visibility-fair">متوسطة</span><span style="font-size:0.8rem;color:var(--text-muted)">القمر 60% 🌔</span></div>
+            <div class="timing-row"><span>⏱️ شهاب كل:</span><span class="timing-value">3 دقائق</span><span class="timing-label">(عند 20/ساعة)</span></div>
             <div class="meteor-rate">✨ ~20 شهاب/ساعة</div>
-            <p class="meteor-desc">
-              أيضاً من مخلفات مذنب هالي. شهب سريعة ولامعة.
-            </p>
-            <div class="meteor-countdown" data-date="2026-10-22T04:00:00+03:00"></div>
-            <div class="meteor-tip">
-              💡 نصيحة: ابحث عن كوكبة الجبار (Orion) في الجنوب
-            </div>
-            <div class="meteor-actions">
-              <button class="btn btn-sm btn-outline" data-modal="orionids">تفاصيل</button>
-              <button class="btn btn-sm btn-success" data-notify="orionids">🔔 تنبيه</button>
-            </div>
+            <p class="meteor-desc">أيضاً من مخلفات مذنب هالي. شهب سريعة جداً تصل سرعتها 66 كم/ثانية.</p>
+            <div class="meteor-tip">💡 نصيحة: ابحث عن كوكبة الجبار (Orion) في الجنوب</div>
+            <div class="meteor-actions"><button class="btn btn-sm btn-outline" data-modal="orionids">تفاصيل</button><button class="btn btn-sm btn-success" data-notify="orionids">🔔 تنبيه</button></div>
           </article>
           
           <!-- Geminids - Peak -->
           <article class="meteor-item peak animate animate-delay-2" data-name="التوأميات" data-season="winter" data-peak="2026-12-14" data-featured="true">
-            <div class="meteor-header">
-              <h3 class="meteor-name">💎 التوأميات</h3>
-              <div class="meteor-badges">
-                <span class="badge badge-success">القمة!</span>
-                <span class="badge badge-outline">ديسمبر</span>
-              </div>
-            </div>
+            <div class="meteor-header"><h3 class="meteor-name">💎 التوأميات</h3><div class="meteor-badges"><span class="badge badge-success">القمة!</span><span class="badge badge-outline">ديسمبر</span></div></div>
             <div class="meteor-date">🗓️ 13-14 ديسمبر 2026</div>
+            <div class="visibility-row"><span>👁️ جودة الرؤية:</span><span class="visibility-badge visibility-excellent">ممتازة ✨</span><span style="font-size:0.8rem;color:var(--text-muted)">القمر 12% 🌒</span></div>
+            <div class="timing-row"><span>⏱️ شهاب كل:</span><span class="timing-value">30 ثانية</span><span class="timing-label">(عند 120/ساعة)</span></div>
             <div class="meteor-rate high">🏆 حتى 120 شهاب/ساعة</div>
-            <p class="meteor-desc">
-              أفضل زخة شهب في السنة! مرئية بوضوح من البحرين. شهب بطيئة وملونة.
-            </p>
-            <div class="meteor-countdown" data-date="2026-12-14T02:00:00+03:00"></div>
-            <div class="meteor-tip">
-              💡 نصيحة: 14 ديسمبر بعد منتصف الليل = تجربة لا تُنسى 🎇
-            </div>
-            <div class="meteor-actions">
-              <button class="btn btn-sm btn-outline" data-modal="geminids">تفاصيل</button>
-              <button class="btn btn-sm btn-success" data-notify="geminids">🔔 تنبيه</button>
-            </div>
+            <p class="meteor-desc">أفضل زخة شهب في السنة! مرئية بوضوح من البحرين. شهب بطيئة وملونة، مرئية طوال الليل.</p>
+            <div class="meteor-tip">💡 نصيحة: 14 ديسمبر بعد منتصف الليل = تجربة لا تُنسى 🎇</div>
+            <div class="meteor-actions"><button class="btn btn-sm btn-outline" data-modal="geminids">تفاصيل</button><button class="btn btn-sm btn-success" data-notify="geminids">🔔 تنبيه</button></div>
           </article>
         </div>
         
@@ -2406,71 +848,83 @@
         </div>
         
         <div style="text-align: center; margin-top: 32px;">
-          <a href="https://www.timeanddate.com/astronomy/night/bahrain/manama" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
-            🔭 خريطة السماء الحية للمنامة
-          </a>
+          <a href="https://www.timeanddate.com/astronomy/night/bahrain/manama" target="_blank" rel="noopener noreferrer" class="btn btn-outline">🔭 خريطة السماء الحية للمنامة</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEW: Timeline / Calendar Section -->
+    <section id="calendar" class="section" style="background: var(--bg-secondary);">
+      <div class="container">
+        <h2 class="text-center" style="font-size: 2rem; font-weight: 800; margin-bottom: 12px;">📅 التقويم الفلكي 2026</h2>
+        <p class="text-center" style="color: var(--text-secondary); max-width: 700px; margin: 0 auto 40px;">ترتيب زخات الشهب الرئيسية خلال العام مع تواريخ الذروة الدقيقة</p>
+        
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">يناير 2026</div>
+              <div class="timeline-title">☄️ الرباعيات (Quadrantids)</div>
+              <p class="timeline-desc">ذروة: 4 يناير. معدل: 120/ساعة. رؤية متوسطة بسبب اكتمال القمر.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">أبريل 2026</div>
+              <div class="timeline-title">🎵 القيثارة (Lyrids)</div>
+              <p class="timeline-desc">ذروة: 22 أبريل. معدل: 18/ساعة. رؤية جيدة مع هلال صغير.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">مايو 2026</div>
+              <div class="timeline-title">🌊 الدلويات (Eta Aquariids)</div>
+              <p class="timeline-desc">ذروة: 6 مايو. معدل: 50/ساعة. تظهر منخفضة في الأفق الشرقي.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">أغسطس 2026</div>
+              <div class="timeline-title">🔥 البرشاويات (Perseids)</div>
+              <p class="timeline-desc">ذروة: 13 أغسطس. معدل: 50-100/ساعة. رؤية ممتازة مع قمر جديد.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">أكتوبر 2026</div>
+              <div class="timeline-title">⭐ الجباريات (Orionids)</div>
+              <p class="timeline-desc">ذروة: 22 أكتوبر. معدل: 20/ساعة. شهب سريعة جداً.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">ديسمبر 2026</div>
+              <div class="timeline-title">💎 التوأميات (Geminids)</div>
+              <p class="timeline-desc">ذروة: 14 ديسمبر. معدل: 120/ساعة. أفضل زخة في العام، رؤية ممتازة.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Viewing Guide Section -->
-    <section id="guide" class="section" style="background: var(--bg-secondary);">
+    <section id="guide" class="section">
       <div class="container">
-        <h2 class="text-center" style="font-size: 2rem; font-weight: 800; margin-bottom: 12px;">
-          📋 دليل المشاهدة الاحترافية
-        </h2>
-        <p class="text-center" style="color: var(--text-secondary); max-width: 700px; margin: 0 auto 40px;">
-          نصائح مجربة وموثقة من خبراء الفلك لالتقاط أفضل تجربة لمشاهدة الشهب من البحرين
-        </p>
+        <h2 class="text-center" style="font-size: 2rem; font-weight: 800; margin-bottom: 12px;">📋 دليل المشاهدة الاحترافية</h2>
+        <p class="text-center" style="color: var(--text-secondary); max-width: 700px; margin: 0 auto 40px;">نصائح مجربة وموثقة من خبراء الفلك لالتقاط أفضل تجربة لمشاهدة الشهب من البحرين</p>
         
         <div class="guide-grid">
-          <div class="guide-item animate">
-            <div class="guide-icon">🌑</div>
-            <div class="guide-text">
-              <h4>اختر ليلة مظلمة</h4>
-              <p>تجنب الليالي المضيئة بالقمر. أفضل الأوقات: حول القمر الجديد. تحقق من طور القمر قبل التخطيط.</p>
-            </div>
-          </div>
-          
-          <div class="guide-item animate animate-delay-1">
-            <div class="guide-icon">🏜️</div>
-            <div class="guide-text">
-              <h4>ابتعد عن الأضواء</h4>
-              <p>اذهب لمناطق مفتوحة مثل: جزيرة المحرق، الرفاع، أو الصحراء الجنوبية. تجنب أضواء الشوارع والمباني.</p>
-            </div>
-          </div>
-          
-          <div class="guide-item animate animate-delay-2">
-            <div class="guide-icon">🛌</div>
-            <div class="guide-text">
-              <h4>استلقِ وارتح</h4>
-              <p>استخدم كرسي استلقاء أو بساط. الشهب تظهر في كل اتجاه، لا تحدق في نقطة واحدة. ارتح واستمتع.</p>
-            </div>
-          </div>
-          
-          <div class="guide-item animate">
-            <div class="guide-icon">👁️</div>
-            <div class="guide-text">
-              <h4>أعطِ عينيك وقتاً</h4>
-              <p>انتظر 20-30 دقيقة لتتكيف عينيك مع الظلام. تجنب استخدام الهاتف أو أي ضوء ساطع.</p>
-            </div>
-          </div>
-          
-          <div class="guide-item animate animate-delay-1">
-            <div class="guide-icon">🧥</div>
-            <div class="guide-text">
-              <h4>استعد للطقس</h4>
-              <p>البحرين دافئة، لكن ليالي الشتاء قد تكون باردة. أحضر سترة خفيفة، ماء، ووجبات خفيفة.</p>
-            </div>
-          </div>
-          
-          <div class="guide-item animate animate-delay-2">
-            <div class="guide-icon">📱</div>
-            <div class="guide-text">
-              <h4>وثّق اللحظات</h4>
-              <p>لتصوير الشهب: استخدم وضع التعريض الطويل (15-30 ثانية) مع حامل ثلاثي. جرب تطبيقات مثل NightCap.</p>
-            </div>
-          </div>
+          <div class="guide-item animate"><div class="guide-icon">🌑</div><div class="guide-text"><h4>اختر ليلة مظلمة</h4><p>تجنب الليالي المضيئة بالقمر. أفضل الأوقات: حول القمر الجديد. تحقق من طور القمر قبل التخطيط.</p></div></div>
+          <div class="guide-item animate animate-delay-1"><div class="guide-icon">🏜️</div><div class="guide-text"><h4>ابتعد عن الأضواء</h4><p>اذهب لمناطق مفتوحة مثل: جزيرة المحرق، الرفاع، أو الصحراء الجنوبية. تجنب أضواء الشوارع والمباني.</p></div></div>
+          <div class="guide-item animate animate-delay-2"><div class="guide-icon">🛌</div><div class="guide-text"><h4>استلقِ وارتح</h4><p>استخدم كرسي استلقاء أو بساط. الشهب تظهر في كل اتجاه، لا تحدق في نقطة واحدة. ارتح واستمتع.</p></div></div>
+          <div class="guide-item animate"><div class="guide-icon">👁️</div><div class="guide-text"><h4>أعطِ عينيك وقتاً</h4><p>انتظر 20-30 دقيقة لتتكيف عينيك مع الظلام. تجنب استخدام الهاتف أو أي ضوء ساطع.</p></div></div>
+          <div class="guide-item animate animate-delay-1"><div class="guide-icon">🧥</div><div class="guide-text"><h4>استعد للطقس</h4><p>البحرين دافئة، لكن ليالي الشتاء قد تكون باردة. أحضر سترة خفيفة، ماء، ووجبات خفيفة.</p></div></div>
+          <div class="guide-item animate animate-delay-2"><div class="guide-icon">📱</div><div class="guide-text"><h4>وثّق اللحظات</h4><p>لتصوير الشهب: استخدم وضع التعريض الطويل (15-30 ثانية) مع حامل ثلاثي. جرب تطبيقات مثل NightCap.</p></div></div>
         </div>
         
         <div class="card" style="margin-top: var(--spacing-xl);">
@@ -2487,104 +941,52 @@
       </div>
     </section>
 
-    <!-- Best Locations Section -->
-    <section id="location" class="section">
+    <!-- Calculator Section -->
+    <section id="calculator" class="section" style="background: var(--bg-secondary);">
       <div class="container">
-        <h2 class="text-center" style="font-size: 2rem; font-weight: 800; margin-bottom: 12px;">
-          🗺️ أفضل مواقع المشاهدة في البحرين
-        </h2>
-        <p class="text-center" style="color: var(--text-secondary); max-width: 700px; margin: 0 auto 40px;">
-          مواقع مُختارة بعناية لأفضل رؤية للسماء مع أقل تلوث ضوئي وإمكانيات وصول آمنة
-        </p>
-        
-        <div class="location-card animate">
-          <h3 style="font-weight: 700; margin-bottom: 16px;">🏆 الموقع الموصى به: منطقة الرفاع الجنوبية</h3>
-          <p style="color: var(--text-secondary); margin-bottom: 24px;">
-            منطقة مرتفعة وواسعة مع أفق مفتوح، بعيدة نسبياً عن أضواء المنامة الرئيسية. مناسبة للعائلات والمجموعات.
-          </p>
+        <div class="calc-section">
+          <h3 class="calc-title">🧮 حاسبة المشاهدة الشخصية</h3>
+          <p class="calc-desc">احسب عدد الشهب المتوقع والوقت بين كل شهاب بناءً على شروطك</p>
           
-          <div class="location-map" id="locationMap" role="button" tabindex="0" aria-label="عرض الخريطة على Google Maps">
-            🗺️ انقر لعرض الموقع على الخريطة
-          </div>
+          <form class="calc-form" id="calcForm" onsubmit="calcViewing(event)">
+            <div>
+              <label class="form-label" for="showerSelect">اختر زخة الشهب</label>
+              <select id="showerSelect" class="form-control form-select" required>
+                <option value="">-- اختر --</option>
+                <option value="120">الرباعيات (حتى 120/ساعة)</option>
+                <option value="18">القيثارة (حتى 18/ساعة)</option>
+                <option value="50">الدلويات (حتى 50/ساعة)</option>
+                <option value="100" selected>البرشاويات (حتى 100/ساعة)</option>
+                <option value="20">الجباريات (حتى 20/ساعة)</option>
+                <option value="120">التوأميات (حتى 120/ساعة)</option>
+              </select>
+            </div>
+            
+            <div>
+              <label class="form-label" for="duration">مدة المشاهدة (بالدقائق)</label>
+              <input type="number" id="duration" class="form-control" min="5" max="300" value="30" required>
+            </div>
+            
+            <div>
+              <label class="form-label" for="skyQuality">جودة موقع المشاهدة</label>
+              <select id="skyQuality" class="form-control form-select" required>
+                <option value="1">🌆 داخل المدينة (تلوث ضوئي عالي)</option>
+                <option value="0.6" selected>🌃 ضواحي المدينة (تلوث متوسط)</option>
+                <option value="0.3">🌌 ريف / بحر (سماء مظلمة)</option>
+                <option value="0.1">⛰️ صحراء (سماء مثالية)</option>
+              </select>
+            </div>
+            
+            <button type="submit" class="btn" style="width:100%">🔍 احسب النتيجة</button>
+          </form>
           
-          <div class="location-details">
-            <div class="location-item">
-              <span class="location-label">الإحداثيات</span>
-              <span class="location-value">26.13°N, 50.55°E</span>
-            </div>
-            <div class="location-item">
-              <span class="location-label">مستوى الظلام</span>
-              <span class="location-value">⭐⭐⭐⭐ (جيد جداً)</span>
-            </div>
-            <div class="location-item">
-              <span class="location-label">سهولة الوصول</span>
-              <span class="location-value">🚗 سيارة عادية كافية</span>
-            </div>
-            <div class="location-item">
-              <span class="location-label">المرافق</span>
-              <span class="location-value">🅿️ مواقف • 🚻 دورات مياه • ☕ مقاهي قريبة</span>
-            </div>
-            <div class="location-item">
-              <span class="location-label">الأمان</span>
-              <span class="location-value">✅ منطقة آمنة ومضاءة جزئياً</span>
-            </div>
-          </div>
-          
-          <div class="location-tags">
-            <span class="badge">🏜️ جزيرة المحرق الشمالية</span>
-            <span class="badge">🌊 ساحل البديع</span>
-            <span class="badge">⛰️ جبل الدخان</span>
-            <span class="badge">🏖️ رأس رمان</span>
-          </div>
-          
-          <div style="margin-top: 24px;">
-            <button class="btn btn-outline" id="downloadLocations">
-              📥 تحميل قائمة المواقع (PDF)
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Gallery Section -->
-    <section id="gallery" class="section" style="background: var(--bg-secondary);">
-      <div class="container">
-        <h2 class="text-center" style="font-size: 2rem; font-weight: 800; margin-bottom: 12px;">
-          📷 معرض صور الشهب
-        </h2>
-        <p class="text-center" style="color: var(--text-secondary); max-width: 700px; margin: 0 auto 40px;">
-          لقطات مذهلة لزخات الشهب السابقة من سماء البحرين ومنطقة الخليج
-        </p>
-        
-        <div class="gallery-grid">
-          <div class="gallery-item" role="img" aria-label="صورة شهب البرشاويات">
-            <div class="gallery-overlay">
-              <span class="gallery-caption">البرشاويات 2025</span>
-            </div>
-          </div>
-          <div class="gallery-item" role="img" aria-label="صورة شهب التوأميات">
-            <div class="gallery-overlay">
-              <span class="gallery-caption">التوأميات 2025</span>
-            </div>
-          </div>
-          <div class="gallery-item" role="img" aria-label="صورة سماء المنامة">
-            <div class="gallery-overlay">
-              <span class="gallery-caption">سماء المنامة</span>
-            </div>
-          </div>
-          <div class="gallery-item" role="img" aria-label="صورة مذنب هالي">
-            <div class="gallery-overlay">
-              <span class="gallery-caption">مذنب هالي</span>
-            </div>
-          </div>
-        </div>
-        
-        <div style="text-align: center; margin-top: var(--spacing-xl);">
-          <p class="small">📸 شارك صورك معنا باستخدام الوسم #شهب_المنامة</p>
-          <div class="social-links" style="justify-content: center; margin-top: var(--spacing-md);">
-            <a href="#" aria-label="Instagram" title="Instagram">📸</a>
-            <a href="#" aria-label="Twitter" title="Twitter">🐦</a>
-            <a href="#" aria-label="YouTube" title="YouTube">🎬</a>
+          <div class="calc-result" id="calcResult">
+            <div class="result-item"><span class="result-label">المعدل النظري:</span><span class="result-value" id="resRate">-</span></div>
+            <div class="result-item"><span class="result-label">مدة المشاهدة:</span><span class="result-value" id="resDuration">-</span></div>
+            <div class="result-item"><span class="result-label">عامل جودة السماء:</span><span class="result-value" id="resQuality">-</span></div>
+            <div class="result-item" style="border-top:2px solid var(--border);padding-top:10px;margin-top:6px"><span class="result-label">✨ عدد الشهب المتوقع:</span><span class="result-highlight" id="resExpected">-</span></div>
+            <div class="result-item"><span class="result-label">⏱️ متوسط الانتظار:</span><span class="result-value" id="resWait">-</span></div>
+            <div class="calc-tip">💡 ملاحظة: الأرقام تقديرية. الرؤية الفعلية تعتمد على: الطقس، التكيف مع الظلام، اتجاه الرؤية، والحظ.</div>
           </div>
         </div>
       </div>
@@ -2593,62 +995,29 @@
     <!-- FAQ Section -->
     <section id="faq" class="section">
       <div class="container">
-        <h2 class="text-center" style="font-size: 2rem; font-weight: 800; margin-bottom: 12px;">
-          ❓ الأسئلة الشائعة
-        </h2>
-        <p class="text-center" style="color: var(--text-secondary); max-width: 700px; margin: 0 auto 40px;">
-          إجابات على أكثر الأسئلة شيوعاً حول مشاهدة الشهب في البحرين
-        </p>
+        <h2 class="text-center" style="font-size: 2rem; font-weight: 800; margin-bottom: 12px;">❓ الأسئلة الشائعة</h2>
+        <p class="text-center" style="color: var(--text-secondary); max-width: 700px; margin: 0 auto 40px;">إجابات على أكثر الأسئلة شيوعاً حول مشاهدة الشهب في البحرين</p>
         
         <div class="accordion" id="faqAccordion">
           <div class="accordion-item">
-            <div class="accordion-header" role="button" tabindex="0" aria-expanded="false">
-              <span>هل أحتاج إلى تلسكوب لمشاهدة الشهب؟</span>
-              <span class="accordion-icon">▼</span>
-            </div>
-            <div class="accordion-body">
-              <p>لا، الشهب تُشاهد بالعين المجردة! في الواقع، التلسكوب يقلل من مجال رؤيتك للسماء. الأفضل هو الاستلقاء في مكان مظلم والسماح لعينيك بالتكيف مع الظلام.</p>
-            </div>
+            <div class="accordion-header" role="button" tabindex="0" aria-expanded="false"><span>هل أحتاج إلى تلسكوب لمشاهدة الشهب؟</span><span class="accordion-icon">▼</span></div>
+            <div class="accordion-body"><p>لا، الشهب تُشاهد بالعين المجردة! في الواقع، التلسكوب يقلل من مجال رؤيتك للسماء. الأفضل هو الاستلقاء في مكان مظلم والسماح لعينيك بالتكيف مع الظلام.</p></div>
           </div>
-          
           <div class="accordion-item">
-            <div class="accordion-header" role="button" tabindex="0" aria-expanded="false">
-              <span>ما هو أفضل وقت لمشاهدة الشهب؟</span>
-              <span class="accordion-icon">▼</span>
-            </div>
-            <div class="accordion-body">
-              <p>أفضل وقت هو عادةً بعد منتصف الليل حتى الفجر، عندما تكون نقطة الإشعاع (Radiant) عالية في السماء. أيضاً، تجنب الليالي المضيئة بالقمر الكامل.</p>
-            </div>
+            <div class="accordion-header" role="button" tabindex="0" aria-expanded="false"><span>ما هو أفضل وقت لمشاهدة الشهب؟</span><span class="accordion-icon">▼</span></div>
+            <div class="accordion-body"><p>أفضل وقت هو عادةً بعد منتصف الليل حتى الفجر، عندما تكون نقطة الإشعاع (Radiant) عالية في السماء. أيضاً، تجنب الليالي المضيئة بالقمر الكامل.</p></div>
           </div>
-          
           <div class="accordion-item">
-            <div class="accordion-header" role="button" tabindex="0" aria-expanded="false">
-              <span>هل الشهب خطيرة؟</span>
-              <span class="accordion-icon">▼</span>
-            </div>
-            <div class="accordion-body">
-              <p>لا على الإطلاق! الشهب التي نراها هي جسيمات صغيرة بحجم حبة الرمل تحترق في الغلاف الجوي على ارتفاع 80-120 كم. لا تصل أي منها إلى سطح الأرض.</p>
-            </div>
+            <div class="accordion-header" role="button" tabindex="0" aria-expanded="false"><span>هل الشهب خطيرة؟</span><span class="accordion-icon">▼</span></div>
+            <div class="accordion-body"><p>لا على الإطلاق! الشهب التي نراها هي جسيمات صغيرة بحجم حبة الرمل تحترق في الغلاف الجوي على ارتفاع 80-120 كم. لا تصل أي منها إلى سطح الأرض.</p></div>
           </div>
-          
           <div class="accordion-item">
-            <div class="accordion-header" role="button" tabindex="0" aria-expanded="false">
-              <span>كيف أصور الشهب بهاتفي؟</span>
-              <span class="accordion-icon">▼</span>
-            </div>
-            <div class="accordion-body">
-              <p>استخدم وضع "الاحترافي" أو تطبيقاً يدعم التعريض الطويل. اضبط: تعريض 15-30 ثانية، فتحة f/1.8-2.8، ISO 1600-3200. استخدم حامل ثلاثي أو ثبت الهاتف على سطح ثابت.</p>
-            </div>
+            <div class="accordion-header" role="button" tabindex="0" aria-expanded="false"><span>كيف أصور الشهب بهاتفي؟</span><span class="accordion-icon">▼</span></div>
+            <div class="accordion-body"><p>استخدم وضع "الاحترافي" أو تطبيقاً يدعم التعريض الطويل. اضبط: تعريض 15-30 ثانية، فتحة f/1.8-2.8، ISO 1600-3200. استخدم حامل ثلاثي أو ثبت الهاتف على سطح ثابت.</p></div>
           </div>
-          
           <div class="accordion-item">
-            <div class="accordion-header" role="button" tabindex="0" aria-expanded="false">
-              <span>ماذا لو كانت السماء غائمة؟</span>
-              <span class="accordion-icon">▼</span>
-            </div>
-            <div class="accordion-body">
-              <p>للأسف، الغيوم تمنع رؤية الشهب. تحقق من توقعات الطقس مسبقاً عبر تطبيقات مثل: Windy، AccuWeather، أو موقع الأرصاد الجوية البحريني. خطط لموقع بديل إذا أمكن.</p>
-            </div>
+            <div class="accordion-header" role="button" tabindex="0" aria-expanded="false"><span>ماذا لو كانت السماء غائمة؟</span><span class="accordion-icon">▼</span></div>
+            <div class="accordion-body"><p>للأسف، الغيوم تمنع رؤية الشهب. تحقق من توقعات الطقس مسبقاً عبر تطبيقات مثل: Windy، AccuWeather، أو موقع الأرصاد الجوية البحريني. خطط لموقع بديل إذا أمكن.</p></div>
           </div>
         </div>
       </div>
@@ -2657,17 +1026,11 @@
     <!-- Contact Section -->
     <section id="contact" class="section" style="background: var(--bg-secondary);">
       <div class="container">
-        <h2 class="text-center" style="font-size: 2rem; font-weight: 800; margin-bottom: 12px;">
-          📧 تواصل معنا
-        </h2>
-        <p class="text-center" style="color: var(--text-secondary); max-width: 700px; margin: 0 auto 40px;">
-          لديك سؤال أو ملاحظة؟ نحب أن نسمع منك!
-        </p>
+        <h2 class="text-center" style="font-size: 2rem; font-weight: 800; margin-bottom: 12px;">📧 تواصل معنا</h2>
+        <p class="text-center" style="color: var(--text-secondary); max-width: 700px; margin: 0 auto 40px;">لديك سؤال أو ملاحظة؟ نحب أن نسمع منك!</p>
         
         <div class="card contact-form">
-          <div class="form-success" id="formSuccess">
-            ✅ تم إرسال رسالتك بنجاح! سنرد عليك في أقرب وقت.
-          </div>
+          <div class="form-success" id="formSuccess">✅ تم إرسال رسالتك بنجاح! سنرد عليك في أقرب وقت.</div>
           
           <form id="contactForm" novalidate>
             <div class="form-row">
@@ -2707,11 +1070,7 @@
             </div>
             <span class="form-error" id="consentError">يجب الموافقة على سياسة الخصوصية</span>
             
-            <div class="form-submit">
-              <button type="submit" class="btn btn-lg" id="submitBtn">
-                📤 إرسال الرسالة
-              </button>
-            </div>
+            <div class="form-submit"><button type="submit" class="btn btn-lg" id="submitBtn">📤 إرسال الرسالة</button></div>
           </form>
         </div>
       </div>
@@ -2722,57 +1081,42 @@
   <!-- Footer -->
   <footer>
     <div class="container">
-      <div class="footer-grid">
-        <div class="footer-section footer-about">
+      <div style="display: grid; gap: var(--spacing-xl); @media(min-width:768px){grid-template-columns: repeat(3,1fr);}">
+        <div>
           <h4>🌠 مرصد شهب المنامة</h4>
-          <p>
-            مبادرة مجتمعية غير ربحية لنشر الثقافة الفلكية في مملكة البحرين. 
-            نسعى لجعل علم الفلك متاحاً للجميع.
-          </p>
-          <div class="social-links">
-            <a href="#" aria-label="Twitter" title="تابعنا على تويتر">🐦</a>
-            <a href="#" aria-label="Instagram" title="تابعنا على إنستغرام">📸</a>
-            <a href="#" aria-label="YouTube" title="تابعنا على يوتيوب">🎬</a>
-            <a href="#" aria-label="Telegram" title="انضم لقناتنا على تيليجرام">✈️</a>
+          <p style="color: var(--text-secondary); font-size: var(--font-size-sm);">مبادرة مجتمعية غير ربحية لنشر الثقافة الفلكية في مملكة البحرين. نسعى لجعل علم الفلك متاحاً للجميع.</p>
+          <div class="social-links" style="display: flex; gap: var(--spacing-sm); margin-top: var(--spacing-md);">
+            <a href="#" aria-label="Twitter">🐦</a>
+            <a href="#" aria-label="Instagram">📸</a>
+            <a href="#" aria-label="YouTube">🎬</a>
+            <a href="#" aria-label="Telegram">✈️</a>
           </div>
         </div>
-        
-        <div class="footer-section">
+        <div>
           <h4>روابط سريعة</h4>
-          <ul class="footer-links">
+          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: var(--spacing-sm);">
             <li><a href="#showers">جدول زخات الشهب</a></li>
-            <li><a href="#guide">دليل المشاهدة</a></li>
-            <li><a href="#location">خرائط المواقع</a></li>
+            <li><a href="#calendar">التقويم الفلكي</a></li>
+            <li><a href="#calculator">حاسبة المشاهدة</a></li>
             <li><a href="#faq">الأسئلة الشائعة</a></li>
             <li><a href="https://www.timeanddate.com/astronomy/night/bahrain/manama" target="_blank" rel="noopener">السماء الحية</a></li>
           </ul>
         </div>
-        
-        <div class="footer-section">
+        <div>
           <h4>مصادر موثوقة</h4>
-          <ul class="footer-links">
+          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: var(--spacing-sm);">
             <li><a href="https://www.space.com" target="_blank" rel="noopener">Space.com</a></li>
             <li><a href="https://www.timeanddate.com" target="_blank" rel="noopener">Time and Date</a></li>
             <li><a href="https://dubaiastronomy.com" target="_blank" rel="noopener">مجموعة دبي الفلكية</a></li>
-            <li><a href="https://earthsky.org" target="_blank" rel="noopener">EarthSky</a></li>
             <li><a href="https://imo.net" target="_blank" rel="noopener">المنظمة الدولية للشهب</a></li>
           </ul>
         </div>
       </div>
       
-      <div class="footer-bottom">
-        <p>
-          ⚠️ تنويه: الظواهر الفلكية تعتمد على الظروف الجوية. تحقق من النشرة الجوية قبل الخروج.
-        </p>
-        <p>
-          🌍 هذا الموقع مجاني ومفتوح المصدر على GitHub Pages
-        </p>
-        <div class="version-badge">
-          🏷️ الإصدار: v2.6.0-stable
-        </div>
-        <p class="small">
-          © <span id="currentYear">2026</span> مجتمع الفلكيين في البحرين. جميع الحقوق محفوظة.
-        </p>
+      <div style="text-align: center; padding-top: var(--spacing-xl); margin-top: var(--spacing-xl); border-top: 1px solid var(--border); color: var(--text-muted); font-size: var(--font-size-sm); display: flex; flex-direction: column; gap: var(--spacing-xs);">
+        <p>⚠️ تنويه: الظواهر الفلكية تعتمد على الظروف الجوية. تحقق من النشرة الجوية قبل الخروج.</p>
+        <div style="display: inline-flex; align-items: center; gap: var(--spacing-xxs); padding: var(--spacing-xxs) var(--spacing-sm); background: var(--bg-card); border-radius: var(--radius-full); font-size: var(--font-size-xs); font-weight: var(--font-weight-semibold); color: var(--accent); border: 1px solid var(--border); align-self: center; margin-top: var(--spacing-xs);">🏷️ الإصدار: v4.0.0-stable</div>
+        <p class="small">© <span id="currentYear">2026</span> مجتمع الفلكيين في البحرين. جميع الحقوق محفوظة.</p>
       </div>
     </div>
   </footer>
@@ -2787,9 +1131,7 @@
         <h3 class="modal-title" id="modalTitle">تفاصيل الزخة</h3>
         <button class="modal-close" id="modalClose" aria-label="إغلاق النافذة">&times;</button>
       </div>
-      <div class="modal-body" id="modalBody">
-        <!-- Content injected by JS -->
-      </div>
+      <div class="modal-body" id="modalBody"><!-- Content injected by JS --></div>
       <div class="modal-footer">
         <button class="btn btn-outline" id="modalCancel">إغلاق</button>
         <button class="btn btn-success" id="modalNotify">🔔 أضف تنبيهاً</button>
@@ -2799,1214 +1141,115 @@
 
   <!-- ==================== JAVASCRIPT ==================== -->
   <script>
-    /**
-     * 🌠 Manama Meteor Observatory 2026
-     * Version: v2.6.0-stable
-     * Author: Bahrain Astronomy Community
-     * License: MIT
-     */
-    
     'use strict';
-    
-    // ==================== CONFIG ====================
     const CONFIG = {
-      version: '2.6.0',
+      version: '4.0.0',
       buildDate: '2026-04-30',
       timezone: 'Asia/Bahrain',
-      defaultLang: 'ar',
-      supportedLangs: ['ar', 'en'],
       meteorData: {
-        quadrantids: {
-          name: { ar: 'الرباعيات', en: 'Quadrantids' },
-          peak: '2026-01-04',
-          rate: '120',
-          parent: 'Asteroid 2003 EH1',
-          description: {
-            ar: 'أول زخة شهب في العام. سريعة جداً لكن قصيرة الذروة (بضع ساعات فقط).',
-            en: 'First meteor shower of the year. Very fast but short peak (only a few hours).'
-          }
-        },
-        lyrids: {
-          name: { ar: 'القيثارة', en: 'Lyrids' },
-          peak: '2026-04-22',
-          rate: '18',
-          parent: 'Comet C/1861 G1 (Thatcher)',
-          description: {
-            ar: 'من أقدم زخات الشهب المسجلة. تنتج شهباً ساطعة مع ذيول طويلة.',
-            en: 'One of the oldest recorded meteor showers. Produces bright meteors with long trains.'
-          }
-        },
-        aquariids: {
-          name: { ar: 'الدلويات', en: 'Eta Aquariids' },
-          peak: '2026-05-06',
-          rate: '50',
-          parent: 'Comet 1P/Halley',
-          description: {
-            ar: 'من مخلفات مذنب هالي الشهير. أفضل مشاهدة من نصف الكرة الجنوبي.',
-            en: 'From debris of famous Halley\'s Comet. Best viewed from Southern Hemisphere.'
-          }
-        },
-        perseids: {
-          name: { ar: 'البرشاويات', en: 'Perseids' },
-          peak: '2026-08-13',
-          rate: '100',
-          parent: 'Comet 109P/Swift-Tuttle',
-          description: {
-            ar: 'أشهر زخة شهب في الصيف. شهب ساطعة وسريعة مع ألوان متعددة.',
-            en: 'Most famous summer meteor shower. Bright, fast meteors with multiple colors.'
-          }
-        },
-        orionids: {
-          name: { ar: 'الجباريات', en: 'Orionids' },
-          peak: '2026-10-22',
-          rate: '20',
-          parent: 'Comet 1P/Halley',
-          description: {
-            ar: 'أيضاً من مخلفات مذنب هالي. شهب سريعة جداً تصل سرعتها 66 كم/ثانية.',
-            en: 'Also from Halley\'s Comet debris. Very fast meteors reaching 66 km/s.'
-          }
-        },
-        geminids: {
-          name: { ar: 'التوأميات', en: 'Geminids' },
-          peak: '2026-12-14',
-          rate: '120',
-          parent: 'Asteroid 3200 Phaethon',
-          description: {
-            ar: 'أفضل زخة شهب في السنة! شهب بطيئة وملونة، مرئية طوال الليل.',
-            en: 'Best meteor shower of the year! Slow, colorful meteors visible all night.'
-          }
-        }
+        quadrantids: { name: { ar: 'الرباعيات', en: 'Quadrantids' }, peak: '2026-01-04', rate: '120', parent: 'Asteroid 2003 EH1', desc: { ar: 'أول زخة في العام. سريعة جداً لكن قصيرة الذروة.', en: 'First meteor shower of the year. Very fast but short peak.' } },
+        lyrids: { name: { ar: 'القيثارة', en: 'Lyrids' }, peak: '2026-04-22', rate: '18', parent: 'Comet C/1861 G1 (Thatcher)', desc: { ar: 'من أقدم الزخات المسجلة. تنتج شهباً ساطعة مع ذيول طويلة.', en: 'One of the oldest recorded. Produces bright meteors with long trains.' } },
+        aquariids: { name: { ar: 'الدلويات', en: 'Eta Aquariids' }, peak: '2026-05-06', rate: '50', parent: 'Comet 1P/Halley', desc: { ar: 'من مخلفات مذنب هالي الشهير. أفضل مشاهدة من نصف الكرة الجنوبي.', en: 'From debris of famous Halley\'s Comet. Best viewed from Southern Hemisphere.' } },
+        perseids: { name: { ar: 'البرشاويات', en: 'Perseids' }, peak: '2026-08-13', rate: '100', parent: 'Comet 109P/Swift-Tuttle', desc: { ar: 'أشهر زخة شهب في الصيف. شهب ساطعة وسريعة مع ألوان متعددة.', en: 'Most famous summer shower. Bright, fast meteors with multiple colors.' } },
+        orionids: { name: { ar: 'الجباريات', en: 'Orionids' }, peak: '2026-10-22', rate: '20', parent: 'Comet 1P/Halley', desc: { ar: 'أيضاً من مخلفات مذنب هالي. شهب سريعة جداً تصل سرعتها 66 كم/ثانية.', en: 'Also from Halley\'s Comet debris. Very fast meteors reaching 66 km/s.' } },
+        geminids: { name: { ar: 'التوأميات', en: 'Geminids' }, peak: '2026-12-14', rate: '120', parent: 'Asteroid 3200 Phaethon', desc: { ar: 'أفضل زخة شهب في السنة! شهب بطيئة وملونة، مرئية طوال الليل.', en: 'Best meteor shower of the year! Slow, colorful meteors visible all night.' } }
       }
     };
-    
-    // ==================== STATE ====================
-    const state = {
-      theme: localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'),
-      lang: localStorage.getItem('lang') || CONFIG.defaultLang,
-      notifications: JSON.parse(localStorage.getItem('notifications') || '[]'),
-      favorites: JSON.parse(localStorage.getItem('favorites') || '[]'),
-      formSubmitted: false
-    };
-    
-    // ==================== DOM ELEMENTS ====================
-    const elements = {
-      html: document.documentElement,
-      body: document.body,
-      header: document.getElementById('header'),
-      navToggle: document.getElementById('navToggle'),
-      mainNav: document.getElementById('mainNav'),
-      themeToggle: document.getElementById('themeToggle'),
-      langToggle: document.getElementById('langToggle'),
-      progressBar: document.getElementById('progressBar'),
-      backToTop: document.getElementById('backToTop'),
-      scrollIndicator: document.getElementById('scrollIndicator'),
-      meteorGrid: document.getElementById('meteorGrid'),
-      meteorSearch: document.getElementById('meteorSearch'),
-      filterBtns: document.querySelectorAll('.filter-btn'),
-      noResults: document.getElementById('noResults'),
-      resetFilters: document.getElementById('resetFilters'),
-      notifyBtn: document.getElementById('notifyBtn'),
-      locationMap: document.getElementById('locationMap'),
-      downloadLocations: document.getElementById('downloadLocations'),
-      faqAccordion: document.getElementById('faqAccordion'),
-      contactForm: document.getElementById('contactForm'),
-      formSuccess: document.getElementById('formSuccess'),
-      submitBtn: document.getElementById('submitBtn'),
-      modalOverlay: document.getElementById('modalOverlay'),
-      modalTitle: document.getElementById('modalTitle'),
-      modalBody: document.getElementById('modalBody'),
-      modalClose: document.getElementById('modalClose'),
-      modalCancel: document.getElementById('modalCancel'),
-      modalNotify: document.getElementById('modalNotify'),
-      toastContainer: document.getElementById('toastContainer'),
-      currentYear: document.getElementById('currentYear')
-    };
-    
-    // ==================== UTILITY FUNCTIONS ====================
+
+    const state = { theme: localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'), lang: localStorage.getItem('lang') || 'ar', notifications: JSON.parse(localStorage.getItem('notifications') || '[]') };
+    const elements = { html: document.documentElement, body: document.body, header: document.getElementById('header'), navToggle: document.getElementById('navToggle'), mainNav: document.getElementById('mainNav'), themeToggle: document.getElementById('themeToggle'), langToggle: document.getElementById('langToggle'), progressBar: document.getElementById('progressBar'), backToTop: document.getElementById('backToTop'), scrollIndicator: document.getElementById('scrollIndicator'), meteorGrid: document.getElementById('meteorGrid'), meteorSearch: document.getElementById('meteorSearch'), filterBtns: document.querySelectorAll('.filter-btn'), noResults: document.getElementById('noResults'), resetFilters: document.getElementById('resetFilters'), notifyBtn: document.getElementById('notifyBtn'), calcForm: document.getElementById('calcForm'), calcResult: document.getElementById('calcResult'), faqAccordion: document.getElementById('faqAccordion'), contactForm: document.getElementById('contactForm'), formSuccess: document.getElementById('formSuccess'), submitBtn: document.getElementById('submitBtn'), modalOverlay: document.getElementById('modalOverlay'), modalTitle: document.getElementById('modalTitle'), modalBody: document.getElementById('modalBody'), modalClose: document.getElementById('modalClose'), modalCancel: document.getElementById('modalCancel'), modalNotify: document.getElementById('modalNotify'), toastContainer: document.getElementById('toastContainer'), currentYear: document.getElementById('currentYear') };
+
     const utils = {
-      // Debounce function
-      debounce: (func, wait) => {
-        let timeout;
-        return function executedFunction(...args) {
-          const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-          };
-          clearTimeout(timeout);
-          timeout = setTimeout(later, wait);
-        };
-      },
-      
-      // Format date to Arabic
-      formatDate: (dateString, lang = 'ar') => {
-        const date = new Date(dateString);
-        const options = { 
-          year: 'numeric', 
-          month: 'long', 
-          day: 'numeric',
-          weekday: 'long'
-        };
-        return date.toLocaleDateString(lang === 'ar' ? 'ar-BH' : 'en-US', options);
-      },
-      
-      // Calculate countdown
-      getCountdown: (targetDate) => {
-        const now = new Date();
-        const target = new Date(targetDate);
-        const diff = target - now;
-        
-        if (diff <= 0) return { expired: true };
-        
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-        
-        return { days, hours, minutes, seconds, expired: false };
-      },
-      
-      // Show toast notification
-      showToast: (message, type = 'info', title = '') => {
-        const toast = document.createElement('div');
-        toast.className = `toast ${type}`;
-        toast.setAttribute('role', 'alert');
-        
-        const icons = { success: '✅', warning: '⚠️', error: '❌', info: 'ℹ️' };
-        
-        toast.innerHTML = `
-          <span class="toast-icon">${icons[type] || icons.info}</span>
-          <div class="toast-content">
-            ${title ? `<div class="toast-title">${title}</div>` : ''}
-            <div class="toast-message">${message}</div>
-          </div>
-          <button class="toast-close" aria-label="إغلاق">&times;</button>
-        `;
-        
-        elements.toastContainer.appendChild(toast);
-        
-        // Close button handler
-        toast.querySelector('.toast-close').addEventListener('click', () => {
-          toast.remove();
-        });
-        
-        // Auto remove after 3 seconds
-        setTimeout(() => {
-          if (toast.parentNode) {
-            toast.style.animation = 'fadeOut 0.3s ease forwards';
-            setTimeout(() => toast.remove(), 300);
-          }
-        }, 3000);
-      },
-      
-      // Save to localStorage
-      save: (key, value) => {
-        try {
-          localStorage.setItem(key, JSON.stringify(value));
-          return true;
-        } catch (e) {
-          console.error('Storage error:', e);
-          return false;
-        }
-      },
-      
-      // Load from localStorage
-      load: (key, defaultValue) => {
-        try {
-          const item = localStorage.getItem(key);
-          return item ? JSON.parse(item) : defaultValue;
-        } catch (e) {
-          console.error('Storage error:', e);
-          return defaultValue;
-        }
-      },
-      
-      // Smooth scroll to element
-      scrollTo: (element, offset = 0) => {
-        const elementTop = element.getBoundingClientRect().top + window.pageYOffset;
-        window.scrollTo({
-          top: elementTop - offset,
-          behavior: 'smooth'
-        });
-      },
-      
-      // Check if element is in viewport
-      isInViewport: (element) => {
-        const rect = element.getBoundingClientRect();
-        return (
-          rect.top >= 0 &&
-          rect.left >= 0 &&
-          rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-          rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-        );
-      }
+      debounce: (func, wait) => { let timeout; return (...args) => { clearTimeout(timeout); timeout = setTimeout(() => func(...args), wait); }; },
+      formatDate: (dateString) => { const date = new Date(dateString); return date.toLocaleDateString('ar-BH', { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' }); },
+      getCountdown: (targetDate) => { const now = new Date(); const target = new Date(targetDate); const diff = target - now; if (diff <= 0) return { expired: true }; return { days: Math.floor(diff / (1000 * 60 * 60 * 24)), hours: Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)), minutes: Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)), seconds: Math.floor((diff % (1000 * 60)) / 1000), expired: false }; },
+      showToast: (message, type = 'info', title = '') => { const toast = document.createElement('div'); toast.className = `toast ${type}`; toast.setAttribute('role', 'alert'); const icons = { success: '✅', warning: '⚠️', error: '❌', info: 'ℹ️' }; toast.innerHTML = `<span class="toast-icon">${icons[type]}</span><div class="toast-content">${title ? `<div class="toast-title">${title}</div>` : ''}<div class="toast-message">${message}</div></div><button class="toast-close" aria-label="إغلاق">&times;</button>`; elements.toastContainer.appendChild(toast); toast.querySelector('.toast-close').addEventListener('click', () => toast.remove()); setTimeout(() => { if (toast.parentNode) { toast.style.animation = 'fadeOut 0.3s ease forwards'; setTimeout(() => toast.remove(), 300); } }, 3000); },
+      save: (key, value) => { try { localStorage.setItem(key, JSON.stringify(value)); return true; } catch (e) { return false; } },
+      scrollTo: (element, offset = 0) => { const top = element.getBoundingClientRect().top + window.pageYOffset; window.scrollTo({ top: top - offset, behavior: 'smooth' }); }
     };
-    
-    // ==================== THEME MANAGER ====================
+
+    // Theme Manager
     const ThemeManager = {
-      init() {
-        this.applyTheme(state.theme);
-        elements.themeToggle?.addEventListener('click', () => this.toggle());
-      },
-      
-      applyTheme(theme) {
-        elements.html.setAttribute('data-theme', theme);
-        const icon = elements.themeToggle?.querySelector('.theme-icon');
-        if (icon) {
-          icon.textContent = theme === 'dark' ? '☀️' : '🌙';
-        }
-        state.theme = theme;
-        utils.save('theme', theme);
-      },
-      
-      toggle() {
-        const newTheme = state.theme === 'dark' ? 'light' : 'dark';
-        this.applyTheme(newTheme);
-        utils.showToast(
-          newTheme === 'dark' ? 'تم تفعيل الوضع الليلي 🌙' : 'تم تفعيل الوضع النهاري ☀️',
-          'success'
-        );
-      }
+      init() { this.applyTheme(state.theme); elements.themeToggle?.addEventListener('click', () => this.toggle()); },
+      applyTheme(theme) { elements.html.setAttribute('data-theme', theme); const icon = elements.themeToggle?.querySelector('.theme-icon'); if (icon) icon.textContent = theme === 'dark' ? '☀️' : '🌙'; state.theme = theme; utils.save('theme', theme); },
+      toggle() { const newTheme = state.theme === 'dark' ? 'light' : 'dark'; this.applyTheme(newTheme); utils.showToast(newTheme === 'dark' ? 'تم تفعيل الوضع الليلي 🌙' : 'تم تفعيل الوضع النهاري ☀️', 'success'); }
     };
-    
-    // ==================== LANGUAGE MANAGER ====================
+
+    // Language Manager
     const LangManager = {
-      translations: {
-        ar: {
-          notify: '🔔 تنبيه',
-          notified: '✅ تم إضافة التنبيه',
-          search: 'ابحث...',
-          noResults: 'لم يتم العثور على نتائج',
-          reset: 'إعادة تعيين',
-          details: 'تفاصيل',
-          close: 'إغلاق',
-          send: 'إرسال',
-          success: 'تم الإرسال بنجاح!',
-          error: 'حدث خطأ، حاول مرة أخرى'
-        },
-        en: {
-          notify: '🔔 Notify',
-          notified: '✅ Notification added',
-          search: 'Search...',
-          noResults: 'No results found',
-          reset: 'Reset',
-          details: 'Details',
-          close: 'Close',
-          send: 'Send',
-          success: 'Sent successfully!',
-          error: 'Error occurred, try again'
-        }
-      },
-      
-      init() {
-        this.applyLang(state.lang);
-        elements.langToggle?.addEventListener('click', () => this.toggle());
-      },
-      
-      applyLang(lang) {
-        state.lang = lang;
-        utils.save('lang', lang);
-        
-        // Update lang toggle
-        const icon = elements.langToggle?.querySelector('.lang-icon');
-        if (icon) {
-          icon.textContent = lang === 'ar' ? 'EN' : 'عربي';
-        }
-        
-        // Update direction
-        elements.html.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
-        elements.html.setAttribute('lang', lang === 'ar' ? 'ar' : 'en');
-        
-        // Update search placeholder
-        if (elements.meteorSearch) {
-          elements.meteorSearch.placeholder = this.translations[lang].search;
-        }
-        
-        // Update no results message
-        if (elements.noResults) {
-          const msg = elements.noResults.querySelector('p');
-          if (msg) msg.textContent = this.translations[lang].noResults;
-        }
-        
-        // Update reset button
-        if (elements.resetFilters) {
-          elements.resetFilters.textContent = this.translations[lang].reset;
-        }
-        
-        // Show language change toast
-        utils.showToast(
-          lang === 'ar' ? 'تم التبديل إلى العربية 🇧🇭' : 'Switched to English 🇬🇧',
-          'success'
-        );
-      },
-      
-      toggle() {
-        const newLang = state.lang === 'ar' ? 'en' : 'ar';
-        this.applyLang(newLang);
-      },
-      
-      t(key) {
-        return this.translations[state.lang]?.[key] || key;
-      }
+      translations: { ar: { notify: '🔔 تنبيه', notified: '✅ تم إضافة التنبيه', search: 'ابحث...', noResults: 'لم يتم العثور على نتائج', reset: 'إعادة تعيين', details: 'تفاصيل', close: 'إغلاق', send: 'إرسال', success: 'تم الإرسال بنجاح!', error: 'حدث خطأ، حاول مرة أخرى' }, en: { notify: '🔔 Notify', notified: '✅ Notification added', search: 'Search...', noResults: 'No results found', reset: 'Reset', details: 'Details', close: 'Close', send: 'Send', success: 'Sent successfully!', error: 'Error occurred, try again' } },
+      init() { this.applyLang(state.lang); elements.langToggle?.addEventListener('click', () => this.toggle()); },
+      applyLang(lang) { state.lang = lang; utils.save('lang', lang); const icon = elements.langToggle?.querySelector('.lang-icon'); if (icon) icon.textContent = lang === 'ar' ? 'EN' : 'عربي'; elements.html.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr'); elements.html.setAttribute('lang', lang === 'ar' ? 'ar' : 'en'); if (elements.meteorSearch) elements.meteorSearch.placeholder = this.translations[lang].search; utils.showToast(lang === 'ar' ? 'تم التبديل إلى العربية 🇧🇭' : 'Switched to English 🇬🇧', 'success'); },
+      toggle() { this.applyLang(state.lang === 'ar' ? 'en' : 'ar'); }
     };
-    
-    // ==================== NAVIGATION ====================
+
+    // Navigation & Header
     const Navigation = {
       init() {
-        // Mobile nav toggle
-        elements.navToggle?.addEventListener('click', () => {
-          const isActive = elements.navToggle.classList.contains('active');
-          elements.navToggle.classList.toggle('active', !isActive);
-          elements.mainNav.classList.toggle('active', !isActive);
-          elements.navToggle.setAttribute('aria-expanded', !isActive);
-        });
-        
-        // Close nav when clicking link (mobile)
-        document.querySelectorAll('.nav-links a').forEach(link => {
-          link.addEventListener('click', (e) => {
-            // Close mobile nav
-            elements.navToggle?.classList.remove('active');
-            elements.mainNav?.classList.remove('active');
-            elements.navToggle?.setAttribute('aria-expanded', 'false');
-            
-            // Update active state
-            document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
-            link.classList.add('active');
-          });
-        });
-        
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-          anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-              utils.scrollTo(target, elements.header?.offsetHeight || 72);
-            }
-          });
-        });
-        
-        // Header scroll effect
-        window.addEventListener('scroll', utils.debounce(() => {
-          if (window.scrollY > 50) {
-            elements.header?.classList.add('scrolled');
-          } else {
-            elements.header?.classList.remove('scrolled');
-          }
-        }, 100));
+        elements.navToggle?.addEventListener('click', () => { const active = elements.navToggle.classList.toggle('active'); elements.mainNav.classList.toggle('active', active); elements.navToggle.setAttribute('aria-expanded', active); });
+        document.querySelectorAll('.nav-links a').forEach(link => { link.addEventListener('click', () => { elements.navToggle.classList.remove('active'); elements.mainNav.classList.remove('active'); elements.navToggle.setAttribute('aria-expanded', 'false'); document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active')); link.classList.add('active'); }); });
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => { anchor.addEventListener('click', function(e) { e.preventDefault(); const target = document.querySelector(this.getAttribute('href')); if (target) utils.scrollTo(target, elements.header?.offsetHeight || 72); }); });
+        window.addEventListener('scroll', utils.debounce(() => { if (window.scrollY > 50) elements.header?.classList.add('scrolled'); else elements.header?.classList.remove('scrolled'); }, 100));
       }
     };
-    
-    // ==================== PROGRESS BAR ====================
-    const ProgressBar = {
-      init() {
-        window.addEventListener('scroll', utils.debounce(() => {
-          const scrollTop = document.documentElement.scrollTop;
-          const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-          const scrolled = (scrollTop / scrollHeight) * 100;
-          
-          if (elements.progressBar) {
-            elements.progressBar.style.width = `${scrolled}%`;
-          }
-        }, 50));
-      }
-    };
-    
-    // ==================== BACK TO TOP ====================
-    const BackToTop = {
-      init() {
-        window.addEventListener('scroll', utils.debounce(() => {
-          if (window.scrollY > 500) {
-            elements.backToTop?.classList.add('visible');
-          } else {
-            elements.backToTop?.classList.remove('visible');
-          }
-        }, 100));
-        
-        elements.backToTop?.addEventListener('click', (e) => {
-          e.preventDefault();
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-      }
-    };
-    
-    // ==================== SCROLL INDICATOR ====================
-    const ScrollIndicator = {
-      init() {
-        elements.scrollIndicator?.addEventListener('click', () => {
-          const nextSection = document.querySelector('#showers');
-          if (nextSection) {
-            utils.scrollTo(nextSection, elements.header?.offsetHeight || 72);
-          }
-        });
-        
-        // Hide after first scroll
-        window.addEventListener('scroll', () => {
-          if (window.scrollY > 100 && elements.scrollIndicator) {
-            elements.scrollIndicator.style.opacity = '0';
-            elements.scrollIndicator.style.pointerEvents = 'none';
-          }
-        }, { once: true });
-      }
-    };
-    
-    // ==================== COUNTDOWN TIMERS ====================
+
+    // Countdown Timers
     const CountdownManager = {
-      timers: [],
-      
-      init() {
-        // Initialize all countdowns
-        document.querySelectorAll('.meteor-countdown').forEach(el => {
-          const targetDate = el.getAttribute('data-date');
-          if (targetDate) {
-            this.createTimer(el, targetDate);
-          }
-        });
-        
-        // Update all timers every second
-        setInterval(() => this.updateAll(), 1000);
-      },
-      
-      createTimer(element, targetDate) {
-        this.timers.push({ element, targetDate });
-        this.updateTimer(element, targetDate);
-      },
-      
-      updateTimer(element, targetDate) {
-        const countdown = utils.getCountdown(targetDate);
-        
-        if (countdown.expired) {
-          element.innerHTML = '<span class="badge badge-success">جاري الآن! 🎇</span>';
-          return;
-        }
-        
-        element.innerHTML = `
-          <div class="countdown-item">
-            <span class="countdown-value">${String(countdown.days).padStart(2, '0')}</span>
-            <span class="countdown-label">يوم</span>
-          </div>
-          <div class="countdown-item">
-            <span class="countdown-value">${String(countdown.hours).padStart(2, '0')}</span>
-            <span class="countdown-label">ساعة</span>
-          </div>
-          <div class="countdown-item">
-            <span class="countdown-value">${String(countdown.minutes).padStart(2, '0')}</span>
-            <span class="countdown-label">دقيقة</span>
-          </div>
-          <div class="countdown-item">
-            <span class="countdown-value">${String(countdown.seconds).padStart(2, '0')}</span>
-            <span class="countdown-label">ثانية</span>
-          </div>
-        `;
-      },
-      
-      updateAll() {
-        this.timers.forEach(timer => {
-          this.updateTimer(timer.element, timer.targetDate);
-        });
-      }
+      timers: [], init() { document.querySelectorAll('.meteor-countdown').forEach(el => { const targetDate = el.getAttribute('data-date'); if (targetDate) this.timers.push({ el, target: targetDate }); }); setInterval(() => this.updateAll(), 1000); },
+      updateAll() { this.timers.forEach(t => { const c = utils.getCountdown(t.target); if (c.expired) t.el.innerHTML = '<span class="badge badge-success">جاري الآن! 🎇</span>'; else t.el.innerHTML = `<div class="countdown-item"><span class="countdown-value">${String(c.days).padStart(2,'0')}</span><span class="countdown-label">يوم</span></div><div class="countdown-item"><span class="countdown-value">${String(c.hours).padStart(2,'0')}</span><span class="countdown-label">ساعة</span></div><div class="countdown-item"><span class="countdown-value">${String(c.minutes).padStart(2,'0')}</span><span class="countdown-label">دقيقة</span></div><div class="countdown-item"><span class="countdown-value">${String(c.seconds).padStart(2,'0')}</span><span class="countdown-label">ثانية</span></div>`; }) }
     };
-    
-    // ==================== SEARCH & FILTER ====================
+
+    // Search & Filter
     const SearchFilter = {
-      currentFilter: 'all',
-      
-      init() {
-        // Search functionality
-        if (elements.meteorSearch) {
-          elements.meteorSearch.addEventListener('input', utils.debounce((e) => {
-            this.filterMeteors(e.target.value.toLowerCase(), this.currentFilter);
-          }, 300));
-        }
-        
-        // Filter buttons
-        elements.filterBtns.forEach(btn => {
-          btn.addEventListener('click', () => {
-            // Update active state
-            elements.filterBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            
-            this.currentFilter = btn.getAttribute('data-filter');
-            const searchTerm = elements.meteorSearch?.value.toLowerCase() || '';
-            this.filterMeteors(searchTerm, this.currentFilter);
-          });
-        });
-        
-        // Reset filters
-        elements.resetFilters?.addEventListener('click', () => {
-          if (elements.meteorSearch) elements.meteorSearch.value = '';
-          elements.filterBtns.forEach(b => b.classList.remove('active'));
-          elements.filterBtns[0]?.classList.add('active');
-          this.currentFilter = 'all';
-          this.filterMeteors('', 'all');
-        });
-      },
-      
-      filterMeteors(searchTerm, filter) {
-        const items = elements.meteorGrid?.querySelectorAll('.meteor-item') || [];
-        let visibleCount = 0;
-        
-        items.forEach(item => {
-          const name = item.getAttribute('data-name')?.toLowerCase() || '';
-          const season = item.getAttribute('data-season') || '';
-          const matchesSearch = !searchTerm || name.includes(searchTerm);
-          const matchesFilter = filter === 'all' || 
-                               (filter === 'peak' && item.classList.contains('peak')) ||
-                               (filter !== 'peak' && season === filter);
-          
-          if (matchesSearch && matchesFilter) {
-            item.style.display = '';
-            visibleCount++;
-          } else {
-            item.style.display = 'none';
-          }
-        });
-        
-        // Show/hide no results message
-        if (elements.noResults) {
-          elements.noResults.hidden = visibleCount > 0;
-        }
-        
-        // Animate visible items
-        items.forEach(item => {
-          if (item.style.display !== 'none') {
-            item.classList.add('fade-in');
-            setTimeout(() => item.classList.remove('fade-in'), 400);
-          }
-        });
-      }
+      currentFilter: 'all', init() { if (elements.meteorSearch) elements.meteorSearch.addEventListener('input', utils.debounce(e => this.filterMeteors(e.target.value.toLowerCase(), this.currentFilter), 300)); elements.filterBtns.forEach(btn => btn.addEventListener('click', () => { elements.filterBtns.forEach(b => b.classList.remove('active')); btn.classList.add('active'); this.currentFilter = btn.getAttribute('data-filter'); this.filterMeteors(elements.meteorSearch?.value.toLowerCase() || '', this.currentFilter); })); elements.resetFilters?.addEventListener('click', () => { if (elements.meteorSearch) elements.meteorSearch.value = ''; elements.filterBtns.forEach(b => b.classList.remove('active')); elements.filterBtns[0]?.classList.add('active'); this.currentFilter = 'all'; this.filterMeteors('', 'all'); }); },
+      filterMeteors(term, filter) { let count = 0; elements.meteorGrid?.querySelectorAll('.meteor-item').forEach(item => { const name = item.getAttribute('data-name')?.toLowerCase() || ''; const season = item.getAttribute('data-season') || ''; const matches = (!term || name.includes(term)) && (filter === 'all' || (filter === 'peak' && item.classList.contains('peak')) || (filter !== 'peak' && season === filter)); item.style.display = matches ? '' : 'none'; if (matches) count++; }); if (elements.noResults) elements.noResults.hidden = count > 0; }
     };
-    
-    // ==================== MODAL ====================
+
+    // Modal
     const Modal = {
-      currentMeteor: null,
-      
-      init() {
-        // Open modal from buttons
-        document.querySelectorAll('[data-modal]').forEach(btn => {
-          btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            const meteorId = btn.getAttribute('data-modal');
-            this.open(meteorId);
-          });
-        });
-        
-        // Close modal
-        elements.modalClose?.addEventListener('click', () => this.close());
-        elements.modalCancel?.addEventListener('click', () => this.close());
-        elements.modalOverlay?.addEventListener('click', (e) => {
-          if (e.target === elements.modalOverlay) this.close();
-        });
-        
-        // Keyboard navigation
-        document.addEventListener('keydown', (e) => {
-          if (e.key === 'Escape' && elements.modalOverlay?.classList.contains('active')) {
-            this.close();
-          }
-        });
-        
-        // Notify button in modal
-        elements.modalNotify?.addEventListener('click', () => {
-          if (this.currentMeteor) {
-            NotificationManager.add(this.currentMeteor);
-            this.close();
-          }
-        });
-      },
-      
-      open(meteorId) {
-        const data = CONFIG.meteorData[meteorId];
-        if (!data) return;
-        
-        this.currentMeteor = meteorId;
-        const lang = state.lang;
-        
-        // Set title
-        elements.modalTitle.textContent = data.name[lang];
-        
-        // Set content
-        elements.modalBody.innerHTML = `
-          <div style="margin-bottom: var(--spacing-lg);">
-            <span class="badge badge-warning">ذروة: ${utils.formatDate(data.peak, lang)}</span>
-          </div>
-          <p style="margin-bottom: var(--spacing-md);">${data.description[lang]}</p>
-          <div class="card" style="background: var(--bg-secondary);">
-            <h4 style="margin-bottom: var(--spacing-sm);">📊 معلومات تقنية</h4>
-            <ul style="list-style: none; display: grid; gap: var(--spacing-xs); color: var(--text-secondary);">
-              <li><strong>معدل الشهب:</strong> ${data.rate} شهاب/ساعة</li>
-              <li><strong>الجسم الأصلي:</strong> ${data.parent}</li>
-              <li><strong>سرعة الشهب:</strong> 41-71 كم/ثانية</li>
-              <li><strong>نقطة الإشعاع:</strong> ${this.getRadiant(meteorId)}</li>
-              <li><strong>أفضل وقت:</strong> بعد منتصف الليل حتى الفجر</li>
-            </ul>
-          </div>
-          <div style="margin-top: var(--spacing-lg); padding: var(--spacing-md); background: rgba(124, 58, 237, 0.1); border-radius: var(--radius); border-right: 3px solid var(--accent);">
-            <strong>💡 نصيحة خبير:</strong>
-            <p style="margin: var(--spacing-xs) 0 0; font-size: var(--font-size-sm);">
-              ${this.getExpertTip(meteorId, lang)}
-            </p>
-          </div>
-        `;
-        
-        // Show modal
-        elements.modalOverlay?.classList.add('active');
-        elements.modalOverlay?.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
-        
-        // Focus close button for accessibility
-        elements.modalClose?.focus();
-      },
-      
-      close() {
-        elements.modalOverlay?.classList.remove('active');
-        elements.modalOverlay?.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-        this.currentMeteor = null;
-      },
-      
-      getRadiant(id) {
-        const radiants = {
-          quadrantids: 'كوكبة العواء (Boötes)',
-          lyrids: 'كوكبة القيثارة (Lyra)',
-          aquariids: 'كوكبة الدلو (Aquarius)',
-          perseids: 'كوكبة حامل رأس الغول (Perseus)',
-          orionids: 'كوكبة الجبار (Orion)',
-          geminids: 'كوكبة التوأم (Gemini)'
-        };
-        return radiants[id] || 'غير محدد';
-      },
-      
-      getExpertTip(id, lang) {
-        const tips = {
-          quadrantids: {
-            ar: 'الذروة قصيرة جداً (بضع ساعات)، لذا حدد وقت المشاهدة بدقة.',
-            en: 'Peak is very short (few hours), so time your viewing precisely.'
-          },
-          lyrids: {
-            ar: 'ابحث عن شهب مع ذيول طويلة - سمة مميزة لهذه الزخة.',
-            en: 'Look for meteors with long trains - a signature of this shower.'
-          },
-          aquariids: {
-            ar: 'من نصف الكرة الشمالي، تظهر الشهب منخفضة في الأفق الشرقي.',
-            en: 'From Northern Hemisphere, meteors appear low in the eastern sky.'
-          },
-          perseids: {
-            ar: 'استمتع بالشهب الملونة! البرشاويات معروفة بشهبها الزرقاء والخضراء.',
-            en: 'Enjoy colorful meteors! Perseids are known for blue and green streaks.'
-          },
-          orionids: {
-            ar: 'الشهب سريعة جداً - قد تراها تعبر السماء في جزء من الثانية!',
-            en: 'Meteors are very fast - you might see them cross the sky in a split second!'
-          },
-          geminids: {
-            ar: 'يمكن المشاهدة من بداية المساء! التوأميات فريدة في هذا.',
-            en: 'Can be viewed from early evening! Geminids are unique in this.'
-          }
-        };
-        return tips[id]?.[lang] || '';
-      }
+      currentMeteor: null, init() { document.querySelectorAll('[data-modal]').forEach(btn => btn.addEventListener('click', e => { e.preventDefault(); this.open(btn.getAttribute('data-modal')); })); elements.modalClose?.addEventListener('click', () => this.close()); elements.modalCancel?.addEventListener('click', () => this.close()); elements.modalOverlay?.addEventListener('click', e => { if (e.target === elements.modalOverlay) this.close(); }); document.addEventListener('keydown', e => { if (e.key === 'Escape' && elements.modalOverlay?.classList.contains('active')) this.close(); }); elements.modalNotify?.addEventListener('click', () => { if (this.currentMeteor) { NotificationManager.add(this.currentMeteor); this.close(); } }); },
+      open(id) { const d = CONFIG.meteorData[id]; if (!d) return; this.currentMeteor = id; elements.modalTitle.textContent = d.name[state.lang]; elements.modalBody.innerHTML = `<div style="margin-bottom:16px"><span class="badge badge-warning">ذروة: ${utils.formatDate(d.peak)}</span></div><p style="margin-bottom:16px">${d.desc[state.lang]}</p><div class="card"><h4 style="margin-bottom:8px">📊 معلومات تقنية</h4><ul style="list-style:none;display:grid;gap:8px;color:var(--text-secondary)"><li><strong>المعدل:</strong> ${d.rate} شهاب/ساعة</li><li><strong>الأصل:</strong> ${d.parent}</li><li><strong>السرعة:</strong> 41-71 كم/ثانية</li></ul></div>`; elements.modalOverlay?.classList.add('active'); elements.modalOverlay?.setAttribute('aria-hidden', 'false'); document.body.style.overflow = 'hidden'; elements.modalClose?.focus(); },
+      close() { elements.modalOverlay?.classList.remove('active'); elements.modalOverlay?.setAttribute('aria-hidden', 'true'); document.body.style.overflow = ''; this.currentMeteor = null; }
     };
-    
-    // ==================== NOTIFICATION MANAGER ====================
-    const NotificationManager = {
-      init() {
-        // Global notify button in hero
-        elements.notifyBtn?.addEventListener('click', () => {
-          this.showSubscribeModal();
-        });
-        
-        // Individual meteor notify buttons
-        document.querySelectorAll('[data-notify]').forEach(btn => {
-          btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            const meteorId = btn.getAttribute('data-notify');
-            this.add(meteorId);
-          });
-        });
-        
-        // Check for browser notification permission
-        this.checkPermission();
-      },
-      
-      checkPermission() {
-        if ('Notification' in window && Notification.permission === 'default') {
-          // Don't auto-request, wait for user action
-        }
-      },
-      
-      add(meteorId) {
-        const data = CONFIG.meteorData[meteorId];
-        if (!data) return;
-        
-        // Add to saved notifications
-        if (!state.notifications.includes(meteorId)) {
-          state.notifications.push(meteorId);
-          utils.save('notifications', state.notifications);
-        }
-        
-        // Show success toast
-        utils.showToast(
-          `✅ تم إضافة تنبيه لـ "${data.name[state.lang]}"`,
-          'success',
-          LangManager.t('notified')
-        );
-        
-        // Request browser notification permission if not granted
-        if ('Notification' in window && Notification.permission !== 'granted') {
-          Notification.requestPermission().then(permission => {
-            if (permission === 'granted') {
-              this.scheduleBrowserNotification(meteorId, data);
-            }
-          });
-        } else {
-          this.scheduleBrowserNotification(meteorId, data);
-        }
-      },
-      
-      scheduleBrowserNotification(meteorId, data) {
-        // In a real app, you'd use a service worker for scheduled notifications
-        // For demo, we'll show a toast reminder
-        const peakDate = new Date(data.peak + 'T02:00:00');
-        const now = new Date();
-        const hoursUntil = Math.floor((peakDate - now) / (1000 * 60 * 60));
-        
-        if (hoursUntil > 0 && hoursUntil < 24) {
-          setTimeout(() => {
-            utils.showToast(
-              `🌠 "${data.name[state.lang]}" تبدأ خلال ${hoursUntil} ساعة!`,
-              'info',
-              'تذكير بالذروة'
-            );
-          }, 5000);
-        }
-      },
-      
-      showSubscribeModal() {
-        utils.showToast(
-          'اختر زخة شهب من القائمة واضغط على 🔔 لإضافة تنبيه',
-          'info',
-          '💡 تلميح'
-        );
-      }
-    };
-    
-    // ==================== ACCORDION ====================
-    const Accordion = {
-      init() {
-        elements.faqAccordion?.querySelectorAll('.accordion-header').forEach(header => {
-          header.addEventListener('click', () => {
-            const item = header.parentElement;
-            const isActive = item.classList.contains('active');
-            
-            // Close all
-            elements.faqAccordion?.querySelectorAll('.accordion-item').forEach(i => {
-              i.classList.remove('active');
-              i.querySelector('.accordion-header')?.setAttribute('aria-expanded', 'false');
-            });
-            
-            // Toggle clicked
-            if (!isActive) {
-              item.classList.add('active');
-              header.setAttribute('aria-expanded', 'true');
-            }
-          });
-          
-          // Keyboard support
-          header.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-              e.preventDefault();
-              header.click();
-            }
-          });
-        });
-      }
-    };
-    
-    // ==================== CONTACT FORM ====================
+
+    // Notification Manager
+    const NotificationManager = { init() { elements.notifyBtn?.addEventListener('click', () => utils.showToast('اختر زخة شهب من القائمة واضغط على 🔔 لإضافة تنبيه', 'info', '💡 تلميح')); document.querySelectorAll('[data-notify]').forEach(btn => btn.addEventListener('click', e => { e.preventDefault(); this.add(btn.getAttribute('data-notify')); })); }, add(id) { const d = CONFIG.meteorData[id]; if (!d) return; if (!state.notifications.includes(id)) { state.notifications.push(id); utils.save('notifications', state.notifications); } utils.showToast(`✅ تم إضافة تنبيه لـ "${d.name[state.lang]}"`, 'success', 'تم التسجيل'); } };
+
+    // Accordion
+    const Accordion = { init() { elements.faqAccordion?.querySelectorAll('.accordion-header').forEach(header => { header.addEventListener('click', () => { const item = header.parentElement; const active = item.classList.contains('active'); elements.faqAccordion?.querySelectorAll('.accordion-item').forEach(i => { i.classList.remove('active'); i.querySelector('.accordion-header')?.setAttribute('aria-expanded', 'false'); }); if (!active) { item.classList.add('active'); header.setAttribute('aria-expanded', 'true'); } }); }); } };
+
+    // Calculator
+    function calcViewing(e) { e.preventDefault(); const rate = parseFloat(document.getElementById('showerSelect').value); const dur = parseInt(document.getElementById('duration').value); const q = parseFloat(document.getElementById('skyQuality').value); if (!rate || !dur) { utils.showToast('⚠️ املأ جميع الحقول', 'error'); return; } const exp = Math.round((rate / 60) * dur * q); const waitSec = Math.round(60 / (rate * q)); const waitStr = waitSec >= 60 ? (waitSec/60).toFixed(1) + ' دقيقة' : waitSec + ' ثانية'; document.getElementById('resRate').textContent = rate + ' / ساعة'; document.getElementById('resDuration').textContent = dur + ' دقيقة'; document.getElementById('resQuality').textContent = '× ' + q; document.getElementById('resExpected').textContent = '~' + exp + ' شهاب'; document.getElementById('resWait').textContent = 'كل ' + waitStr; const res = document.getElementById('calcResult'); res.classList.remove('show'); void res.offsetWidth; res.classList.add('show'); res.scrollIntoView({ behavior: 'smooth', block: 'center' }); utils.showToast('✅ تم حساب النتيجة!'); }
+
+    // Contact Form
     const ContactForm = {
-      init() {
-        if (!elements.contactForm) return;
-        
-        elements.contactForm.addEventListener('submit', (e) => {
-          e.preventDefault();
-          this.validateAndSubmit();
-        });
-        
-        // Real-time validation
-        ['name', 'email', 'message'].forEach(field => {
-          const input = document.getElementById(field);
-          input?.addEventListener('blur', () => this.validateField(field));
-          input?.addEventListener('input', () => {
-            if (input.classList.contains('is-invalid')) {
-              this.validateField(field);
-            }
-          });
-        });
-        
-        // Consent checkbox
-        document.getElementById('consent')?.addEventListener('change', () => {
-          const error = document.getElementById('consentError');
-          if (error) {
-            error.style.display = document.getElementById('consent')?.checked ? 'none' : 'block';
-          }
-        });
-      },
-      
-      validateField(field) {
-        const input = document.getElementById(field);
-        const error = input?.closest('.form-group')?.querySelector('.form-error');
-        if (!input || !error) return true;
-        
-        let valid = true;
-        
-        if (field === 'name') {
-          valid = input.value.trim().length >= 2;
-        } else if (field === 'email') {
-          valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value);
-        } else if (field === 'message') {
-          valid = input.value.trim().length >= 10;
-        }
-        
-        input.classList.toggle('is-invalid', !valid);
-        error.style.display = valid ? 'none' : 'block';
-        
-        return valid;
-      },
-      
-      validateAndSubmit() {
-        // Validate all fields
-        const fields = ['name', 'email', 'message'];
-        let allValid = fields.every(field => this.validateField(field));
-        
-        // Check consent
-        const consent = document.getElementById('consent');
-        const consentError = document.getElementById('consentError');
-        if (consent && !consent.checked) {
-          if (consentError) consentError.style.display = 'block';
-          allValid = false;
-        } else if (consentError) {
-          consentError.style.display = 'none';
-        }
-        
-        if (!allValid) {
-          utils.showToast('الرجاء تصحيح الأخطاء في النموذج', 'error');
-          return;
-        }
-        
-        // Disable submit button
-        if (elements.submitBtn) {
-          elements.submitBtn.disabled = true;
-          elements.submitBtn.innerHTML = '⏳ جاري الإرسال...';
-        }
-        
-        // Simulate API call
-        setTimeout(() => {
-          // Show success
-          if (elements.formSuccess) {
-            elements.formSuccess.classList.add('show');
-            elements.formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          }
-          
-          // Reset form
-          elements.contactForm?.reset();
-          fields.forEach(field => {
-            const input = document.getElementById(field);
-            input?.classList.remove('is-invalid');
-          });
-          
-          // Re-enable button
-          if (elements.submitBtn) {
-            elements.submitBtn.disabled = false;
-            elements.submitBtn.innerHTML = LangManager.t('send');
-          }
-          
-          // Hide success after 5 seconds
-          setTimeout(() => {
-            if (elements.formSuccess) {
-              elements.formSuccess.classList.remove('show');
-            }
-          }, 5000);
-          
-          utils.showToast('تم إرسال رسالتك بنجاح!', 'success');
-          
-        }, 1500);
-      }
+      init() { elements.contactForm?.addEventListener('submit', e => { e.preventDefault(); const n = document.getElementById('name'); const em = document.getElementById('email'); const m = document.getElementById('message'); const c = document.getElementById('consent'); if (n.value.length < 2 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em.value) || m.value.length < 10 || !c.checked) { utils.showToast('الرجاء تصحيح الأخطاء', 'error'); return; } if (elements.submitBtn) { elements.submitBtn.disabled = true; elements.submitBtn.innerHTML = '⏳ جاري الإرسال...'; } setTimeout(() => { elements.formSuccess?.classList.add('show'); elements.contactForm?.reset(); if (elements.submitBtn) { elements.submitBtn.disabled = false; elements.submitBtn.innerHTML = '📤 إرسال الرسالة'; } setTimeout(() => elements.formSuccess?.classList.remove('show'), 5000); utils.showToast('تم الإرسال بنجاح!', 'success'); }, 1500); }); }
     };
-    
-    // ==================== LOCATION MAP ====================
-    const LocationMap = {
-      init() {
-        elements.locationMap?.addEventListener('click', () => {
-          // Open Google Maps in new tab
-          const url = 'https://www.google.com/maps/search/?api=1&query=26.13,50.55';
-          window.open(url, '_blank', 'noopener,noreferrer');
-          utils.showToast('🗺️ تم فتح الموقع على خرائط جوجل', 'info');
-        });
-        
-        // Keyboard support
-        elements.locationMap?.addEventListener('keydown', (e) => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            elements.locationMap?.click();
-          }
-        });
-      }
-    };
-    
-    // ==================== DOWNLOAD LOCATIONS ====================
-    const DownloadManager = {
-      init() {
-        elements.downloadLocations?.addEventListener('click', (e) => {
-          e.preventDefault();
-          
-          // Create PDF content (simulated)
-          const content = `
-مرصد شهب المنامة 2026 - قائمة مواقع المشاهدة
-==========================================
 
-🏆 الموقع الموصى به: الرفاع الجنوبية
-الإحداثيات: 26.13°N, 50.55°E
-مستوى الظلام: ⭐⭐⭐⭐
-المرافق: مواقف، دورات مياه، مقاهي قريبة
+    // Scroll & UI Elements
+    window.addEventListener('scroll', () => { const top = document.documentElement.scrollTop; const height = document.documentElement.scrollHeight - document.documentElement.clientHeight; if (elements.progressBar) elements.progressBar.style.width = `${(top / height) * 100}%`; if (window.scrollY > 400) elements.backToTop?.classList.add('visible'); else elements.backToTop?.classList.remove('visible'); });
+    elements.backToTop?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    elements.scrollIndicator?.addEventListener('click', () => utils.scrollTo(document.querySelector('#showers'), elements.header?.offsetHeight || 72));
 
-📍 مواقع أخرى:
-• جزيرة المحرق الشمالية
-• ساحل البديع
-• جبل الدخان
-• رأس رمان
+    // Intersection Observer for animations
+    const observer = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'translateY(0)'; observer.unobserve(e.target); } }); }, { threshold: 0.1 });
+    document.querySelectorAll('.animate').forEach(el => { el.style.opacity = '0'; el.style.transform = 'translateY(20px)'; el.style.transition = 'opacity 0.6s ease, transform 0.6s ease'; observer.observe(el); });
 
-💡 نصائح:
-1. تحقق من الطقس قبل الخروج
-2. أحضر بطانية وكرسي مريح
-3. استخدم مصباحاً أحمر للحفاظ على الرؤية الليلية
-4. اسمح لعينيك بـ 30 دقيقة للتكيف مع الظلام
-
-📅 أفضل التواريخ:
-• 13 أغسطس 2026: البرشاويات
-• 14 ديسمبر 2026: التوأميات
-
-المصدر: مرصد شهب المنامة - v${CONFIG.version}
-          `.trim();
-          
-          // Create download
-          const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
-          const url = URL.createObjectURL(blob);
-          const a = document.createElement('a');
-          a.href = url;
-          a.download = 'manama-meteors-locations-2026.txt';
-          document.body.appendChild(a);
-          a.click();
-          document.body.removeChild(a);
-          URL.revokeObjectURL(url);
-          
-          utils.showToast('📥 تم تحميل قائمة المواقع', 'success');
-        });
-      }
-    };
-    
-    // ==================== ANIMATION OBSERVER ====================
-    const AnimationObserver = {
-      init() {
-        if (!('IntersectionObserver' in window)) return;
-        
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.style.opacity = '1';
-              entry.target.style.transform = 'translateY(0)';
-              observer.unobserve(entry.target);
-            }
-          });
-        }, {
-          threshold: 0.1,
-          rootMargin: '0px 0px -50px 0px'
-        });
-        
-        // Observe animated elements
-        document.querySelectorAll('.animate').forEach(el => {
-          el.style.opacity = '0';
-          el.style.transform = 'translateY(20px)';
-          el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-          observer.observe(el);
-        });
-      }
-    };
-    
-    // ==================== KEYBOARD NAVIGATION ====================
-    const KeyboardNav = {
-      init() {
-        // Skip link
-        document.querySelector('.skip-link')?.addEventListener('click', (e) => {
-          e.preventDefault();
-          const target = document.getElementById('main-content');
-          target?.focus();
-        });
-        
-        // Modal keyboard trap (basic)
-        elements.modalOverlay?.addEventListener('keydown', (e) => {
-          if (e.key === 'Tab') {
-            const focusable = elements.modal?.querySelectorAll(
-              'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-            );
-            if (!focusable?.length) return;
-            
-            const first = focusable[0];
-            const last = focusable[focusable.length - 1];
-            
-            if (e.shiftKey && document.activeElement === first) {
-              e.preventDefault();
-              last.focus();
-            } else if (!e.shiftKey && document.activeElement === last) {
-              e.preventDefault();
-              first.focus();
-            }
-          }
-        });
-      }
-    };
-    
-    // ==================== PERFORMANCE ====================
-    const Performance = {
-      init() {
-        // Lazy load images (placeholder for gallery)
-        if ('IntersectionObserver' in window) {
-          const imageObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-              if (entry.isIntersecting) {
-                // In real app: load actual image
-                entry.target.style.background = 'linear-gradient(135deg, var(--accent), var(--info))';
-                imageObserver.unobserve(entry.target);
-              }
-            });
-          });
-          
-          document.querySelectorAll('.gallery-item').forEach(item => {
-            imageObserver.observe(item);
-          });
-        }
-        
-        // Reduce animations for low-power mode
-        if (navigator.getBattery) {
-          navigator.getBattery().then(battery => {
-            if (battery.charging === false && battery.level < 0.2) {
-              document.documentElement.style.setProperty('--transition', 'none');
-              utils.showToast('⚡ تم تقليل التأثيرات لتوفير الطاقة', 'info');
-            }
-          });
-        }
-      }
-    };
-    
-    // ==================== INITIALIZATION ====================
-    function init() {
-      // Set current year
-      if (elements.currentYear) {
-        elements.currentYear.textContent = new Date().getFullYear();
-      }
-      
-      // Initialize modules
-      ThemeManager.init();
-      LangManager.init();
-      Navigation.init();
-      ProgressBar.init();
-      BackToTop.init();
-      ScrollIndicator.init();
-      CountdownManager.init();
-      SearchFilter.init();
-      Modal.init();
-      NotificationManager.init();
-      Accordion.init();
-      ContactForm.init();
-      LocationMap.init();
-      DownloadManager.init();
-      AnimationObserver.init();
-      KeyboardNav.init();
-      Performance.init();
-      
-      // Log version to console
-      console.log(`%c🌠 Manama Meteor Observatory v${CONFIG.version}`, 
-        'font-size: 14px; font-weight: bold; color: #7c3aed;');
-      console.log(`%cBuilt: ${CONFIG.buildDate} | Bahrain Astronomy Community`, 
-        'font-size: 11px; color: #94a3b8;');
-      
-      // Show welcome toast after delay
-      setTimeout(() => {
-        utils.showToast('🌠 مرحباً بك في مرصد شهب المنامة 2026!', 'success');
-      }, 1500);
-    }
-    
-    // ==================== RUN ====================
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', init);
-    } else {
-      init();
-    }
-    
-    // ==================== SERVICE WORKER REGISTRATION (PWA) ====================
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        // In production, register actual service worker
-        // navigator.serviceWorker.register('/sw.js');
-        console.log('🔧 Service Worker ready for registration (production)');
-      });
-    }
+    // Init
+    document.addEventListener('DOMContentLoaded', () => {
+      if (elements.currentYear) elements.currentYear.textContent = new Date().getFullYear();
+      ThemeManager.init(); LangManager.init(); Navigation.init(); CountdownManager.init(); SearchFilter.init(); Modal.init(); NotificationManager.init(); Accordion.init(); ContactForm.init();
+      utils.showToast('🌠 مرحباً بك في مرصد شهب المنامة 2026! (v4.0.0)', 'success');
+      console.log(`%c🌠 Manama Meteor Observatory v${CONFIG.version}`, 'font-weight:bold;color:#7c3aed;font-size:14px');
+    });
   </script>
   
-  <!-- ==================== STRUCTURED DATA (SEO) ==================== -->
+  <!-- Structured Data (SEO) -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "مرصد شهب المنامة 2026",
-    "alternateName": "Manama Meteor Observatory 2026",
-    "url": "https://manama-meteors.github.io/2026",
-    "description": "دليل شامل لزخات الشهب المرئية من المنامة، البحرين في عام 2026 مع مواعيد دقيقة، خرائط تفاعلية، ونصائح مشاهدة احترافية",
-    "inLanguage": "ar-BH",
-    "publisher": {
-      "@type": "Organization",
-      "name": "مجتمع الفلكيين في البحرين",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://manama-meteors.github.io/2026/logo.png",
-        "width": 512,
-        "height": 512
-      }
-    },
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://manama-meteors.github.io/2026?search={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
-  }
+  { "@context": "https://schema.org", "@type": "WebSite", "name": "مرصد شهب المنامة 2026", "url": "https://manama-meteors.github.io/2026", "version": "4.0.0", "description": "دليل شامل لزخات الشهب المرئية من المنامة، البحرين في عام 2026 مع مواعيد دقيقة، خرائط تفاعلية، وحاسبة مشاهدة ذكية", "inLanguage": "ar-BH" }
   </script>
-  
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "EventSeries",
-    "name": "زخات الشهب 2026 - البحرين",
-    "description": "سلسلة زخات الشهب المرئية من مملكة البحرين خلال عام 2026",
-    "location": {
-      "@type": "Place",
-      "name": "المنامة، مملكة البحرين",
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 26.2285,
-        "longitude": 50.5860
-      }
-    },
-    "eventSchedule": {
-      "@type": "Schedule",
-      "duration": "P1Y",
-      "startDate": "2026-01-01",
-      "endDate": "2026-12-31"
-    }
-  }
+  { "@context": "https://schema.org", "@type": "EventSeries", "name": "زخات الشهب 2026 - البحرين", "location": { "@type": "Place", "name": "المنامة، مملكة البحرين", "geo": { "@type": "GeoCoordinates", "latitude": 26.2285, "longitude": 50.5860 } }, "eventSchedule": { "@type": "Schedule", "startDate": "2026-01-01", "endDate": "2026-12-31" } }
   </script>
-  
-  <!-- Print Version Badge -->
-  <div class="print-version">
-    🌠 مرصد شهب المنامة 2026 | الإصدار: v2.6.0-stable | تم الطباعة: <script>document.write(new Date().toLocaleDateString('ar-BH'))</script>
-  </div>
-  
 </body>
 </html>
