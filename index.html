@@ -28,16 +28,16 @@
   <meta name="twitter:image" content="https://manama-meteors.github.io/2026/og-image.jpg" />
   
   <!-- Favicon & PWA -->
-  <link rel="icon" type="image/svg+xml" href="image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌠</text></svg>" />
-  <link rel="apple-touch-icon" href="image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌠</text></svg>" />
-  <link rel="manifest" href="application/json,{%22name%22:%22مرصد%20شهب%20المنامة%202026%22,%22short_name%22:%22شهب%20المنامة%22,%22start_url%22:%22.%22,%22display%22:%22standalone%22,%22background_color%22:%22%230a0e17%22,%22theme_color%22:%22%237c3aed%22}" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌠</text></svg>" />
+  <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌠</text></svg>" />
+  <link rel="manifest" href="manifest.json" />
   
   <!-- Preconnect & Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet" />
   
-  <title>🌠 مرصد شهب المنامة 2026 | البحرين | الإصدار v4.0.1</title>
+  <title>🌠 مرصد شهب المنامة 2026 | البحرين | الإصدار v5.0.0</title>
   
   <!-- ==================== CSS STYLES ==================== -->
   <style>
@@ -413,6 +413,14 @@
       .nav-links a { padding: var(--spacing-xs) var(--spacing-sm); font-size: var(--font-size-base); }
       .nav-links a:hover, .nav-links a.active { transform: translateY(-2px); }
       [dir="rtl"] .nav-links a:hover, [dir="rtl"] .nav-links a.active { transform: translateY(-2px); }
+    }
+    
+    /* Mobile Navigation Fix - Ensure options appear above content */
+    @media (max-width: 767px) {
+      nav { top: var(--header-height-mobile); z-index: var(--z-index-modal); }
+      nav.active { box-shadow: var(--shadow-xl); }
+      .header-inner { flex-wrap: wrap; }
+      .nav-actions { order: 3; width: 100%; justify-content: center; margin-top: var(--spacing-xs); }
     }
     
     /* ============== 10. HERO SECTION ============== */
@@ -1105,6 +1113,15 @@
       </div>
     </section>
 
+    <!-- 3D Meteor Shower Canvas Section -->
+    <section id="meteor-3d" class="section" style="padding: var(--spacing-xxl) 0; background: var(--bg-secondary);">
+      <div class="container text-center">
+        <h2 class="text-gradient" style="font-size: 1.8rem; margin-bottom: 16px;">🌠 عرض الشهب ثلاثي الأبعاد</h2>
+        <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto 24px;">مرر للأسفل لتشاهد شهباً متساقطة بتأثير ثلاثي الأبعاد تفاعلي</p>
+        <canvas id="meteorCanvas" style="width: 100%; height: 400px; border-radius: var(--radius-lg); background: radial-gradient(ellipse at bottom, #1a2332 0%, #0a0e17 100%);"></canvas>
+      </div>
+    </section>
+
   </main>
 
   <!-- Footer -->
@@ -1198,8 +1215,8 @@
     }
 
     const CONFIG = {
-      version: '4.0.1',
-      buildDate: '2026-04-30',
+      version: '5.0.0',
+      buildDate: '2026-05-03',
       timezone: 'Asia/Bahrain',
       meteorData: {
         quadrantids: { name: { ar: 'الرباعيات', en: 'Quadrantids' }, peak: '2026-01-04', rate: '120', parent: 'Asteroid 2003 EH1', desc: { ar: 'أول زخة في العام. سريعة جداً لكن قصيرة الذروة.', en: 'First meteor shower of the year. Very fast but short peak.' } },
@@ -1254,11 +1271,109 @@
       toggle() { const newTheme = state.theme === 'dark' ? 'light' : 'dark'; this.applyTheme(newTheme); utils.showToast(newTheme === 'dark' ? 'تم تفعيل الوضع الليلي 🌙' : 'تم تفعيل الوضع النهاري ☀️', 'success'); }
     };
 
-    // Language Manager
+    // Language Manager - Enhanced with full translations
     const LangManager = {
-      translations: { ar: { notify: '🔔 تنبيه', notified: '✅ تم إضافة التنبيه', search: 'ابحث...', noResults: 'لم يتم العثور على نتائج', reset: 'إعادة تعيين', details: 'تفاصيل', close: 'إغلاق', send: 'إرسال', success: 'تم الإرسال بنجاح!', error: 'حدث خطأ، حاول مرة أخرى' }, en: { notify: '🔔 Notify', notified: '✅ Notification added', search: 'Search...', noResults: 'No results found', reset: 'Reset', details: 'Details', close: 'Close', send: 'Send', success: 'Sent successfully!', error: 'Error occurred, try again' } },
+      translations: {
+        ar: {
+          home: '🏠 الرئيسية', showers: '🌠 زخات الشهب', calendar: '📅 التقويم', guide: '📋 الدليل', calculator: '🧮 الحاسبة', faq: '❓ الأسئلة', contact: '📧 تواصل',
+          notify: '🔔 تنبيه', notified: '✅ تم إضافة التنبيه', search: 'ابحث عن زخة شهب...', noResults: 'لم يتم العثور على نتائج', reset: 'إعادة تعيين', details: 'تفاصيل', close: 'إغلاق', send: 'إرسال', success: 'تم الإرسال بنجاح!', error: 'حدث خطأ، حاول مرة أخرى',
+          heroTitle: 'زخات الشهب 2026', heroSubtitle: 'دليلك الشامل والمشاهدة الاحترافية لأروع الظواهر الفلكية في سماء البحرين خلال عام 2026. مواعيد دقيقة، نصائح خبراء، وخرائط تفاعلية.',
+          stats1: 'زخات شهب', stats2: 'أقصى معدل', stats3: 'بين الشهب', stats4: 'الدخول',
+          exploreBtn: '📅 استكشف المواعيد', notifyBtn: '🔔 تنبيهات الذروة',
+          meteorTitle: '🌠 زخات الشهب المرئية من البحرين 2026', meteorDesc: 'جميع التواريخ وفقاً للتوقيت المحلي للبحرين (UTC+3). أفضل وقت للمشاهدة: بعد منتصف الليل حتى الفجر.',
+          filterAll: 'الكل', filterPeak: 'الأفضل', filterWinter: 'شتوية', filterSummer: 'صيفية', filterSpring: 'ربيعية', filterFall: 'خريفية',
+          showerRate: 'شهاب/ساعة', showerParent: 'الأصل', peakDate: 'ذروة', detailsBtn: 'عرض التفاصيل', notifyShower: 'إضافة تنبيه',
+          threeDTitle: '🌠 عرض الشهب ثلاثي الأبعاد', threeDDesc: 'مرر للأسفل لتشاهد شهباً متساقطة بتأثير ثلاثي الأبعاد تفاعلي'
+        },
+        en: {
+          home: '🏠 Home', showers: '🌠 Meteor Showers', calendar: '📅 Calendar', guide: '📋 Guide', calculator: '🧮 Calculator', faq: '❓ FAQ', contact: '📧 Contact',
+          notify: '🔔 Notify', notified: '✅ Notification added', search: 'Search meteor showers...', noResults: 'No results found', reset: 'Reset', details: 'Details', close: 'Close', send: 'Send', success: 'Sent successfully!', error: 'Error occurred, try again',
+          heroTitle: 'Meteor Showers 2026', heroSubtitle: 'Your complete guide to professional viewing of the most spectacular astronomical phenomena in Bahrain\'s sky during 2026. Precise dates, expert tips, and interactive maps.',
+          stats1: 'Showers', stats2: 'Max Rate', stats3: 'Between Meteors', stats4: 'Free Entry',
+          exploreBtn: '📅 Explore Dates', notifyBtn: '🔔 Peak Alerts',
+          meteorTitle: '🌠 Meteor Showers Visible from Bahrain 2026', meteorDesc: 'All dates according to Bahrain local time (UTC+3). Best viewing time: After midnight until dawn.',
+          filterAll: 'All', filterPeak: 'Best', filterWinter: 'Winter', filterSummer: 'Summer', filterSpring: 'Spring', filterFall: 'Fall',
+          showerRate: 'meteors/hour', showerParent: 'Parent Body', peakDate: 'Peak', detailsBtn: 'View Details', notifyShower: 'Add Alert',
+          threeDTitle: '🌠 3D Meteor Display', threeDDesc: 'Scroll down to see falling meteors with interactive 3D effect'
+        }
+      },
       init() { this.applyLang(state.lang); elements.langToggle?.addEventListener('click', () => this.toggle()); },
-      applyLang(lang) { state.lang = lang; utils.save('lang', lang); const icon = elements.langToggle?.querySelector('.lang-icon'); if (icon) icon.textContent = lang === 'ar' ? 'EN' : 'عربي'; elements.html.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr'); elements.html.setAttribute('lang', lang === 'ar' ? 'ar' : 'en'); if (elements.meteorSearch) elements.meteorSearch.placeholder = this.translations[lang].search; utils.showToast(lang === 'ar' ? 'تم التبديل إلى العربية 🇧🇭' : 'Switched to English 🇬🇧', 'success'); },
+      applyLang(lang) {
+        state.lang = lang; 
+        utils.save('lang', lang); 
+        const icon = elements.langToggle?.querySelector('.lang-icon'); 
+        if (icon) icon.textContent = lang === 'ar' ? 'EN' : 'عربي'; 
+        elements.html.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr'); 
+        elements.html.setAttribute('lang', lang === 'ar' ? 'ar' : 'en');
+        
+        // Update navigation links
+        const navLinks = document.querySelectorAll('.nav-links a');
+        if (navLinks.length >= 7) {
+          navLinks[0].textContent = this.translations[lang].home;
+          navLinks[1].textContent = this.translations[lang].showers;
+          navLinks[2].textContent = this.translations[lang].calendar;
+          navLinks[3].textContent = this.translations[lang].guide;
+          navLinks[4].textContent = this.translations[lang].calculator;
+          navLinks[5].textContent = this.translations[lang].faq;
+          navLinks[6].textContent = this.translations[lang].contact;
+        }
+        
+        // Update hero section
+        const heroTitle = document.querySelector('.hero-title');
+        const heroSubtitle = document.querySelector('.hero-subtitle');
+        if (heroTitle) heroTitle.textContent = this.translations[lang].heroTitle;
+        if (heroSubtitle) heroSubtitle.textContent = this.translations[lang].heroSubtitle;
+        
+        // Update stats
+        const statLabels = document.querySelectorAll('.stat-label');
+        if (statLabels.length >= 4) {
+          statLabels[0].textContent = this.translations[lang].stats1;
+          statLabels[1].textContent = this.translations[lang].stats2;
+          statLabels[2].textContent = this.translations[lang].stats3;
+          statLabels[3].textContent = this.translations[lang].stats4;
+        }
+        
+        // Update buttons
+        const exploreBtn = document.querySelector('.hero-cta .btn:first-child');
+        const notifyHeroBtn = document.querySelector('#notifyBtn');
+        if (exploreBtn) exploreBtn.textContent = this.translations[lang].exploreBtn;
+        if (notifyHeroBtn) notifyHeroBtn.textContent = this.translations[lang].notifyBtn;
+        
+        // Update meteor section
+        const meteorTitle = document.querySelector('#showers h2');
+        const meteorDesc = document.querySelector('#showers p');
+        if (meteorTitle) meteorTitle.textContent = this.translations[lang].meteorTitle;
+        if (meteorDesc) meteorDesc.textContent = this.translations[lang].meteorDesc;
+        
+        // Update filters
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const filters = ['filterAll', 'filterPeak', 'filterWinter', 'filterSummer', 'filterSpring', 'filterFall'];
+        filterBtns.forEach((btn, i) => { if (filters[i]) btn.textContent = this.translations[lang][filters[i]]; });
+        
+        // Update search placeholder
+        if (elements.meteorSearch) elements.meteorSearch.placeholder = this.translations[lang].search;
+        
+        // Update 3D section
+        const threeDTitle = document.querySelector('#meteor-3d h2');
+        const threeDDesc = document.querySelector('#meteor-3d p');
+        if (threeDTitle) threeDTitle.textContent = this.translations[lang].threeDTitle;
+        if (threeDDesc) threeDDesc.textContent = this.translations[lang].threeDDesc;
+        
+        // Update all detail buttons and notify buttons
+        document.querySelectorAll('[data-modal]').forEach(btn => {
+          const id = btn.getAttribute('data-modal');
+          const meteor = CONFIG.meteorData[id];
+          if (meteor && btn.parentElement) {
+            const parent = btn.parentElement;
+            const detailBtn = parent.querySelector('.btn-outline');
+            const notifyBtn = parent.querySelector('[data-notify]');
+            if (detailBtn) detailBtn.textContent = this.translations[lang].detailsBtn;
+            if (notifyBtn) notifyBtn.innerHTML = '🔔';
+          }
+        });
+        
+        utils.showToast(lang === 'ar' ? 'تم التبديل إلى العربية 🇧🇭' : 'Switched to English 🇬🇧', 'success'); 
+      },
       toggle() { this.applyLang(state.lang === 'ar' ? 'en' : 'ar'); }
     };
 
@@ -1314,6 +1429,137 @@
     const observer = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'translateY(0)'; observer.unobserve(e.target); } }); }, { threshold: 0.1 });
     document.querySelectorAll('.animate').forEach(el => { el.style.opacity = '0'; el.style.transform = 'translateY(20px)'; el.style.transition = 'opacity 0.6s ease, transform 0.6s ease'; observer.observe(el); });
 
+    // 3D Meteor Canvas Animation
+    const MeteorCanvas3D = {
+      canvas: null, ctx: null, meteors: [], animationId: null, isVisible: false,
+      init() {
+        this.canvas = document.getElementById('meteorCanvas');
+        if (!this.canvas) return;
+        this.ctx = this.canvas.getContext('2d');
+        this.resize();
+        window.addEventListener('resize', () => this.resize());
+        
+        // Create initial meteors
+        for (let i = 0; i < 50; i++) {
+          this.meteors.push(this.createMeteor(true));
+        }
+        
+        // Start animation when section is visible
+        this.setupIntersectionObserver();
+      },
+      resize() {
+        if (!this.canvas) return;
+        const rect = this.canvas.getBoundingClientRect();
+        this.canvas.width = rect.width * window.devicePixelRatio;
+        this.canvas.height = rect.height * window.devicePixelRatio;
+        this.ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+        this.canvas.style.width = rect.width + 'px';
+        this.canvas.style.height = rect.height + 'px';
+      },
+      createMeteor(randomY = false) {
+        return {
+          x: Math.random() * (this.canvas ? this.canvas.width / window.devicePixelRatio : 800),
+          y: randomY ? Math.random() * 400 : -100,
+          length: Math.random() * 80 + 40,
+          speed: Math.random() * 8 + 4,
+          brightness: Math.random() * 0.5 + 0.5,
+          angle: Math.PI / 4 + (Math.random() * 0.2 - 0.1),
+          width: Math.random() * 2 + 1,
+          hue: Math.random() * 60 + 200 // Blue to purple range
+        };
+      },
+      drawMeteor(meteor) {
+        if (!this.ctx || !this.canvas) return;
+        const w = this.canvas.width / window.devicePixelRatio;
+        const h = this.canvas.height / window.devicePixelRatio;
+        
+        const endX = meteor.x + Math.cos(meteor.angle) * meteor.length;
+        const endY = meteor.y + Math.sin(meteor.angle) * meteor.length;
+        
+        // Create gradient for meteor trail
+        const gradient = this.ctx.createLinearGradient(meteor.x, meteor.y, endX, endY);
+        gradient.addColorStop(0, `hsla(${meteor.hue}, 100%, ${70 * meteor.brightness}%, ${meteor.brightness})`);
+        gradient.addColorStop(0.5, `hsla(${meteor.hue}, 100%, ${60 * meteor.brightness}%, ${meteor.brightness * 0.5})`);
+        gradient.addColorStop(1, 'transparent');
+        
+        // Draw meteor with glow effect
+        this.ctx.save();
+        this.ctx.shadowBlur = 15;
+        this.ctx.shadowColor = `hsla(${meteor.hue}, 100%, 70%, ${meteor.brightness})`;
+        this.ctx.strokeStyle = gradient;
+        this.ctx.lineWidth = meteor.width;
+        this.ctx.lineCap = 'round';
+        this.ctx.beginPath();
+        this.ctx.moveTo(meteor.x, meteor.y);
+        this.ctx.lineTo(endX, endY);
+        this.ctx.stroke();
+        
+        // Draw bright head
+        this.ctx.fillStyle = `hsla(${meteor.hue}, 100%, 90%, ${meteor.brightness})`;
+        this.ctx.beginPath();
+        this.ctx.arc(meteor.x, meteor.y, meteor.width * 1.5, 0, Math.PI * 2);
+        this.ctx.fill();
+        this.ctx.restore();
+      },
+      update() {
+        if (!this.isVisible || !this.ctx || !this.canvas) return;
+        
+        const w = this.canvas.width / window.devicePixelRatio;
+        const h = this.canvas.height / window.devicePixelRatio;
+        
+        // Clear with slight fade for trail effect
+        this.ctx.fillStyle = 'rgba(10, 14, 23, 0.15)';
+        this.ctx.fillRect(0, 0, w, h);
+        
+        // Update and draw meteors
+        this.meteors.forEach((meteor, index) => {
+          meteor.x += Math.cos(meteor.angle) * meteor.speed;
+          meteor.y += Math.sin(meteor.angle) * meteor.speed;
+          
+          // Reset meteor if out of bounds
+          if (meteor.x > w + 100 || meteor.y > h + 100) {
+            this.meteors[index] = this.createMeteor(false);
+            this.meteors[index].x = Math.random() * w;
+            this.meteors[index].y = -50;
+          }
+          
+          this.drawMeteor(meteor);
+        });
+        
+        // Randomly add new meteors
+        if (Math.random() < 0.1 && this.meteors.length < 80) {
+          const newMeteor = this.createMeteor(false);
+          newMeteor.x = Math.random() * w;
+          newMeteor.y = -50;
+          this.meteors.push(newMeteor);
+        }
+        
+        // Remove excess meteors
+        if (this.meteors.length > 80) {
+          this.meteors.splice(0, this.meteors.length - 80);
+        }
+        
+        this.animationId = requestAnimationFrame(() => this.update());
+      },
+      setupIntersectionObserver() {
+        const section = document.getElementById('meteor-3d');
+        if (!section) return;
+        
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              this.isVisible = true;
+              if (!this.animationId) this.update();
+            } else {
+              this.isVisible = false;
+            }
+          });
+        }, { threshold: 0.1 });
+        
+        observer.observe(section);
+      }
+    };
+
     // Init with improved error handling and lazy loading
     document.addEventListener('DOMContentLoaded', () => {
       console.log(`%c🌠 Manama Meteor Observatory v${CONFIG.version}`, 'font-weight:bold;color:#7c3aed;font-size:14px');
@@ -1330,6 +1576,7 @@
         NotificationManager.init();
         Accordion.init();
         ContactForm.init();
+        MeteorCanvas3D.init();
         
         utils.showToast('🌠 مرحباً بك في مرصد شهب المنامة 2026! (v' + CONFIG.version + ')', 'success');
       } catch (error) {
@@ -1375,7 +1622,7 @@
   
   <!-- Structured Data (SEO) -->
   <script type="application/ld+json">
-  { "@context": "https://schema.org", "@type": "WebSite", "name": "مرصد شهب المنامة 2026", "url": "https://manama-meteors.github.io/2026", "version": "4.0.1", "description": "دليل شامل لزخات الشهب المرئية من المنامة، البحرين في عام 2026 مع مواعيد دقيقة، خرائط تفاعلية، وحاسبة مشاهدة ذكية", "inLanguage": "ar-BH", "potentialAction": { "@type": "SearchAction", "target": "https://manama-meteors.github.io/2026?q={search_term_string}", "query-input": "required name=search_term_string" } }
+  { "@context": "https://schema.org", "@type": "WebSite", "name": "مرصد شهب المنامة 2026", "url": "https://manama-meteors.github.io/2026", "version": "5.0.0", "description": "دليل شامل لزخات الشهب المرئية من المنامة، البحرين في عام 2026 مع مواعيد دقيقة، خرائط تفاعلية، وحاسبة مشاهدة ذكية", "inLanguage": "ar-BH", "potentialAction": { "@type": "SearchAction", "target": "https://manama-meteors.github.io/2026?q={search_term_string}", "query-input": "required name=search_term_string" } }
   </script>
   <script type="application/ld+json">
   { "@context": "https://schema.org", "@type": "EventSeries", "name": "زخات الشهب 2026 - البحرين", "location": { "@type": "Place", "name": "المنامة، مملكة البحرين", "geo": { "@type": "GeoCoordinates", "latitude": 26.2285, "longitude": 50.5860 } }, "eventSchedule": { "@type": "Schedule", "startDate": "2026-01-01", "endDate": "2026-12-31" }, "image": ["https://manama-meteors.github.io/2026/og-image.jpg"], "organizer": { "@type": "Organization", "name": "مجتمع الفلكيين في البحرين" } }
