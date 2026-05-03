@@ -48,6 +48,16 @@
     body { margin: 0; font-family: 'Tajawal', 'Cairo', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; background: var(--bg-primary); color: var(--text-primary); line-height: 1.7; overflow-x: hidden; }
     [hidden] { display: none; }
     
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 10px; height: 10px; }
+    ::-webkit-scrollbar-track { background: var(--bg-secondary); }
+    ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, var(--accent), var(--info)); border-radius: 5px; }
+    ::-webkit-scrollbar-thumb:hover { background: linear-gradient(180deg, var(--accent-hover), var(--info)); }
+    
+    /* Selection */
+    ::selection { background: var(--accent); color: white; }
+    ::-moz-selection { background: var(--accent); color: white; }
+    
     /* ============== 2. CSS CUSTOM PROPERTIES ============== */
     :root {
       /* Colors - Dark Theme (Default) */
@@ -662,6 +672,25 @@
     
     .skeleton { background: linear-gradient(90deg, var(--bg-tertiary) 25%, var(--bg-secondary) 50%, var(--bg-tertiary) 75%); background-size: 200% 100%; animation: loading 1.5s infinite; border-radius: var(--radius); }
     @keyframes loading { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+
+    /* ============== 26. ENHANCED VISUAL EFFECTS ============== */
+    .glass { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+    .floating { animation: floating 3s ease-in-out infinite; }
+    @keyframes floating { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+    .glow-pulse { animation: glowPulse 2s ease-in-out infinite; }
+    @keyframes glowPulse { 0%, 100% { box-shadow: 0 0 20px var(--accent-glow); } 50% { box-shadow: 0 0 40px var(--accent-glow-strong), 0 0 60px var(--accent-glow); } }
+    .text-glow { text-shadow: 0 0 10px var(--accent-glow), 0 0 20px var(--accent-glow), 0 0 30px var(--accent); }
+    .gradient-text-animated { background: linear-gradient(270deg, var(--accent), var(--info), var(--success), var(--warning), var(--accent)); background-size: 400% 400%; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; animation: gradientShift 8s ease infinite; }
+    @keyframes gradientShift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+    .spinner { width: 40px; height: 40px; border: 4px solid var(--border); border-top-color: var(--accent); border-radius: 50%; animation: spin 1s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .bounce-in { animation: bounceIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55); }
+    @keyframes bounceIn { 0% { opacity: 0; transform: scale(0.3); } 50% { opacity: 1; transform: scale(1.05); } 70% { transform: scale(0.9); } 100% { opacity: 1; transform: scale(1); } }
+    .zoom-hover { transition: transform 0.3s ease; }
+    .zoom-hover:hover { transform: scale(1.05); }
+    .shadow-hover-sm:hover { box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); }
+    .shadow-hover-md:hover { box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); }
+    .shadow-hover-lg:hover { box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3); }
   </style>
 </head>
 <body>
@@ -680,7 +709,7 @@
       <a href="#" class="logo" aria-label="الصفحة الرئيسية">
         <span class="logo-icon">🌠</span>
         <span>مرصد شهب المنامة</span>
-        <span class="logo-badge">v4.0.0</span>
+        <span class="logo-badge bounce-in">v4.0.0</span>
       </a>
       
       <button class="nav-toggle" id="navToggle" aria-label="فتح القائمة" aria-expanded="false" aria-controls="mainNav">
@@ -722,20 +751,20 @@
       <div class="hero-shooting"></div>
       
       <div class="container hero-content">
-        <div class="hero-location animate">📍 المنامة، مملكة البحرين</div>
-        <h1 class="hero-title text-gradient animate animate-delay-1">زخات الشهب 2026</h1>
+        <div class="hero-location animate glass floating">📍 المنامة، مملكة البحرين</div>
+        <h1 class="hero-title text-gradient gradient-text-animated animate animate-delay-1">زخات الشهب 2026</h1>
         <p class="hero-subtitle animate animate-delay-2">دليلك الشامل والمشاهدة الاحترافية لأروع الظواهر الفلكية في سماء البحرين خلال عام 2026. مواعيد دقيقة، نصائح خبراء، وخرائط تفاعلية.</p>
         
         <div class="hero-stats animate animate-delay-3">
-          <div class="stat-card"><div class="stat-value">10+</div><div class="stat-label">زخات شهب</div></div>
-          <div class="stat-card"><div class="stat-value">120/ساعة</div><div class="stat-label">أقصى معدل</div></div>
-          <div class="stat-card"><div class="stat-value">30ث</div><div class="stat-label">بين الشهب</div></div>
-          <div class="stat-card"><div class="stat-value">مجاني</div><div class="stat-label">الدخول</div></div>
+          <div class="stat-card glass zoom-hover shadow-hover-md"><div class="stat-value glow-pulse">10+</div><div class="stat-label">زخات شهب</div></div>
+          <div class="stat-card glass zoom-hover shadow-hover-md"><div class="stat-value glow-pulse">120/ساعة</div><div class="stat-label">أقصى معدل</div></div>
+          <div class="stat-card glass zoom-hover shadow-hover-md"><div class="stat-value glow-pulse">30ث</div><div class="stat-label">بين الشهب</div></div>
+          <div class="stat-card glass zoom-hover shadow-hover-md"><div class="stat-value glow-pulse">مجاني</div><div class="stat-label">الدخول</div></div>
         </div>
         
         <div class="hero-cta animate animate-delay-4">
-          <a href="#showers" class="btn btn-lg">📅 استكشف المواعيد</a>
-          <button class="btn btn-lg btn-outline" id="notifyBtn">🔔 تنبيهات الذروة</button>
+          <a href="#showers" class="btn btn-lg ripple glow-pulse">📅 استكشف المواعيد</a>
+          <button class="btn btn-lg btn-outline ripple" id="notifyBtn">🔔 تنبيهات الذروة</button>
         </div>
       </div>
       
@@ -919,12 +948,12 @@
         <p class="text-center" style="color: var(--text-secondary); max-width: 700px; margin: 0 auto 40px;">نصائح مجربة وموثقة من خبراء الفلك لالتقاط أفضل تجربة لمشاهدة الشهب من البحرين</p>
         
         <div class="guide-grid">
-          <div class="guide-item animate"><div class="guide-icon">🌑</div><div class="guide-text"><h4>اختر ليلة مظلمة</h4><p>تجنب الليالي المضيئة بالقمر. أفضل الأوقات: حول القمر الجديد. تحقق من طور القمر قبل التخطيط.</p></div></div>
-          <div class="guide-item animate animate-delay-1"><div class="guide-icon">🏜️</div><div class="guide-text"><h4>ابتعد عن الأضواء</h4><p>اذهب لمناطق مفتوحة مثل: جزيرة المحرق، الرفاع، أو الصحراء الجنوبية. تجنب أضواء الشوارع والمباني.</p></div></div>
-          <div class="guide-item animate animate-delay-2"><div class="guide-icon">🛌</div><div class="guide-text"><h4>استلقِ وارتح</h4><p>استخدم كرسي استلقاء أو بساط. الشهب تظهر في كل اتجاه، لا تحدق في نقطة واحدة. ارتح واستمتع.</p></div></div>
-          <div class="guide-item animate"><div class="guide-icon">👁️</div><div class="guide-text"><h4>أعطِ عينيك وقتاً</h4><p>انتظر 20-30 دقيقة لتتكيف عينيك مع الظلام. تجنب استخدام الهاتف أو أي ضوء ساطع.</p></div></div>
-          <div class="guide-item animate animate-delay-1"><div class="guide-icon">🧥</div><div class="guide-text"><h4>استعد للطقس</h4><p>البحرين دافئة، لكن ليالي الشتاء قد تكون باردة. أحضر سترة خفيفة، ماء، ووجبات خفيفة.</p></div></div>
-          <div class="guide-item animate animate-delay-2"><div class="guide-icon">📱</div><div class="guide-text"><h4>وثّق اللحظات</h4><p>لتصوير الشهب: استخدم وضع التعريض الطويل (15-30 ثانية) مع حامل ثلاثي. جرب تطبيقات مثل NightCap.</p></div></div>
+          <div class="guide-item animate card-shine gradient-border"><div class="guide-icon glow-pulse">🌑</div><div class="guide-text"><h4>اختر ليلة مظلمة</h4><p>تجنب الليالي المضيئة بالقمر. أفضل الأوقات: حول القمر الجديد. تحقق من طور القمر قبل التخطيط.</p></div></div>
+          <div class="guide-item animate animate-delay-1 card-shine gradient-border"><div class="guide-icon glow-pulse">🏜️</div><div class="guide-text"><h4>ابتعد عن الأضواء</h4><p>اذهب لمناطق مفتوحة مثل: جزيرة المحرق، الرفاع، أو الصحراء الجنوبية. تجنب أضواء الشوارع والمباني.</p></div></div>
+          <div class="guide-item animate animate-delay-2 card-shine gradient-border"><div class="guide-icon glow-pulse">🛌</div><div class="guide-text"><h4>استلقِ وارتح</h4><p>استخدم كرسي استلقاء أو بساط. الشهب تظهر في كل اتجاه، لا تحدق في نقطة واحدة. ارتح واستمتع.</p></div></div>
+          <div class="guide-item animate card-shine gradient-border"><div class="guide-icon glow-pulse">👁️</div><div class="guide-text"><h4>أعطِ عينيك وقتاً</h4><p>انتظر 20-30 دقيقة لتتكيف عينيك مع الظلام. تجنب استخدام الهاتف أو أي ضوء ساطع.</p></div></div>
+          <div class="guide-item animate animate-delay-1 card-shine gradient-border"><div class="guide-icon glow-pulse">🧥</div><div class="guide-text"><h4>استعد للطقس</h4><p>البحرين دافئة، لكن ليالي الشتاء قد تكون باردة. أحضر سترة خفيفة، ماء، ووجبات خفيفة.</p></div></div>
+          <div class="guide-item animate animate-delay-2 card-shine gradient-border"><div class="guide-icon glow-pulse">📱</div><div class="guide-text"><h4>وثّق اللحظات</h4><p>لتصوير الشهب: استخدم وضع التعريض الطويل (15-30 ثانية) مع حامل ثلاثي. جرب تطبيقات مثل NightCap.</p></div></div>
         </div>
         
         <div class="card" style="margin-top: var(--spacing-xl);">
@@ -944,8 +973,8 @@
     <!-- Calculator Section -->
     <section id="calculator" class="section" style="background: var(--bg-secondary);">
       <div class="container">
-        <div class="calc-section">
-          <h3 class="calc-title">🧮 حاسبة المشاهدة الشخصية</h3>
+        <div class="calc-section card-shine gradient-border">
+          <h3 class="calc-title gradient-text-animated">🧮 حاسبة المشاهدة الشخصية</h3>
           <p class="calc-desc">احسب عدد الشهب المتوقع والوقت بين كل شهاب بناءً على شروطك</p>
           
           <form class="calc-form" id="calcForm" onsubmit="calcViewing(event)">
