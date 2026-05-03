@@ -1113,12 +1113,82 @@
       </div>
     </section>
 
-    <!-- 3D Meteor Shower Canvas Section -->
-    <section id="meteor-3d" class="section" style="padding: var(--spacing-xxl) 0; background: var(--bg-secondary);">
-      <div class="container text-center">
-        <h2 class="text-gradient" style="font-size: 1.8rem; margin-bottom: 16px;">🌠 عرض الشهب ثلاثي الأبعاد</h2>
-        <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto 24px;">مرر للأسفل لتشاهد شهباً متساقطة بتأثير ثلاثي الأبعاد تفاعلي</p>
-        <canvas id="meteorCanvas" style="width: 100%; height: 400px; border-radius: var(--radius-lg); background: radial-gradient(ellipse at bottom, #1a2332 0%, #0a0e17 100%);"></canvas>
+    <!-- 3D Meteor Shower Canvas Section - Enhanced with Controls -->
+    <section id="meteor-3d" class="section" style="padding: var(--spacing-xxl) 0; background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%); position: relative; overflow: hidden;">
+      <div class="container">
+        <div class="text-center" style="margin-bottom: 24px;">
+          <h2 class="text-gradient" style="font-size: 1.8rem; margin-bottom: 12px;">
+            <span class="lang-ar">🌠 عرض الشهب ثلاثي الأبعاد</span>
+            <span class="lang-en">🌠 3D Meteor Display</span>
+          </h2>
+          <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto;">
+            <span class="lang-ar">شاهد محاكاة حية للشهب متساقطة بتأثير ثلاثي الأبعاد تفاعلي - تعمل على الهاتف والحاسوب</span>
+            <span class="lang-en">Watch live meteor simulation with interactive 3D effect - Works on mobile and desktop</span>
+          </p>
+        </div>
+        
+        <!-- Canvas Container with Controls -->
+        <div style="position: relative; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-xl); border: 1px solid var(--border);">
+          <canvas id="meteorCanvas" style="width: 100%; height: 500px; display: block;"></canvas>
+          
+          <!-- Control Overlay -->
+          <div style="position: absolute; top: 16px; left: 16px; right: 16px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; pointer-events: none;">
+            <!-- Density Control -->
+            <div style="pointer-events: auto; background: rgba(0,0,0,0.6); backdrop-filter: blur(8px); padding: 8px 16px; border-radius: var(--radius-full); border: 1px solid var(--border);">
+              <label style="color: white; font-size: 0.85rem; font-weight: 600; margin-left: 8px;">
+                <span class="lang-ar">⚙️ الكثافة:</span>
+                <span class="lang-en">⚙️ Density:</span>
+              </label>
+              <select id="meteorDensity" onchange="MeteorCanvas3D.setDensity(this.value)" style="background: var(--accent); color: white; border: none; padding: 4px 12px; border-radius: var(--radius-full); font-size: 0.85rem; cursor: pointer; outline: none;">
+                <option value="low"><span class="lang-ar">منخفضة (هاتف)</span><span class="lang-en">Low (Mobile)</span></option>
+                <option value="medium" selected><span class="lang-ar">متوسطة</span><span class="lang-en">Medium</span></option>
+                <option value="high"><span class="lang-ar">عالية (حاسوب)</span><span class="lang-en">High (Desktop)</span></option>
+              </select>
+            </div>
+            
+            <!-- Shower Type Control -->
+            <div style="pointer-events: auto; background: rgba(0,0,0,0.6); backdrop-filter: blur(8px); padding: 8px 16px; border-radius: var(--radius-full); border: 1px solid var(--border);">
+              <label style="color: white; font-size: 0.85rem; font-weight: 600; margin-left: 8px;">
+                <span class="lang-ar">🌠 النوع:</span>
+                <span class="lang-en">🌠 Type:</span>
+              </label>
+              <select id="showerType" onchange="MeteorCanvas3D.setShowerType(this.value)" style="background: var(--secondary); color: white; border: none; padding: 4px 12px; border-radius: var(--radius-full); font-size: 0.85rem; cursor: pointer; outline: none;">
+                <option value="perseids">Perseids (أزرق)</option>
+                <option value="geminids">Geminids (أصفر)</option>
+                <option value="lyrids">Lyrids (أخضر)</option>
+                <option value="leonids">Leonids (أحمر)</option>
+              </select>
+            </div>
+            
+            <!-- Play/Pause Button -->
+            <button onclick="MeteorCanvas3D.toggle()" id="meteorPlayPause" style="pointer-events: auto; background: rgba(0,0,0,0.6); backdrop-filter: blur(8px); color: white; border: 1px solid var(--border); padding: 8px 16px; border-radius: var(--radius-full); cursor: pointer; font-size: 0.9rem; transition: all 0.3s;" aria-label="تشغيل/إيقاف">
+              ⏸️ <span class="lang-ar">إيقاف</span><span class="lang-en">Pause</span>
+            </button>
+          </div>
+          
+          <!-- Fullscreen Button -->
+          <button onclick="MeteorCanvas3D.toggleFullscreen()" style="position: absolute; bottom: 16px; right: 16px; background: rgba(0,0,0,0.6); backdrop-filter: blur(8px); color: white; border: 1px solid var(--border); padding: 8px 12px; border-radius: var(--radius-full); cursor: pointer; font-size: 1rem; transition: all 0.3s; pointer-events: auto;" aria-label="ملء الشاشة">
+            ⛶
+          </button>
+          
+          <!-- Stats Overlay -->
+          <div style="position: absolute; bottom: 16px; left: 16px; background: rgba(0,0,0,0.6); backdrop-filter: blur(8px); color: white; padding: 8px 16px; border-radius: var(--radius-full); border: 1px solid var(--border); font-size: 0.85rem;">
+            <span style="margin-left: 12px;">
+              <span class="lang-ar">📊 شوهد:</span>
+              <span class="lang-en">📊 Seen:</span>
+            </span>
+            <span id="meteorCountDisplay" style="font-weight: bold; color: var(--accent);">0</span>
+          </div>
+        </div>
+        
+        <!-- Location-based Info -->
+        <div id="locationInfo" style="margin-top: 20px; padding: 16px; background: rgba(124, 58, 237, 0.1); border-radius: var(--radius-lg); border: 1px solid rgba(124, 58, 237, 0.3); display: none;">
+          <p style="color: var(--accent); font-size: 0.9rem; margin: 0;">
+            <span class="lang-ar">📍 تم ضبط المحاكاة بناءً على موقعك: </span>
+            <span class="lang-en">📍 Simulation calibrated to your location: </span>
+            <span id="userLocation" style="font-weight: 600;"></span>
+          </p>
+        </div>
       </div>
     </section>
 
@@ -1429,9 +1499,20 @@
     const observer = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'translateY(0)'; observer.unobserve(e.target); } }); }, { threshold: 0.1 });
     document.querySelectorAll('.animate').forEach(el => { el.style.opacity = '0'; el.style.transform = 'translateY(20px)'; el.style.transition = 'opacity 0.6s ease, transform 0.6s ease'; observer.observe(el); });
 
-    // 3D Meteor Canvas Animation
+    // 3D Meteor Canvas Animation - Enhanced with Controls & Location
     const MeteorCanvas3D = {
       canvas: null, ctx: null, meteors: [], animationId: null, isVisible: false,
+      density: 'medium', showerType: 'perseids', isPaused: false, meteorCount: 0,
+      userLat: null, userLon: null,
+      
+      // Shower color configurations
+      showerColors: {
+        perseids: { hue: 200, range: 60 },   // Blue-Cyan
+        geminids: { hue: 45, range: 20 },    // Yellow-White
+        lyrids: { hue: 120, range: 40 },     // Green
+        leonids: { hue: 0, range: 30 }       // Red-Orange
+      },
+      
       init() {
         this.canvas = document.getElementById('meteorCanvas');
         if (!this.canvas) return;
@@ -1439,39 +1520,127 @@
         this.resize();
         window.addEventListener('resize', () => this.resize());
         
-        // Create initial meteors
-        for (let i = 0; i < 50; i++) {
-          this.meteors.push(this.createMeteor(true));
-        }
+        // Get user location for calibration
+        this.getUserLocation();
+        
+        // Create initial meteors based on density
+        this.createMeteors();
         
         // Start animation when section is visible
         this.setupIntersectionObserver();
       },
+      
+      getUserLocation() {
+        if (!navigator.geolocation) return;
+        
+        navigator.geolocation.getCurrentPosition(
+          (pos) => {
+            this.userLat = pos.coords.latitude.toFixed(2);
+            this.userLon = pos.coords.longitude.toFixed(2);
+            
+            // Show location info
+            const locInfo = document.getElementById('locationInfo');
+            const userLoc = document.getElementById('userLocation');
+            if (locInfo && userLoc) {
+              userLoc.textContent = `${this.userLat}°, ${this.userLon}°`;
+              locInfo.style.display = 'block';
+            }
+            
+            // Adjust angle based on latitude for realism
+            this.adjustForLatitude(parseFloat(this.userLat));
+          },
+          () => console.log('Location access denied or unavailable')
+        );
+      },
+      
+      adjustForLatitude(lat) {
+        // Adjust meteor angle based on hemisphere
+        const baseAngle = lat > 0 ? Math.PI / 4 : -Math.PI / 4;
+        this.meteors.forEach(m => {
+          m.angle = baseAngle + (Math.random() * 0.2 - 0.1);
+        });
+      },
+      
       resize() {
         if (!this.canvas) return;
         const rect = this.canvas.getBoundingClientRect();
-        this.canvas.width = rect.width * window.devicePixelRatio;
-        this.canvas.height = rect.height * window.devicePixelRatio;
-        this.ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+        const dpr = window.devicePixelRatio || 1;
+        this.canvas.width = rect.width * dpr;
+        this.canvas.height = rect.height * dpr;
+        this.ctx.scale(dpr, dpr);
         this.canvas.style.width = rect.width + 'px';
         this.canvas.style.height = rect.height + 'px';
       },
+      
+      createMeteors() {
+        this.meteors = [];
+        let count = 30; // medium default
+        
+        if (this.density === 'low') count = 15;
+        if (this.density === 'high') count = 80;
+        
+        for (let i = 0; i < count; i++) {
+          this.meteors.push(this.createMeteor(true));
+        }
+      },
+      
+      setDensity(val) {
+        this.density = val;
+        this.createMeteors();
+      },
+      
+      setShowerType(val) {
+        this.showerType = val;
+        // Reset all meteors with new color
+        this.meteors.forEach((m, i) => {
+          setTimeout(() => {
+            this.meteors[i] = this.createMeteor(true);
+          }, i * 50);
+        });
+      },
+      
+      toggle() {
+        this.isPaused = !this.isPaused;
+        const btn = document.getElementById('meteorPlayPause');
+        if (btn) {
+          btn.innerHTML = this.isPaused 
+            ? '▶️ <span class="lang-ar">تشغيل</span><span class="lang-en">Play</span>'
+            : '⏸️ <span class="lang-ar">إيقاف</span><span class="lang-en">Pause</span>';
+        }
+        if (!this.isPaused && !this.animationId) this.update();
+      },
+      
+      toggleFullscreen() {
+        const section = document.getElementById('meteor-3d');
+        if (!document.fullscreenElement) {
+          section.requestFullscreen().catch(err => {
+            console.log('Fullscreen error:', err);
+          });
+        } else {
+          document.exitFullscreen();
+        }
+      },
+      
       createMeteor(randomY = false) {
+        const w = this.canvas ? this.canvas.width / (window.devicePixelRatio || 1) : 800;
+        const colors = this.showerColors[this.showerType];
+        
         return {
-          x: Math.random() * (this.canvas ? this.canvas.width / window.devicePixelRatio : 800),
-          y: randomY ? Math.random() * 400 : -100,
+          x: Math.random() * w,
+          y: randomY ? Math.random() * 500 : -100,
           length: Math.random() * 80 + 40,
           speed: Math.random() * 8 + 4,
           brightness: Math.random() * 0.5 + 0.5,
           angle: Math.PI / 4 + (Math.random() * 0.2 - 0.1),
           width: Math.random() * 2 + 1,
-          hue: Math.random() * 60 + 200 // Blue to purple range
+          hue: colors.hue + (Math.random() * colors.range - colors.range/2)
         };
       },
+      
       drawMeteor(meteor) {
         if (!this.ctx || !this.canvas) return;
-        const w = this.canvas.width / window.devicePixelRatio;
-        const h = this.canvas.height / window.devicePixelRatio;
+        const w = this.canvas.width / (window.devicePixelRatio || 1);
+        const h = this.canvas.height / (window.devicePixelRatio || 1);
         
         const endX = meteor.x + Math.cos(meteor.angle) * meteor.length;
         const endY = meteor.y + Math.sin(meteor.angle) * meteor.length;
@@ -1501,11 +1670,12 @@
         this.ctx.fill();
         this.ctx.restore();
       },
+      
       update() {
-        if (!this.isVisible || !this.ctx || !this.canvas) return;
+        if (!this.isVisible || this.isPaused || !this.ctx || !this.canvas) return;
         
-        const w = this.canvas.width / window.devicePixelRatio;
-        const h = this.canvas.height / window.devicePixelRatio;
+        const w = this.canvas.width / (window.devicePixelRatio || 1);
+        const h = this.canvas.height / (window.devicePixelRatio || 1);
         
         // Clear with slight fade for trail effect
         this.ctx.fillStyle = 'rgba(10, 14, 23, 0.15)';
@@ -1519,15 +1689,15 @@
           // Reset meteor if out of bounds
           if (meteor.x > w + 100 || meteor.y > h + 100) {
             this.meteors[index] = this.createMeteor(false);
-            this.meteors[index].x = Math.random() * w;
-            this.meteors[index].y = -50;
+            this.meteorCount++;
+            this.updateCountDisplay();
           }
           
           this.drawMeteor(meteor);
         });
         
         // Randomly add new meteors
-        if (Math.random() < 0.1 && this.meteors.length < 80) {
+        if (Math.random() < 0.05 && this.meteors.length < (this.density === 'high' ? 120 : 80)) {
           const newMeteor = this.createMeteor(false);
           newMeteor.x = Math.random() * w;
           newMeteor.y = -50;
@@ -1535,12 +1705,21 @@
         }
         
         // Remove excess meteors
-        if (this.meteors.length > 80) {
-          this.meteors.splice(0, this.meteors.length - 80);
+        const maxCount = this.density === 'high' ? 120 : (this.density === 'low' ? 30 : 80);
+        if (this.meteors.length > maxCount) {
+          this.meteors.splice(0, this.meteors.length - maxCount);
         }
         
         this.animationId = requestAnimationFrame(() => this.update());
       },
+      
+      updateCountDisplay() {
+        const display = document.getElementById('meteorCountDisplay');
+        if (display) {
+          display.textContent = this.meteorCount.toLocaleString();
+        }
+      },
+      
       setupIntersectionObserver() {
         const section = document.getElementById('meteor-3d');
         if (!section) return;
@@ -1549,7 +1728,7 @@
           entries.forEach(entry => {
             if (entry.isIntersecting) {
               this.isVisible = true;
-              if (!this.animationId) this.update();
+              if (!this.animationId && !this.isPaused) this.update();
             } else {
               this.isVisible = false;
             }
