@@ -37,7 +37,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet" />
   
-  <title>🌠 مرصد شهب المنامة 2026 | البحرين | الإصدار v4.0.0</title>
+  <title>🌠 مرصد شهب المنامة 2026 | البحرين | الإصدار v4.0.1</title>
   
   <!-- ==================== CSS STYLES ==================== -->
   <style>
@@ -709,7 +709,7 @@
       <a href="#" class="logo" aria-label="الصفحة الرئيسية">
         <span class="logo-icon">🌠</span>
         <span>مرصد شهب المنامة</span>
-        <span class="logo-badge bounce-in">v4.0.0</span>
+        <span class="logo-badge bounce-in">v4.0.1</span>
       </a>
       
       <button class="nav-toggle" id="navToggle" aria-label="فتح القائمة" aria-expanded="false" aria-controls="mainNav">
@@ -1144,7 +1144,7 @@
       
       <div style="text-align: center; padding-top: var(--spacing-xl); margin-top: var(--spacing-xl); border-top: 1px solid var(--border); color: var(--text-muted); font-size: var(--font-size-sm); display: flex; flex-direction: column; gap: var(--spacing-xs);">
         <p>⚠️ تنويه: الظواهر الفلكية تعتمد على الظروف الجوية. تحقق من النشرة الجوية قبل الخروج.</p>
-        <div style="display: inline-flex; align-items: center; gap: var(--spacing-xxs); padding: var(--spacing-xxs) var(--spacing-sm); background: var(--bg-card); border-radius: var(--radius-full); font-size: var(--font-size-xs); font-weight: var(--font-weight-semibold); color: var(--accent); border: 1px solid var(--border); align-self: center; margin-top: var(--spacing-xs);">🏷️ الإصدار: v4.0.0-stable</div>
+        <div style="display: inline-flex; align-items: center; gap: var(--spacing-xxs); padding: var(--spacing-xxs) var(--spacing-sm); background: var(--bg-card); border-radius: var(--radius-full); font-size: var(--font-size-xs); font-weight: var(--font-weight-semibold); color: var(--accent); border: 1px solid var(--border); align-self: center; margin-top: var(--spacing-xs);">🏷️ الإصدار: v4.0.1-stable</div>
         <p class="small">© <span id="currentYear">2026</span> مجتمع الفلكيين في البحرين. جميع الحقوق محفوظة.</p>
       </div>
     </div>
@@ -1171,8 +1171,34 @@
   <!-- ==================== JAVASCRIPT ==================== -->
   <script>
     'use strict';
+    
+    // Error Handling & Performance Monitoring
+    window.onerror = function(message, source, lineno, colno, error) {
+      console.error('Global Error:', { message, source, lineno, colno, error });
+      if (typeof utils !== 'undefined' && utils.showToast) {
+        utils.showToast('⚠️ حدث خطأ غير متوقع. يرجى تحديث الصفحة.', 'error', 'خطأ في النظام');
+      }
+      return false;
+    };
+
+    // Performance Observer for monitoring
+    if ('PerformanceObserver' in window) {
+      try {
+        const perfObserver = new PerformanceObserver((entries) => {
+          entries.getEntries().forEach((entry) => {
+            if (entry.duration > 300) {
+              console.warn('Slow operation detected:', entry.name, entry.duration);
+            }
+          });
+        });
+        perfObserver.observe({ entryTypes: ['measure', 'longtask'] });
+      } catch (e) {
+        console.debug('Performance observer not supported');
+      }
+    }
+
     const CONFIG = {
-      version: '4.0.0',
+      version: '4.0.1',
       buildDate: '2026-04-30',
       timezone: 'Asia/Bahrain',
       meteorData: {
@@ -1189,12 +1215,36 @@
     const elements = { html: document.documentElement, body: document.body, header: document.getElementById('header'), navToggle: document.getElementById('navToggle'), mainNav: document.getElementById('mainNav'), themeToggle: document.getElementById('themeToggle'), langToggle: document.getElementById('langToggle'), progressBar: document.getElementById('progressBar'), backToTop: document.getElementById('backToTop'), scrollIndicator: document.getElementById('scrollIndicator'), meteorGrid: document.getElementById('meteorGrid'), meteorSearch: document.getElementById('meteorSearch'), filterBtns: document.querySelectorAll('.filter-btn'), noResults: document.getElementById('noResults'), resetFilters: document.getElementById('resetFilters'), notifyBtn: document.getElementById('notifyBtn'), calcForm: document.getElementById('calcForm'), calcResult: document.getElementById('calcResult'), faqAccordion: document.getElementById('faqAccordion'), contactForm: document.getElementById('contactForm'), formSuccess: document.getElementById('formSuccess'), submitBtn: document.getElementById('submitBtn'), modalOverlay: document.getElementById('modalOverlay'), modalTitle: document.getElementById('modalTitle'), modalBody: document.getElementById('modalBody'), modalClose: document.getElementById('modalClose'), modalCancel: document.getElementById('modalCancel'), modalNotify: document.getElementById('modalNotify'), toastContainer: document.getElementById('toastContainer'), currentYear: document.getElementById('currentYear') };
 
     const utils = {
-      debounce: (func, wait) => { let timeout; return (...args) => { clearTimeout(timeout); timeout = setTimeout(() => func(...args), wait); }; },
-      formatDate: (dateString) => { const date = new Date(dateString); return date.toLocaleDateString('ar-BH', { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' }); },
-      getCountdown: (targetDate) => { const now = new Date(); const target = new Date(targetDate); const diff = target - now; if (diff <= 0) return { expired: true }; return { days: Math.floor(diff / (1000 * 60 * 60 * 24)), hours: Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)), minutes: Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)), seconds: Math.floor((diff % (1000 * 60)) / 1000), expired: false }; },
-      showToast: (message, type = 'info', title = '') => { const toast = document.createElement('div'); toast.className = `toast ${type}`; toast.setAttribute('role', 'alert'); const icons = { success: '✅', warning: '⚠️', error: '❌', info: 'ℹ️' }; toast.innerHTML = `<span class="toast-icon">${icons[type]}</span><div class="toast-content">${title ? `<div class="toast-title">${title}</div>` : ''}<div class="toast-message">${message}</div></div><button class="toast-close" aria-label="إغلاق">&times;</button>`; elements.toastContainer.appendChild(toast); toast.querySelector('.toast-close').addEventListener('click', () => toast.remove()); setTimeout(() => { if (toast.parentNode) { toast.style.animation = 'fadeOut 0.3s ease forwards'; setTimeout(() => toast.remove(), 300); } }, 3000); },
-      save: (key, value) => { try { localStorage.setItem(key, JSON.stringify(value)); return true; } catch (e) { return false; } },
-      scrollTo: (element, offset = 0) => { const top = element.getBoundingClientRect().top + window.pageYOffset; window.scrollTo({ top: top - offset, behavior: 'smooth' }); }
+      // Improved debounce with cancel capability
+      debounce: (func, wait) => { let timeout; const debounced = (...args) => { clearTimeout(timeout); timeout = setTimeout(() => func(...args), wait); }; debounced.cancel = () => clearTimeout(timeout); return debounced; },
+      
+      formatDate: (dateString) => { try { const date = new Date(dateString); if (isNaN(date.getTime())) return 'تاريخ غير صالح'; return date.toLocaleDateString('ar-BH', { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' }); } catch(e) { return 'خطأ في التاريخ'; } },
+      
+      getCountdown: (targetDate) => { try { const now = new Date(); const target = new Date(targetDate); const diff = target - now; if (diff <= 0) return { expired: true }; return { days: Math.floor(diff / (1000 * 60 * 60 * 24)), hours: Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)), minutes: Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)), seconds: Math.floor((diff % (1000 * 60)) / 1000), expired: false }; } catch(e) { return { expired: true }; } },
+      
+      showToast: (message, type = 'info', title = '') => { 
+        if (!elements.toastContainer) return;
+        const toast = document.createElement('div'); 
+        toast.className = `toast ${type}`; 
+        toast.setAttribute('role', 'alert'); 
+        const icons = { success: '✅', warning: '⚠️', error: '❌', info: 'ℹ️' }; 
+        toast.innerHTML = `<span class="toast-icon">${icons[type]}</span><div class="toast-content">${title ? `<div class="toast-title">${title}</div>` : ''}<div class="toast-message">${message}</div></div><button class="toast-close" aria-label="إغلاق">&times;</button>`; 
+        elements.toastContainer.appendChild(toast); 
+        toast.querySelector('.toast-close').addEventListener('click', () => { if (toast.parentNode) toast.remove(); }); 
+        setTimeout(() => { if (toast.parentNode) { toast.style.animation = 'fadeOut 0.3s ease forwards'; setTimeout(() => { if (toast.parentNode) toast.remove(); }, 300); } }, 3000); 
+      },
+      
+      save: (key, value) => { try { localStorage.setItem(key, JSON.stringify(value)); return true; } catch (e) { console.warn('LocalStorage error:', e); return false; } },
+      
+      load: (key, defaultValue = null) => { try { const item = localStorage.getItem(key); return item ? JSON.parse(item) : defaultValue; } catch (e) { console.warn('LocalStorage load error:', e); return defaultValue; } },
+      
+      scrollTo: (element, offset = 0) => { if (!element) return; const top = element.getBoundingClientRect().top + window.pageYOffset; window.scrollTo({ top: top - offset, behavior: 'smooth' }); },
+      
+      // New: Element visibility check
+      isInViewport: (el) => { if (!el) return false; const rect = el.getBoundingClientRect(); return rect.top >= 0 && rect.left >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && rect.right <= (window.innerWidth || document.documentElement.clientWidth); },
+      
+      // New: Safe query selector
+      safeQuerySelector: (selector, parent = document) => { try { return parent.querySelector(selector); } catch(e) { console.warn('Invalid selector:', selector); return null; } }
     };
 
     // Theme Manager
@@ -1264,21 +1314,76 @@
     const observer = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'translateY(0)'; observer.unobserve(e.target); } }); }, { threshold: 0.1 });
     document.querySelectorAll('.animate').forEach(el => { el.style.opacity = '0'; el.style.transform = 'translateY(20px)'; el.style.transition = 'opacity 0.6s ease, transform 0.6s ease'; observer.observe(el); });
 
-    // Init
+    // Init with improved error handling and lazy loading
     document.addEventListener('DOMContentLoaded', () => {
-      if (elements.currentYear) elements.currentYear.textContent = new Date().getFullYear();
-      ThemeManager.init(); LangManager.init(); Navigation.init(); CountdownManager.init(); SearchFilter.init(); Modal.init(); NotificationManager.init(); Accordion.init(); ContactForm.init();
-      utils.showToast('🌠 مرحباً بك في مرصد شهب المنامة 2026! (v4.0.0)', 'success');
       console.log(`%c🌠 Manama Meteor Observatory v${CONFIG.version}`, 'font-weight:bold;color:#7c3aed;font-size:14px');
+      
+      if (elements.currentYear) elements.currentYear.textContent = new Date().getFullYear();
+      
+      try {
+        ThemeManager.init();
+        LangManager.init();
+        Navigation.init();
+        CountdownManager.init();
+        SearchFilter.init();
+        Modal.init();
+        NotificationManager.init();
+        Accordion.init();
+        ContactForm.init();
+        
+        utils.showToast('🌠 مرحباً بك في مرصد شهب المنامة 2026! (v' + CONFIG.version + ')', 'success');
+      } catch (error) {
+        console.error('Initialization error:', error);
+        utils.showToast('⚠️ حدث خطأ أثناء تحميل الصفحة. يرجى التحديث.', 'error', 'خطأ');
+      }
+      
+      // Lazy load images for better performance
+      if ('loading' in HTMLImageElement.prototype) {
+        document.querySelectorAll('img').forEach(img => {
+          img.loading = 'lazy';
+          img.decoding = 'async';
+        });
+      }
+      
+      // Preconnect to external resources
+      const preconnectLinks = [
+        'https://fonts.googleapis.com',
+        'https://fonts.gstatic.com',
+        'https://www.timeanddate.com'
+      ];
+      preconnectLinks.forEach(url => {
+        if (!document.querySelector(`link[rel="preconnect"][href="${url}"]`)) {
+          const link = document.createElement('link');
+          link.rel = 'preconnect';
+          link.href = url;
+          link.crossOrigin = 'anonymous';
+          document.head.appendChild(link);
+        }
+      });
     });
+    
+    // Service Worker Registration for PWA (if available)
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        // Commented out - uncomment when you have a sw.js file
+        // navigator.serviceWorker.register('./sw.js')
+        //   .then(reg => console.log('Service Worker registered:', reg.scope))
+        //   .catch(err => console.log('Service Worker registration failed:', err));
+      });
+    }
   </script>
   
   <!-- Structured Data (SEO) -->
   <script type="application/ld+json">
-  { "@context": "https://schema.org", "@type": "WebSite", "name": "مرصد شهب المنامة 2026", "url": "https://manama-meteors.github.io/2026", "version": "4.0.0", "description": "دليل شامل لزخات الشهب المرئية من المنامة، البحرين في عام 2026 مع مواعيد دقيقة، خرائط تفاعلية، وحاسبة مشاهدة ذكية", "inLanguage": "ar-BH" }
+  { "@context": "https://schema.org", "@type": "WebSite", "name": "مرصد شهب المنامة 2026", "url": "https://manama-meteors.github.io/2026", "version": "4.0.1", "description": "دليل شامل لزخات الشهب المرئية من المنامة، البحرين في عام 2026 مع مواعيد دقيقة، خرائط تفاعلية، وحاسبة مشاهدة ذكية", "inLanguage": "ar-BH", "potentialAction": { "@type": "SearchAction", "target": "https://manama-meteors.github.io/2026?q={search_term_string}", "query-input": "required name=search_term_string" } }
   </script>
   <script type="application/ld+json">
-  { "@context": "https://schema.org", "@type": "EventSeries", "name": "زخات الشهب 2026 - البحرين", "location": { "@type": "Place", "name": "المنامة، مملكة البحرين", "geo": { "@type": "GeoCoordinates", "latitude": 26.2285, "longitude": 50.5860 } }, "eventSchedule": { "@type": "Schedule", "startDate": "2026-01-01", "endDate": "2026-12-31" } }
+  { "@context": "https://schema.org", "@type": "EventSeries", "name": "زخات الشهب 2026 - البحرين", "location": { "@type": "Place", "name": "المنامة، مملكة البحرين", "geo": { "@type": "GeoCoordinates", "latitude": 26.2285, "longitude": 50.5860 } }, "eventSchedule": { "@type": "Schedule", "startDate": "2026-01-01", "endDate": "2026-12-31" }, "image": ["https://manama-meteors.github.io/2026/og-image.jpg"], "organizer": { "@type": "Organization", "name": "مجتمع الفلكيين في البحرين" } }
   </script>
+  
+  <!-- Resource hints for performance -->
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+  <link rel="preconnect" href="https://www.timeanddate.com" crossorigin />
 </body>
 </html>
